@@ -1,0 +1,327 @@
+<Chapter Label="Intro">
+<Heading>The families of Lie algebras included in the database</Heading>  
+
+<Section Label="nonsolv">
+<Heading>Non-solvable Lie algebras</Heading>
+
+The package contains the list of non-solvable Lie algebras over finite fields up to dimension 6. The classification follows the one in <Cite Key="Strade"/>.
+
+
+
+<ManSection>
+<Meth Name="NonSolvableLieAlgebra" 
+         Arg="F, pars"/>
+   <Description>
+<A>F</A> is a finite field, <A>pars</A> is a list of parameters with 
+length between 1 and 4. The first entry of <A>pars</A>
+is the dimension of the algebra, and the possible additional entries of 
+<A>pars</A> describe the algebra if there are more algebras with  
+dimension <A>pars[1]</A>.
+   </Description>
+</ManSection>
+
+The possible values of pars are as follows.
+
+<Subsection>
+<Heading>Dimension 1 and 2</Heading>
+There are no non-solvable Lie algebras with dimension less than 3, and so if
+<A>pars[1]</A> is less than 3 then <A>NonSolvableLieAlgebra</A> returns an error message. 
+
+</Subsection>
+
+<Subsection>
+<Heading>Dimension 3</Heading>
+There is just 1 non-solvable Lie algebra over an arbitrary finite field 
+<A>F</A> (see Section~<Ref Sect="appdim3"/>) which is returned by <A>NonSolvableLieAlgebra( F, [3] )</A>.
+</Subsection>
+
+<Subsection>
+<Heading>Dimension 4</Heading>
+If <A>F</A> has odd characteristic then there is a unique non-solvable 
+Lie algebra with dimension 4 over <A>F</A> and this algebra is returned by <A>NonSolvableLieAlgebra( F, [4] )</A>. 
+If <A>F</A> has characteristic 2, then there are two distinct Lie algebras and they are returned by <A>NonSolvableLieAlgebra( F, [4,i] )</A> for <A>i=1, 2</A>.
+See Section~<Ref Sect="appdim4"/> for a description of the algebras.
+</Subsection>
+
+<Subsection>
+<Heading>Dimension 5</Heading>
+
+If <A>F</A> has characteristic 2 then there are 5 isomorphism classes of 
+non-solvable Lie 
+algebras over <A>F</A> and they are described in
+Sections~<Ref Sect="appdim5char2"/>. The possible values of <A>pars</A> are as 
+follows.
+<List>
+<Item>
+<A>[5,1]</A>: the Lie algebra in <Ref Sect="appdim5char2"/>(1).</Item>
+<Item>
+<A>[5,2,a]</A>: <A>a=0, 1</A>; the Lie algebras in <Ref Sect="appdim5char2"/>(2).</Item>
+<Item>
+<A>[5,3,a]</A>:  <A>a=0, 1</A>; the Lie algebras in <Ref Sect="appdim5char2"/>(3).</Item>
+</List>
+
+If the characteristic of <A>F</A> is odd, then the list of Lie algebras is as follows (see Section~<Ref Sect="appdim5charodd"/>). 
+<List>
+<Item>
+<A>[5,1,a]</A>: <A>a=1, 0</A>; 
+the Lie algebras that occur in <Ref Sect="appdim5charodd"/>(1). </Item>
+<Item>
+<A>[5,2]</A>: the Lie algebra in <Ref Sect="appdim5charodd"/>(2).
+</Item>
+<Item>
+<A>[5,3]</A>: 
+this algebra only exists if the characteristic of <A>F</A> is 3 or 5. 
+In the former case the algebra is the one in <Ref Sect="appdim5charodd"/>(3), while in the latter it is in <Ref Sect="appdim5charodd"/>(4).
+</Item>
+</List>
+</Subsection>
+
+<Subsection>
+<Heading>Dimension 6</Heading>
+The 6-dimensional non-solvable Lie algebras are described in Section~<Ref Sect="appdim6"/>.
+If <A>F</A> has characteristic 2, then 
+the possible values of <A>pars</A> is as 
+follows.
+<List>
+<Item>
+<A>[6,1]</A>: the Lie algebra in <Ref Sect="appdim6char2"/>(1).
+</Item>
+<Item>
+<A>[6,2]</A>: the Lie algebra in <Ref Sect="appdim6char2"/>(2).
+</Item>
+<Item>
+<A>[6,3,a]</A>: <A>a=0, 1</A>; 
+the two Lie algebras <Ref Sect="appdim6char2"/>(3).
+</Item>
+<Item>
+<A>[6,4,a]</A>: <A>a=0, 1, 2, 3</A> or <A>a</A> is a field element.
+In this case <A>NonSolvableLieAlgebras</A>
+returns one of the Lie algebras in <Ref Sect="appdim6char2"/>(4).
+If <A>a=0, 1, 2, 3</A>
+then the Lie algebra corresponding to the 
+<A>a+1</A>-th matrix of <Ref Sect="appdim6char2"/>(4) is returned. If
+<A>a</A> is a field element, then a Lie algebra is returned which corresponds
+to the 4th matrix in <Ref Sect="appdim6char2"/>(4).</Item>
+<Item>
+<A>[6,5]</A>: the Lie algebra in <Ref Sect="appdim6char2"/>(5). 
+</Item>
+<Item><A>[6,6,1], [6,6,2], [6,6,3,a], [6,6,4,a]</A>: <A>a</A> is a field element; the Lie algebras
+in <Ref Sect="appdim6char2"/>(6).
+The third and fourth entries of <A>pars</A>
+determine the isomorphism type of the radical as a solvable Lie algebra.
+More precisely, if the third argument <A>pars[3]</A> 
+is 1 or 2 then the radical is isomorphic
+to <A>SolvableLieAlgebra( F,[3,pars[3]] )</A>. If the third argument <A>pars[3]</A> 
+is 3 or 4 then the radical is isomorphic
+to <A>SolvableLieAlgebra( F,[3,pars[3],pars[4]] )</A>; see <Ref Meth="SolvableLieAlgebra"/>.
+</Item>
+<Item>
+<A>[6,7]</A>: the Lie algebra in <Ref Sect="appdim6char2"/>(7).
+</Item>
+<Item>
+<A>[6,8]</A>: the  Lie algebra in <Ref Sect="appdim6char2"/>(8).</Item>
+</List>
+
+If the characteristic of <A>F</A> is odd, then the possible values of <A>pars</A> are the following (see Sections~<Ref Sect="appdim6charodd"/>, <Ref Sect="appdim6char3"/>, and <Ref Sect="appdim6char5"/>). 
+
+<List>
+<Item>
+<A>[6,1]</A>: the Lie algebra in <Ref Sect="appdim6charodd"/>(1).</Item>
+<Item>
+<A>[6,2]</A>: the Lie algebra in <Ref Sect="appdim6charodd"/>(2).</Item>
+<Item><A>[6,3,1], [6,3,2], [6,3,3,a], [6,3,4,a]</A>: <A>a</A> is a field element; the Lie algebras
+in <Ref Sect="appdim6charodd"/>(3).
+The third and fourth entries of <A>pars</A>
+determine the isomorphism type of the radical as a solvable Lie algebra.
+More precisely, if the third argument <A>pars[3]</A> 
+is 1 or 2 then the radical is isomorphic
+to <A>SolvableLieAlgebra( F,[3,pars[3]] )</A>. If the third argument <A>pars[3]</A> 
+is 3 or 4 then the radical is isomorphic
+to <A>SolvableLieAlgebra( F,[3,pars[3],pars[4]] )</A>; see <Ref Meth="SolvableLieAlgebra"/>.
+</Item>
+<Item><A>[6,4]</A>: the Lie algebra in <Ref Sect="appdim6charodd"/>(4).</Item>
+<Item><A>[6,5]</A>: the Lie algebra in <Ref Sect="appdim6charodd"/>(5).</Item>
+<Item><A>[6,6]</A>: the Lie algebra in <Ref Sect="appdim6charodd"/>(6).</Item>
+<Item><A>[6,7]</A>: the Lie algebra in <Ref Sect="appdim6charodd"/>(7).</Item>
+</List>
+
+If the characteristic is 3 or 5 then there are additional families. In 
+characteristic 3, these families are as follows.
+<List>
+<Item>
+<A>[6,8,a]</A>: <A>a</A> is a field element; returns one of the 
+Lie algebras in <Ref Sect="appdim6char3"/>(1).</Item>
+<Item><A>[6,9]</A>: the Lie algebra in <Ref Sect="appdim6char3"/>(2).</Item>
+<Item><A>[6,10]</A>: the Lie algebra in <Ref Sect="appdim6char3"/>(3).</Item>
+<Item><A>[6,11,a]</A>: <A>a=0, 1</A>; one of the two Lie algebras in 
+<Ref Sect="appdim6char3"/>(4). 
+</Item>
+<Item><A>[6,12]</A>: the first Lie algebra in <Ref Sect="appdim6char3"/>(5).</Item>
+<Item><A>[6,13]</A>: the second Lie algebra <Ref Sect="appdim6char3"/>(5).</Item>
+</List>
+
+If the characteristic is 5, then the additional Lie algebras are the following.
+<List>
+<Item><A>[6,8]</A>: the Lie algebra in <Ref Sect="appdim6char5"/>(1).</Item>
+<Item><A>[6,9]</A>: the Lie algebra in <Ref Sect="appdim6char5"/>(2).</Item>
+</List>
+</Subsection>
+
+<ManSection>
+<Meth Name="NonSolvableLieAlgebras" 
+         Arg="F, dim"/>
+   <Description>
+Here <A>F</A> is a finite field, and <A>dim</A> is at least 6.
+The list of non-solvable Lie algebras over <A>F</A> of dimension
+<A>dim</A> is returned.
+   </Description>
+</ManSection>
+
+<ManSection>
+<Meth Name="SimpleLieAlgebras" 
+         Arg="F, dim"/>
+   <Description>
+Here <A>F</A> is a finite field, and <A>dim</A> is either an integer 
+not greater than 6, or, if <A>F=GF(2)</A>, then <A>dim</A> is not greater than 9.
+The output is the list of simple Lie algebras over <A>F</A> of dimension
+<A>dim</A>. If <A>dim</A> is at most 6, then the classification by
+   Strade~<Cite Key="Strade"/> is used. If <A>F=GF(2)</A> and <A>dim</A> is
+   between 7 and 9, then the Lie algebras 
+ in <Cite Key="VL"/> are returned.
+   </Description>
+</ManSection>
+
+</Section>
+
+
+<Section Label="solvnilp">
+<Heading>Solvable and nilpotent Lie algebras</Heading>
+
+The package contains the classification of solvable Lie algebras of dimensions 2,3, and 4 
+(taken from <Cite Key="wdg05"/>), and the classification of nilpotent Lie algebras of 
+dimensions 5 and 6 (from <Cite Key="wdg07"/>). The classification of nilpotent Lie algebras
+of dimension 6 is only complete for base fields of characteristic not 2. The classifications
+are complemented by a function for identifying a given Lie algebra as a member of the list.
+This function also returns an explicit isomorphism.
+
+In Appendix <Ref Chap="listdescr"/> the list is given of the multiplication tables of the solvable
+and nilpotent Lie algebras, corresponding to the functions in this section.
+
+
+<ManSection Label="sectsolv">
+<Meth Name="SolvableLieAlgebra" 
+         Arg="F, pars"/>
+   <Description>
+Here <A>F</A> is a field, <A>pars</A> is a list of parameters with 
+length between <K>2</K> and <K>4</K>. The first entry of <A>pars</A>
+is the dimension of the algebra, which has to be 2, 3, or 4. If the
+dimension is 3, or 4, then the second entry of <A>pars</A> is the number 
+of the Lie algebra with which it appears in the list of <Cite Key="wdg05"/>.
+If the dimension is 2, then there are only two (isomorphism classes of)
+solvable Lie algebras. In this case, if the second entry is 1, then the
+abelian Lie algebra is returned, if it is 2, then the unique non-abelian
+solvable Lie algebra of dimension 2 is returned. A Lie algebra in the list
+of <Cite Key="wdg05"/> can have one or two parameters. In that case the
+list <A>pars</A> also has to contain the parameters. 
+<Example>
+gap> SolvableLieAlgebra( Rationals, [4,6,1,2] );
+&lt;Lie algebra of dimension 4 over Rationals>
+</Example>
+   </Description>
+</ManSection>
+
+
+<ManSection>
+<Meth Name="NilpotentLieAlgebra" 
+         Arg="F, pars"/>
+   <Description>
+Here <A>F</A> is a field, <A>pars</A> is a list of parameters with 
+length between <K>2</K> and <K>3</K>. The first entry of <A>pars</A>
+is the dimension of the algebra, which has to be 5 or 6. The second entry of <A>pars</A> 
+is the number of the Lie algebra with which it appears in the list of <Cite Key="wdg07"/>.
+A Lie algebra in the list of <Cite Key="wdg07"/> can have one parameter. In that case the
+list <A>pars</A> also has to contain the parameter. 
+<Example>
+gap> NilpotentLieAlgebra( GF(3^7), [ 6, 24, Z(3^7)^101 ] );
+&lt;Lie algebra of dimension 6 over GF(3^7)>
+</Example>
+   </Description>
+</ManSection>
+
+<ManSection>
+<Meth Name="SolvableLieAlgebras" 
+         Arg="F, dim"/>
+   <Description>
+Here <A>F</A> is a finite field, and <A>dim</A> is one of 2,3,4.
+The list of all solvable Lie algebras over <A>F</A> of dimension
+<A>dim</A> is returned.
+   </Description>
+</ManSection>
+
+<ManSection>
+<Meth Name="NilpotentLieAlgebras" 
+         Arg="F, dim"/>
+   <Description>
+Here <A>F</A> is a finite field, and <A>dim</A> not greater than 9 if 
+<A>F=GF(2)</A>, <A>dim</A> is not greater than 7 if <A>F=GF(3)</A> or <A>F=GF(5)</A>, and
+<A>dim</A> is not greater than 6 otherwise. 
+The list of all nilpotent Lie algebras over <A>F</A> of dimension
+<A>dim</A> is returned. If <A>dim</A> is not greater than 6, then the list of
+   nilpotent Lie algebras is determined by <Cite Key="wdg07"/>, otherwise the 
+classification can be found in <Cite Key="sch"/>.
+   </Description>
+</ManSection>
+
+<ManSection>
+<Meth Name="NumberOfNilpotentLieAlgebras" 
+         Arg="F, dim"/>
+   <Description>
+Here <A>F</A> is a finite field, and <A>dim</A> not greater than 9 if 
+<A>F=GF(2)</A>, <A>dim</A> is not greater than 7 if <A>F=GF(3)</A> or <A>F=GF(5)</A>, and
+<A>dim</A> is not greater than 6 otherwise. 
+The number of nilpotent Lie algebras over <A>F</A> of dimension
+<A>dim</A> is returned. 
+   </Description>
+</ManSection>
+
+
+<ManSection>
+<Meth Name="LieAlgebraIdentification" 
+         Arg="L"/>
+   <Description>
+Here <A>L</A> is a solvable Lie algebra of dimension 2,3, or 4, or it is a
+nilpotent Lie algebra of dimension 5 or 6 (in the latter case it has to be of
+characteristic not 2). This function returns a record with three fields.
+<List>
+<Item><A>name</A> This is a string containing the name of the Lie algebra. It starts
+with a capital L if it is a solvable Lie algebra of dimension 2,3,4. It starts with
+a capital N if it is a nilpotent Lie algebra of dimension 5 or 6. A name like 
+<Verb>"N6_24( GF(3^7), Z(3^7) )"</Verb> means that the input Lie algebra is isomorphic to
+the Lie algebra with number 24 in the list of 6-dimensional nilpotent Lie algebras.
+Furthermore the field is given and the value of the parameters (if there are any). </Item>
+<Item><A>parameters</A> This contains the parameters that appear in the name of the algebra.</Item>
+<Item><A>isomorphism</A> This is an isomorphism of the input Lie algebra to the Lie algebra
+from the classification with the given name.</Item>
+</List>
+<Example>
+gap> L:= SolvableLieAlgebra( Rationals, [4,7,1/2,4/9] );
+&lt;Lie algebra of dimension 4 over Rationals>
+gap> LieAlgebraIdentification( L );
+rec( name := "L4_7( Rationals, 256/729, 256/729 )",
+  parameters := [ 256/729, 256/729 ],
+  isomorphism := CanonicalBasis( &lt;Lie algebra of dimension
+    4 over Rationals> ) ->
+    [ (10)*v.1+v.2+(4)*v.3, (16/9)*v.1+(848/81)*v.2+(8/9)*v.3,
+      (32/81)*v.1+(1408/729)*v.2+(6784/729)*v.3, (8/9)*v.4 ] )
+</Example>
+In the example we see that the program finds different parameters, than the ones
+with which the Lie algebra was constructed. The explanation is that some parametric 
+classes of Lie algebras contain isomorphic Lie algebras, for different values of the
+parameters. In that case the identification function makes its own choice.
+   </Description>
+</ManSection>
+
+</Section>
+
+</Chapter>
+
