@@ -4,7 +4,7 @@
 ##
 #H  $Id: 
 
-DeclareAutoPackage( "liealgdb", "1.0", 
+DeclareAutoPackage( "liealgdb", "2.0", 
   function()
     if not CompareVersionNumbers( VERSION, "4.4" ) then
       Info( InfoWarning, 1, "This version of the liealgdb package requires ",
@@ -14,17 +14,19 @@ DeclareAutoPackage( "liealgdb", "1.0",
     return true;
   end );
   
-ReadPkg( "liealgdb", "gap/doc.gi" );
+#general stuff
+ReadPackage( "liealgdb", "gap/liealgdb.gd" );
 
 # SLAC:
-ReadPkg( "liealgdb", "gap/slac/slac.gd" );
-ReadPkg( "liealgdb", "gap/slac/slac.gi" );
+ReadPackage( "liealgdb", "gap/slac/slac.gd" );
 
 #nilpotent
-ReadPkg( "liealgdb", "gap/nilpotent/nilpotent.gd" );
-ReadPkg( "liealgdb", "gap/nilpotent/nilpotent.gi" );  
+ReadPackage( "liealgdb", "gap/nilpotent/nilpotent.gd" );
  
 #Non-solvable
-ReadPkg( "liealgdb", "gap/nonsolv/nonsolv.gd" );
-ReadPkg( "liealgdb", "gap/nonsolv/nonsolv.gi" );
+ReadPackage( "liealgdb", "gap/nonsolv/nonsolv.gd" );
+
+
+
+
 

@@ -4,17 +4,14 @@
 ##
 
 LieAlgDBBuildManual:=function()
-        local path, main, files, bookname;
+        local path;
 
         path:=Concatenation(
                GAPInfo.PackagesInfo.("liealgdb")[1].InstallationPath,"/doc/");
 
-        main:="manual";
-        files:=["families.xml","appsolv.xml","appnonsolv.xml"];
-        bookname:="LieAlgDB";
-
-        MakeGAPDocDoc(path, main, files, 
-                bookname);  
+        MakeGAPDocDoc(path, "manual", 
+                [ "families.xml", "appsolv.xml", "appnonsolv.xml" ],
+                "LieAlgDB" );  
 end;
 
 
@@ -25,14 +22,13 @@ end;
 ##
 
 LieAlgDBBuildManualHTML:=function()
-        local path, main, files, str, r, h;
+        local path, str, r, h;
 
         path:=Concatenation(
                GAPInfo.PackagesInfo.("liealgdb")[1].InstallationPath,"/doc/");
 
-        main:="manual";
-        files:=[];
-        str:=ComposedXMLString(path, main, files);
+  
+        str:=ComposedXMLString( path, "manual.xml", [] );
 
         r := ParseTreeXMLString( str );
         CheckAndCleanGapDocTree( r );

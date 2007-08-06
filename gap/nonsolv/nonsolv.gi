@@ -1,3 +1,207 @@
+InstallGlobalFunction( ExtensionOfsl2BySoluble, 
+        function( F, arg )
+    local b, c12, c13, c23, T, L;
+    
+    if arg[1] = 1 then
+        L := SolvableLieAlgebra( F, [3,1] );
+    elif arg[1] = 2 then
+        L := SolvableLieAlgebra( F, [3,2] );
+    elif arg[1] = 3 then
+	L := SolvableLieAlgebra( F, [3,3, arg[2]] );
+    elif arg[1] = 4 then
+        L := SolvableLieAlgebra( F, [3,4, arg[2]] );
+    else
+        Error( "Argument out of range." );
+    fi;
+
+        b := Basis( L );
+    c12 := Coefficients( b, b[1]*b[2] );
+    c13 := Coefficients( b, b[1]*b[3] );
+    c23 := Coefficients( b, b[2]*b[3] );
+    
+    T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+    SetEntrySCTable( T, 1, 2, [1,3] );
+    SetEntrySCTable( T, 1, 3, [-2,1] );
+    SetEntrySCTable( T, 2, 3, [2,2] );
+    SetEntrySCTable( T, 4, 5, [c12[1], 4, c12[2], 5, c12[3], 6] );
+    SetEntrySCTable( T, 4, 6, [c13[1], 4, c13[2], 5, c13[3], 6] );
+    SetEntrySCTable( T, 5, 6, [c23[1], 4, c23[2], 5, c23[3], 6] );
+    
+    L := LieAlgebraByStructureConstants( F, T );
+    SetName( L, Concatenation( "sl(2,", String( Size( F )), 
+            ")+solv(", String( arg ), ")"));
+    return L;
+end ); 
+
+InstallGlobalFunction( ExtensionOfW121BySoluble, 
+        function( F, arg )
+    local b, c12, c13, c23, T, L;
+    
+    # W(1,2)^{(1)} + 3-dim solvable.
+    
+    if arg[1] = 1 then
+        L := SolvableLieAlgebra( F, [3,1] );
+    elif arg[1] = 2 then
+        L := SolvableLieAlgebra( F, [3,2] );
+    elif arg[1] = 3 then
+        L := SolvableLieAlgebra( F, [3,3, arg[2]] );
+    elif arg[1] = 4 then
+        L := SolvableLieAlgebra( F, [3,4, arg[2]] );
+    else
+        Error( "Argument out of range." );
+    fi;
+    
+    b := Basis( L );
+    c12 := Coefficients( b, b[1]*b[2] );
+    c13 := Coefficients( b, b[1]*b[3] );
+    c23 := Coefficients( b, b[2]*b[3] );
+    
+    T := EmptySCTable( 6, Zero(F), "antisymmetric" );
+    SetEntrySCTable( T, 1, 2, [1,1] );
+    SetEntrySCTable( T, 1, 3, [1,2] );
+    SetEntrySCTable( T, 2, 3, [1,3] );
+    SetEntrySCTable( T, 4, 5, [c12[1], 4, c12[2], 5, c12[3], 6] );
+    SetEntrySCTable( T, 4, 6, [c13[1], 4, c13[2], 5, c13[3], 6] );
+    SetEntrySCTable( T, 5, 6, [c23[1], 4, c23[2], 5, c23[3], 6] );
+    
+    L := LieAlgebraByStructureConstants( F, T );
+    SetName( L, Concatenation( "W(1;2)^{(1)}+solv(", String( arg ), ")"));
+    return L;
+end );
+
+
+InstallGlobalFunction( ExtensionOfW12ByAbelian, 
+        function( F, a )
+    
+    local T, L;
+    
+    # W(1,2) semidirect abelian: 4 + |F| Lie algebras, depending
+    # on the action of W(1,2) on the abelian.
+    # only x^3d acts on the abelian non-trivially.
+    
+    if Characteristic( F ) <> 2 then
+        Error( "The field must have characteristic 2" );
+    fi;
+    
+    if a=0 then 
+        
+        # 1st Lie algebra. action of x^3d is trivial.
+        
+        T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+        SetEntrySCTable( T, 1, 2, [1,1] );
+        SetEntrySCTable( T, 1, 3, [1,2] );
+        SetEntrySCTable( T, 2, 3, [1,3] );
+        SetEntrySCTable( T, 1, 4, [1,3] );
+        L := LieAlgebraByStructureConstants( F, T );
+        SetName( L, Concatenation( "W(1;2)+GF(", String( Size( F )), ")+GF(", 
+                String( Size( F )), ")" ));
+        return L;
+        
+    elif a = 1 then
+        
+        # 2nd Lie algebra. action is [[0,1],[0,0]]
+        
+        T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+        SetEntrySCTable( T, 1, 2, [1,1] );
+        SetEntrySCTable( T, 1, 3, [1,2] );
+        SetEntrySCTable( T, 2, 3, [1,3] );
+        SetEntrySCTable( T, 1, 4, [1,3] );
+        SetEntrySCTable( T, 4, 5, [1,6] );
+        
+        L := LieAlgebraByStructureConstants( F, T );
+        SetName( L, Concatenation( "W(1;2):(GF(", String( Size( F )), ")+GF(", 
+                String( Size( F )), "))(1)" ));
+        return L;
+        
+    elif a = 2 then
+        
+        # 3rd Lie algebra. Action is identity
+        
+        T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+        SetEntrySCTable( T, 1, 2, [1,1] );
+        SetEntrySCTable( T, 1, 3, [1,2] );
+        SetEntrySCTable( T, 2, 3, [1,3] );
+        SetEntrySCTable( T, 1, 4, [1,3] );
+        SetEntrySCTable( T, 4, 5, [1,5] );
+        SetEntrySCTable( T, 4, 6, [1,6] );
+        
+        L := LieAlgebraByStructureConstants( F, T );
+        SetName( L, Concatenation( "W(1;2):(GF(", 
+                String( Size( F )), ")+GF(", 
+                String( Size( F )), "))(2)" ));
+        return L;
+            
+    elif a = 3 then
+        
+        # 4th Lie algebra. Action is [[1,1],[0,1]]
+        
+        T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+        SetEntrySCTable( T, 1, 2, [1,1] );
+        SetEntrySCTable( T, 1, 3, [1,2] );
+        SetEntrySCTable( T, 2, 3, [1,3] );
+        SetEntrySCTable( T, 1, 4, [1,3] );
+        SetEntrySCTable( T, 4, 5, [1,5,1,6] );
+        SetEntrySCTable( T, 4, 6, [1,6] );
+        
+        L := LieAlgebraByStructureConstants( F, T );
+        SetName( L, Concatenation( "W(1;2):(GF(", 
+                String( Size( F )), ")+GF(", 
+                String( Size( F )), "))(3)" ));
+        return L;
+        
+    elif a in F and a <> Zero( F ) then
+        
+        # Lie algebras. Action is [[0,a],[1,1]]
+            
+        T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+        SetEntrySCTable( T, 1, 2, [1,1] );
+        SetEntrySCTable( T, 1, 3, [1,2] );
+        SetEntrySCTable( T, 2, 3, [1,3] );
+        SetEntrySCTable( T, 1, 4, [1,3] );
+        SetEntrySCTable( T, 4, 5, [a,6] );
+        SetEntrySCTable( T, 4, 6, [1,5,1,6] );
+        
+        L := LieAlgebraByStructureConstants( F, T );
+        SetName( L, Concatenation( "W(1;2):(GF(", 
+                String( Size( F )), ")+GF(", 
+                String( Size( F )), "))(", String( a ), ")" ));
+        return L;
+        
+    else 
+        Error( "Invalid parameters." );
+    fi;
+    
+end );
+
+InstallGlobalFunction( ExtensionOfsl2ByV2a, 
+        function( F, a )
+    
+    local T, L;
+    
+    T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+    SetEntrySCTable( T, 2, 1, [2,1] );
+    SetEntrySCTable( T, 2, 3, [-2,3] );
+    SetEntrySCTable( T, 1, 3, [1,2] );
+    
+    SetEntrySCTable( T, 4, 1, [-1,5] );
+    SetEntrySCTable( T, 5, 1, [-1,6] );
+    SetEntrySCTable( T, 6, 1, [-1,4] );
+        
+    
+    SetEntrySCTable( T, 5, 2, [-2,5] );
+    SetEntrySCTable( T, 6, 2, [-1,6] );
+    
+    SetEntrySCTable( T, 4, 3, [-a,6] );
+    SetEntrySCTable( T, 5, 3, [-a,4] );
+    SetEntrySCTable( T, 6, 3, [2-a,5] );
+    L := LieAlgebraByStructureConstants( F, T );
+    SetName( L, Concatenation( "sl(2,", String( Size( F )), 
+            "):V(2,", String( a ), ")"));
+    return L;
+    
+end );
+    
+    
 InstallMethod( NonSolvableLieAlgebra,
         "for a finite field and a list of parameters",
         true,
@@ -5,208 +209,9 @@ InstallMethod( NonSolvableLieAlgebra,
         0,
         function( F, arg )
     
-    local T, L, list, x, c, par, dim, pos,
-          ExtensionOfsl2BySoluble, ExtensionOfW121BySoluble, 
-          ExtensionOfW12ByAbelian, ExtensionOfsl2ByV2a;
+    local T, L, list, x, c, par, dim, pos, b, f, i, l, k, z;
     
-    ExtensionOfsl2BySoluble := function( F, arg )
-        local b, c12, c13, c23, T, L;
-        
-        if arg[1] = 1 then
-            L := SolvableLieAlgebra( F, [3,1] );
-        elif arg[1] = 2 then
-            L := SolvableLieAlgebra( F, [3,2] );
-        elif arg[1] = 3 then
-            L := SolvableLieAlgebra( F, [3,3, arg[2]] );
-        elif arg[1] = 4 then
-            L := SolvableLieAlgebra( F, [3,4, arg[2]] );
-        else
-            Error( "Argument out of range." );
-        fi;
-        
-        b := Basis( L );
-        c12 := Coefficients( b, b[1]*b[2] );
-        c13 := Coefficients( b, b[1]*b[3] );
-        c23 := Coefficients( b, b[2]*b[3] );
-    
-        T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-        SetEntrySCTable( T, 1, 2, [1,3] );
-        SetEntrySCTable( T, 1, 3, [-2,1] );
-        SetEntrySCTable( T, 2, 3, [2,2] );
-        SetEntrySCTable( T, 4, 5, [c12[1], 4, c12[2], 5, c12[3], 6] );
-        SetEntrySCTable( T, 4, 6, [c13[1], 4, c13[2], 5, c13[3], 6] );
-        SetEntrySCTable( T, 5, 6, [c23[1], 4, c23[2], 5, c23[3], 6] );
-        
-        L := LieAlgebraByStructureConstants( F, T );
-        SetName( L, Concatenation( "sl(2,", String( Size( F )), 
-                ")+solv(", String( arg ), ")"));
-        return L;
-    end; 
-    
-    ExtensionOfW121BySoluble := function( F, arg )
-        local b, c12, c13, c23, T, L;
-        
-        # W(1,2)^{(1)} + 3-dim solvable.
-        
-        if arg[1] = 1 then
-            L := SolvableLieAlgebra( F, [3,1] );
-        elif arg[1] = 2 then
-            L := SolvableLieAlgebra( F, [3,2] );
-        elif arg[1] = 3 then
-            L := SolvableLieAlgebra( F, [3,3, arg[2]] );
-        elif arg[1] = 4 then
-            L := SolvableLieAlgebra( F, [3,4, arg[2]] );
-        else
-            Error( "Argument out of range." );
-        fi;
-        
-        b := Basis( L );
-        c12 := Coefficients( b, b[1]*b[2] );
-        c13 := Coefficients( b, b[1]*b[3] );
-        c23 := Coefficients( b, b[2]*b[3] );
-        
-        T := EmptySCTable( 6, Zero(F), "antisymmetric" );
-        SetEntrySCTable( T, 1, 2, [1,1] );
-        SetEntrySCTable( T, 1, 3, [1,2] );
-        SetEntrySCTable( T, 2, 3, [1,3] );
-        SetEntrySCTable( T, 4, 5, [c12[1], 4, c12[2], 5, c12[3], 6] );
-        SetEntrySCTable( T, 4, 6, [c13[1], 4, c13[2], 5, c13[3], 6] );
-        SetEntrySCTable( T, 5, 6, [c23[1], 4, c23[2], 5, c23[3], 6] );
-        
-        L := LieAlgebraByStructureConstants( F, T );
-        SetName( L, Concatenation( "W(1;2)^{(1)}+solv(", String( arg ), ")"));
-        return L;
-    end;
-    
-    
-    ExtensionOfW12ByAbelian := function( F, a )
-        
-        local T, L;
-        
-        # W(1,2) semidirect abelian: 4 + |F| Lie algebras, depending
-        # on the action of W(1,2) on the abelian.
-        # only x^3d acts on the abelian non-trivially.
-        
-        if Characteristic( F ) <> 2 then
-            Error( "The field must have characteristic 2" );
-        fi;
-        
-        if a=0 then 
-            
-        # 1st Lie algebra. action of x^3d is trivial.
-            
-            T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-            SetEntrySCTable( T, 1, 2, [1,1] );
-            SetEntrySCTable( T, 1, 3, [1,2] );
-            SetEntrySCTable( T, 2, 3, [1,3] );
-            SetEntrySCTable( T, 1, 4, [1,3] );
-            L := LieAlgebraByStructureConstants( F, T );
-            SetName( L, Concatenation( "W(1;2)+GF(", String( Size( F )), ")+GF(", 
-                    String( Size( F )), ")" ));
-            return L;
-            
-        elif a = 1 then
-            
-            # 2nd Lie algebra. action is [[0,1],[0,0]]
-            
-            T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-            SetEntrySCTable( T, 1, 2, [1,1] );
-            SetEntrySCTable( T, 1, 3, [1,2] );
-            SetEntrySCTable( T, 2, 3, [1,3] );
-            SetEntrySCTable( T, 1, 4, [1,3] );
-            SetEntrySCTable( T, 4, 5, [1,6] );
-            
-            L := LieAlgebraByStructureConstants( F, T );
-            SetName( L, Concatenation( "W(1;2):(GF(", String( Size( F )), ")+GF(", 
-                    String( Size( F )), "))(1)" ));
-            return L;
-            
-        elif a = 2 then
-            
-            # 3rd Lie algebra. Action is identity
-            
-            T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-            SetEntrySCTable( T, 1, 2, [1,1] );
-            SetEntrySCTable( T, 1, 3, [1,2] );
-            SetEntrySCTable( T, 2, 3, [1,3] );
-            SetEntrySCTable( T, 1, 4, [1,3] );
-            SetEntrySCTable( T, 4, 5, [1,5] );
-            SetEntrySCTable( T, 4, 6, [1,6] );
-            
-            L := LieAlgebraByStructureConstants( F, T );
-            SetName( L, Concatenation( "W(1;2):(GF(", 
-                    String( Size( F )), ")+GF(", 
-                    String( Size( F )), "))(2)" ));
-            return L;
-            
-        elif a = 3 then
-            
-            # 4th Lie algebra. Action is [[1,1],[0,1]]
-            
-            T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-            SetEntrySCTable( T, 1, 2, [1,1] );
-            SetEntrySCTable( T, 1, 3, [1,2] );
-            SetEntrySCTable( T, 2, 3, [1,3] );
-            SetEntrySCTable( T, 1, 4, [1,3] );
-            SetEntrySCTable( T, 4, 5, [1,5,1,6] );
-            SetEntrySCTable( T, 4, 6, [1,6] );
-            
-            L := LieAlgebraByStructureConstants( F, T );
-            SetName( L, Concatenation( "W(1;2):(GF(", 
-                    String( Size( F )), ")+GF(", 
-                    String( Size( F )), "))(3)" ));
-            return L;
-            
-        elif a in F and a <> Zero( F ) then
-            
-            # Lie algebras. Action is [[0,a],[1,1]]
-            
-            T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-            SetEntrySCTable( T, 1, 2, [1,1] );
-            SetEntrySCTable( T, 1, 3, [1,2] );
-            SetEntrySCTable( T, 2, 3, [1,3] );
-            SetEntrySCTable( T, 1, 4, [1,3] );
-            SetEntrySCTable( T, 4, 5, [a,6] );
-            SetEntrySCTable( T, 4, 6, [1,5,1,6] );
-            
-            L := LieAlgebraByStructureConstants( F, T );
-            SetName( L, Concatenation( "W(1;2):(GF(", 
-                    String( Size( F )), ")+GF(", 
-                    String( Size( F )), "))(", String( a ), ")" ));
-            return L;
-            
-        else 
-            Error( "Invalid parameters." );
-        fi;
-        
-    end;
-    
-    ExtensionOfsl2ByV2a := function( F, a )
-        
-        local T, L;
-        
-        T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-        SetEntrySCTable( T, 2, 1, [2,1] );
-        SetEntrySCTable( T, 2, 3, [-2,3] );
-        SetEntrySCTable( T, 1, 3, [1,2] );
-        
-        SetEntrySCTable( T, 4, 1, [-1,5] );
-        SetEntrySCTable( T, 5, 1, [-1,6] );
-        SetEntrySCTable( T, 6, 1, [-1,4] );
-        
-        
-        SetEntrySCTable( T, 5, 2, [-2,5] );
-        SetEntrySCTable( T, 6, 2, [-1,6] );
-        
-        SetEntrySCTable( T, 4, 3, [-a,6] );
-        SetEntrySCTable( T, 5, 3, [-a,4] );
-        SetEntrySCTable( T, 6, 3, [2-a,5] );
-        L := LieAlgebraByStructureConstants( F, T );
-        SetName( L, Concatenation( "sl(2,", String( Size( F )), 
-                "):V(2,", String( a ), ")"));
-        return L;
-        
-    end;
+
     
     dim := arg[1];
     if Length( arg ) > 1 then
@@ -228,6 +233,7 @@ InstallMethod( NonSolvableLieAlgebra,
             SetEntrySCTable( T, 1, 3, [1,2] );
             SetEntrySCTable( T, 2, 3, [1,3] );
             L := LieAlgebraByStructureConstants( F, T ) ;
+            L!.arg := arg;
             SetName( L, "W(1;2)^{(1)}" );
             return L;
         else
@@ -238,6 +244,7 @@ InstallMethod( NonSolvableLieAlgebra,
             SetEntrySCTable( T, 2, 3, [2,2] );
             L := LieAlgebraByStructureConstants( F, T );
             SetName( L, Concatenation( "sl(2,", String( Size( F )), ")" ));
+            L!.arg := arg;
             return L;
         fi;
     elif dim = 4 then
@@ -254,6 +261,7 @@ InstallMethod( NonSolvableLieAlgebra,
                 L := LieAlgebraByStructureConstants( F, T );
                 SetName( L, Concatenation( "W(1;2)^{(1)}+GF(",
                     String( Size( F )), ")" ));
+                L!.arg := arg;
                 return L;
                 
             elif pos = 1 then
@@ -265,7 +273,7 @@ InstallMethod( NonSolvableLieAlgebra,
                 SetEntrySCTable( T, 1, 4, [1,3] );
                 L := LieAlgebraByStructureConstants( F, T );
                 SetName( L, "W(1;2)" );
-                
+                L!.arg := arg;
                 return L;
             else 
                 Error( "Argument out of range." );
@@ -281,6 +289,7 @@ InstallMethod( NonSolvableLieAlgebra,
             SetEntrySCTable( T, 3, 4, [-1,3] );
             L := LieAlgebraByStructureConstants( F, T );
             SetName( L, Concatenation( "gl(2,", String( Size( F )), ")" ));
+            L!.arg := arg;
             return L;
         fi;
     elif dim = 5 then
@@ -301,6 +310,7 @@ InstallMethod( NonSolvableLieAlgebra,
             
                 L := LieAlgebraByStructureConstants( F, T );
                 SetName( L, "Der(W(1;2)^{(1)})" );
+                L!.arg := arg;
                 return L;
                 
             elif pos = 2 then
@@ -328,9 +338,10 @@ InstallMethod( NonSolvableLieAlgebra,
                     else
                         SetName( L, Concatenation( "W(1;2):GF(", 
                                 String( Size( F )), ")" ));
+                        L!.arg := arg;
                         return L;
                     fi;
-                    
+                    L!.arg := arg;
                     return L;
                     
                 elif pos = 3 then
@@ -359,6 +370,7 @@ InstallMethod( NonSolvableLieAlgebra,
                     else
                         SetName( L, "W(1;2)^{(1)}+<x1,x2|[x1,x2]=x2>" );
                     fi;
+                    L!.arg := arg;
                     return L;
                 else
                     Error( "Argument out of range." );
@@ -394,6 +406,7 @@ InstallMethod( NonSolvableLieAlgebra,
                         SetName( L, Concatenation( "sl(2,", String( Size( F )), 
                                 ")+<x1,x2|[x1,x2]=x2>" ));
                     fi;
+                    L!.arg := arg;
                     return L;
                     
                 elif pos = 2 then
@@ -410,6 +423,7 @@ InstallMethod( NonSolvableLieAlgebra,
                     L := LieAlgebraByStructureConstants( F, T );
                     SetName( L, Concatenation( "sl(2,", String( Size( F )), 
                             "):V(1)"));
+                    L!.arg := arg;
                     return L;
                     
                 # if char=3 then there is an additional one.
@@ -426,6 +440,7 @@ InstallMethod( NonSolvableLieAlgebra,
                     L := LieAlgebraByStructureConstants( F, T );
                     SetName( L, Concatenation( "sl(2,", String( Size( F )), 
                             ").V(1)"));
+                    L!.arg := arg;
                     return L;
                                         
             # if char = 5 then W(1;1)
@@ -442,6 +457,7 @@ InstallMethod( NonSolvableLieAlgebra,
                     SetEntrySCTable( T, 3, 4, [2,5] );
                     L := LieAlgebraByStructureConstants( F, T );
                     SetName( L, "W(1;1)" );
+                    L!.arg := arg;
                     return L;
                 else
                     Error( "Argument out of range." );
@@ -469,7 +485,7 @@ InstallMethod( NonSolvableLieAlgebra,
                     SetEntrySCTable( T, 5, 6, [1,6] );
                     L := LieAlgebraByStructureConstants( F, T );
                     SetName( L, "W(1;2)^{(1)}+W(1;2)^{(1)}" );
-                    
+                    L!.arg := arg;
                     return L;
                 elif pos = 2 then
                     # W(1,2)^{(1)} x field extension of degree 2. 
@@ -498,6 +514,7 @@ InstallMethod( NonSolvableLieAlgebra,
                     L := LieAlgebraByStructureConstants( F, T );
                     SetName( L, Concatenation( "W(1;2)^{(1)}xGF(", 
                             String( Size( F )^2), ")" ));
+                    L!.arg := arg;
                     return L;
                     
                 elif pos = 3 then
@@ -525,16 +542,18 @@ InstallMethod( NonSolvableLieAlgebra,
                         SetName( L, Concatenation( "Der(W(1;2)^{(1)}):GF(", 
                                 String( Size( F )), ")" ));
                     fi;
+                    L!.arg := arg;
                     return L;
-                    return L;
-                    
+                                        
                 # W(1,2) semidirect abelian: 4 + |F| Lie algebras, depending
                 # on the action of W(1,2) on the abelian.
                 # only x^3d acts on the abelian non-trivially.
                     
                 elif pos = 4 then
                     if Length( arg ) >= 3 then
-                        return ExtensionOfW12ByAbelian( F, arg[3] );
+                        L := ExtensionOfW12ByAbelian( F, arg[3] );
+                        L!.arg := arg;
+                        return L;
                     else
                         Error( "This is a parametric family. Give an additional parameter." );
                     fi;
@@ -555,6 +574,7 @@ InstallMethod( NonSolvableLieAlgebra,
                     
                     L := LieAlgebraByStructureConstants( F, T );
                     SetName( L, "W(1;2)+<x,y|[x,y]=y>" );
+                    L!.arg := arg;
                     return L;
                     
                 elif pos = 6 then            
@@ -562,8 +582,10 @@ InstallMethod( NonSolvableLieAlgebra,
                     # W(1,2)^{(1)} + 3-dim solvable.
                     
                     if Length( arg ) >= 3 then
-                        return ExtensionOfW121BySoluble( F, 
-                                       arg{[3..Length( arg )]} );
+                        L := ExtensionOfW121BySoluble( F, 
+                                     arg{[3..Length( arg )]} );
+                        L!.arg := arg;
+                        return L;
                     else
                         Error( "This is a parametric family. Give an additional parameter." );
                     fi;
@@ -587,6 +609,7 @@ InstallMethod( NonSolvableLieAlgebra,
                     L := LieAlgebraByStructureConstants( F, T );
                     SetName( L, Concatenation( "W(1;2)^{(1)}:O(1;2)/GF(", 
                             String( Size( F )), ")"));
+                    L!.arg := arg;
                     return L;
                     
                 elif pos = 8 then
@@ -607,6 +630,7 @@ InstallMethod( NonSolvableLieAlgebra,
                     L := LieAlgebraByStructureConstants( F, T );
                     SetName( L, Concatenation( "W(1;2)^{(1)}.O(1;2)/GF(", 
                             String( Size( F )), ")"));
+                    L!.arg := arg;
                     return L;
                 else
                     Error( "Argument out of range." );
@@ -634,17 +658,21 @@ InstallMethod( NonSolvableLieAlgebra,
                     L := LieAlgebraByStructureConstants( F, T );
                     SetName( L,  Concatenation( "sl(2,", 
                             String( Size( F )), ")+sl(2,", String( Size( F )), ")"));
+                    L!.arg := arg;
                     return L;
                     
                 elif pos = 2 then
                     
                     # sl(2,F<x>) where F<x> is a quadratic extension
                     
-                    L := NonSolvableLieAlgebras( GF( Size( F )^2 ), 3 )[1];
-                    L := LieAlgebra( F, Basis( AsVectorSpace( F, L )));
+                    L := NonSolvableLieAlgebra( GF( Size( F )^2 ), [3] );
+                    b := ShallowCopy( Basis( L ));
+                    Append( b, List( b, x->x*Z(Size( F )^2 )));
+                    L := LieAlgebra( F, b );
                     Setter( IsFiniteDimensional )( L, true );
                     SetName( L, Concatenation( "sl(2,GF(", 
                             String( Size( F )^2 ), "))" ));
+                    L!.arg := arg;
                     return L;
                 
                     # The Lie algebras in Theorem 5.3
@@ -652,8 +680,10 @@ InstallMethod( NonSolvableLieAlgebra,
                 elif pos = 3 then
                     
                     # sl(2,F) + solvable
-                    return ExtensionOfsl2BySoluble( F, 
+		    L := ExtensionOfsl2BySoluble( F, 
                                    arg{[3..Length( arg )]} );
+                    L!.arg := arg;
+                    return L;
                 elif pos = 4 then
                     
                     # sl(2,F) semidirect V(1)+V(0)
@@ -671,6 +701,7 @@ InstallMethod( NonSolvableLieAlgebra,
                     L := LieAlgebraByStructureConstants( F, T );
                     SetName( L, Concatenation( "sl(2,", String( Size( F )), 
                             "):(V(1)+V(0))" ));
+                    L!.arg := arg;
                     return L;
                     
                 elif pos = 5 then
@@ -691,6 +722,7 @@ InstallMethod( NonSolvableLieAlgebra,
                     L := LieAlgebraByStructureConstants( F, T );
                     SetName( L, Concatenation( "sl(2,", String( Size( F )), 
                             "):V(2)" ));
+                    L!.arg := arg;
                     return L;
                     
                 elif pos = 6 then
@@ -710,6 +742,7 @@ InstallMethod( NonSolvableLieAlgebra,
                     L := LieAlgebraByStructureConstants( F, T );
                     SetName( L, Concatenation( "sl(2,", String( Size( F )), 
                             "):H" ));
+                    L!.arg := arg;
                     return L;
                     
                     elif pos = 7 then
@@ -731,12 +764,28 @@ InstallMethod( NonSolvableLieAlgebra,
                         L := LieAlgebraByStructureConstants( F, T );
                         SetName( L, Concatenation( "sl(2,", String( Size( F )), 
                                 "):<x,y,z|[x,y]=y,[x,z]=z>" ));
+                        L!.arg := arg;
                         return L;
                         
                     elif pos = 8 and Characteristic( F ) = 3 then
                         
+                        x := Indeterminate( F );
                         if Length( arg ) >= 3 then
-                            return ExtensionOfsl2ByV2a( F, arg[3] );
+                            if arg[3] = -1 then 
+                                z := Zero( F );
+                            else
+                                z := Z(Size( F ))^arg[3];
+                            fi;
+                            f := Factors( x^3+x^2-z );
+                            i := 1;
+                            repeat
+                                k := CoefficientsOfUnivariatePolynomial( 
+                                             f[i] )[1];
+                            until Degree( f[i] ) = 1;
+                            l := k^3;
+                            L := ExtensionOfsl2ByV2a( F, l );
+                            L!.arg := arg;
+                            return L;
                         else
                             Error( "This is a parametric family. Give a parameter" );
                         fi;
@@ -757,6 +806,7 @@ InstallMethod( NonSolvableLieAlgebra,
                         SetEntrySCTable( T, 3, 5, [1,6] );
                         L := LieAlgebraByStructureConstants( F, T );
                         SetName( L, "W(1;1):O(1;1)" );
+                        L!.arg := arg;
                         return L;
                         
                     elif pos = 10 and Characteristic( F ) = 3 then
@@ -775,6 +825,7 @@ InstallMethod( NonSolvableLieAlgebra,
                         SetEntrySCTable( T, 3, 6, [1,5] );
                         L := LieAlgebraByStructureConstants( F, T );
                         SetName( L, "W(1;1):O(1;1)*" );
+                        L!.arg := arg;
                         return L;
                         
                     elif pos = 11 and Characteristic( F ) = 3 then
@@ -797,6 +848,7 @@ InstallMethod( NonSolvableLieAlgebra,
                         L := LieAlgebraByStructureConstants( F, T );
                         SetName( L, Concatenation( "sl(2,", String( Size( F )), 
                                 ").H(", String( arg[3] ), ")" ));
+                        L!.arg := arg;
                         return L;
                         
                     elif pos = 12 and Characteristic( F ) = 3 then
@@ -817,6 +869,7 @@ InstallMethod( NonSolvableLieAlgebra,
                         SetName( L, Concatenation( "sl(2,", 
                                 String( Size( F )), ").(", String( F ), "+", 
                                 String( F ), "+", String( F ), ")(1)"  ));
+                        L!.arg := arg;
                         return L;
                         
                         # the other algebra
@@ -837,6 +890,7 @@ InstallMethod( NonSolvableLieAlgebra,
                             SetName( L, Concatenation( "sl(2,", 
                                     String( Size( F )), ").(", String(F), "+", 
                                     String( F ), "+", String( F ), ")(2)"  ));
+                            L!.arg := arg;
                             return L;
                             
                         elif pos = 8 and Characteristic( F ) = 5 then
@@ -854,6 +908,7 @@ InstallMethod( NonSolvableLieAlgebra,
                             SetEntrySCTable( T, 3, 4, [2,5] );
                             L := LieAlgebraByStructureConstants( F, T );    
                             SetName( L, Concatenation( "W(1;1)+", String( F )));
+                            L!.arg := arg;
                             return L;
                             
                         elif pos = 9 and Characteristic( F ) = 5 then
@@ -873,6 +928,7 @@ InstallMethod( NonSolvableLieAlgebra,
                             L := LieAlgebraByStructureConstants( F, T );    
                             SetName( L, Concatenation( "W(1;1).", 
                                     String( F )));
+                            L!.arg := arg;
                             return L;
                         else
                             Error( "Argument out of range." );
@@ -887,259 +943,159 @@ InstallMethod( NonSolvableLieAlgebra,
             end );
 
             
-            
-            
-            
-InstallMethod( NonSolvableLieAlgebras,
-        "for a finite field and a positive integer",
-        true,
-        [ IsField and IsFinite, IsPosInt ], 
-        0,
-        function( F, dim )
-    local parlist, x, a, i, f, fpars, k, l;
     
-    if dim < 3 then
-        return [];
+    
+VaughanLeeAlgebras := function( F, pars )   
+    local T;
+    
+    if not pars in [[7,1],[7,2],[8,1],[8,2],[9,1]] then
+        Error( "Invalid parameters!" );
     fi;
     
-    if dim = 3 then
+    T := EmptySCTable( pars[1], 0, "antisymmetric" );
+    
+    if pars = [ 7, 1 ] then
         
-        parlist := [[3]];
+        SetEntrySCTable( T, 1, 2, [1,3] );
+        SetEntrySCTable( T, 1, 3, [1,4] );
+        SetEntrySCTable( T, 1, 4, [1,5] );
+        SetEntrySCTable( T, 1, 5, [1,6] );
+        SetEntrySCTable( T, 1, 6, [1,7] );
+        SetEntrySCTable( T, 1, 7, [1,1] );
         
-    elif dim = 4 and Characteristic( F ) = 2 then
+        SetEntrySCTable( T, 2, 7, [1,2] );
+        SetEntrySCTable( T, 3, 6, [1,2] );
+        SetEntrySCTable( T, 4, 5, [1,2] );
+        SetEntrySCTable( T, 4, 6, [1,3] );
+        SetEntrySCTable( T, 4, 7, [1,4] );
+        SetEntrySCTable( T, 6, 7, [1,6] );
         
-        parlist := [[4,1],[4,2]];
+        return LieAlgebraByStructureConstants( F, T );
         
-    elif dim = 4 and Characteristic( F ) > 2 then 
+    elif pars = [ 7, 2 ] then
         
-        parlist := [[4]];
+        SetEntrySCTable( T, 1, 2, [1,3] );
+        SetEntrySCTable( T, 1, 3, [1,1,1,4] );
+        SetEntrySCTable( T, 1, 4, [1,5] );
+        SetEntrySCTable( T, 1, 5, [1,6] );
+        SetEntrySCTable( T, 1, 6, [1,7] );
         
-    elif dim = 5 and Characteristic( F ) = 2 then
+        SetEntrySCTable( T, 2, 3, [1,2] );
+        SetEntrySCTable( T, 2, 5, [1,2,1,4] );
+        SetEntrySCTable( T, 2, 6, [1,5] );
+        SetEntrySCTable( T, 2, 7, [1,1,1,4] );
+        SetEntrySCTable( T, 3, 4, [1,2,1,4] );
+        SetEntrySCTable( T, 3, 5, [1,3] );
+        SetEntrySCTable( T, 3, 6, [1,1,1,4,1,6] );
+        SetEntrySCTable( T, 3, 7, [1,5] );
+        SetEntrySCTable( T, 4, 7, [1,6] );
+        SetEntrySCTable( T, 5, 6, [1,6] );
+        SetEntrySCTable( T, 5, 7, [1,7] );
         
-        parlist := [[5,1],[5,2,0],[5,2,1],[5,3,0],[5,3,1]];
+        return LieAlgebraByStructureConstants( F, T );
         
-    elif  dim = 5 and Characteristic( F ) in [3,5] then
+    elif pars = [8,1] then
         
-        parlist := [[5,1,0],[5,1,1],[5,2],[5,3]];
+        SetEntrySCTable( T, 1, 3, [1,5] );
+        SetEntrySCTable( T, 1, 4, [1,6] );
+        SetEntrySCTable( T, 1, 7, [1,2] );
+        SetEntrySCTable( T, 1, 8, [1,1] );
+        SetEntrySCTable( T, 2, 3, [1,7] );
+        SetEntrySCTable( T, 2, 4, [1,5,1,8] );
+        SetEntrySCTable( T, 2, 5, [1,2] );
+        SetEntrySCTable( T, 2, 6, [1,1] );
+        SetEntrySCTable( T, 2, 8, [1,2] );
+        SetEntrySCTable( T, 3, 6, [1,4] );
+        SetEntrySCTable( T, 3, 8, [1,3] );
+        SetEntrySCTable( T, 4, 5, [1,4] );
+        SetEntrySCTable( T, 4, 7, [1,3] );
+        SetEntrySCTable( T, 4, 8, [1,4] );
+        SetEntrySCTable( T, 5, 6, [1,6] );
+        SetEntrySCTable( T, 5, 7, [1,7] );
+        SetEntrySCTable( T, 6, 7, [1,8] );
         
-    elif dim = 5 and Characteristic( F ) > 5 then
+        return LieAlgebraByStructureConstants( F, T );
         
-        parlist := [[5,1,0],[5,1,1],[5,2]];
+    elif pars = [ 8, 2 ] then
         
-    elif dim = 6 and Characteristic( F ) = 2 then
+        SetEntrySCTable( T, 1, 2, [1,3] );
+        SetEntrySCTable( T, 1, 3, [1,2,1,5] );
+        SetEntrySCTable( T, 1, 4, [1,6] );
+        SetEntrySCTable( T, 1, 5, [1,2] );
+        SetEntrySCTable( T, 1, 6, [1,1,1,4,1,8] );
+        SetEntrySCTable( T, 1, 8, [1,4] );
+        SetEntrySCTable( T, 2, 3, [1,4] );
+        SetEntrySCTable( T, 2, 4, [1,1] );
+        SetEntrySCTable( T, 2, 5, [1,6] );
+        SetEntrySCTable( T, 2, 6, [1,2,1,7] );
+        SetEntrySCTable( T, 2, 7, [1,2,1,5] );
+        SetEntrySCTable( T, 3, 4, [1,2,1,7] );
+        SetEntrySCTable( T, 3, 5, [1,1,1,4,1,8] );
+        SetEntrySCTable( T, 3, 6, [1,1] );
+        SetEntrySCTable( T, 3, 7, [1,2,1,3] );
+        SetEntrySCTable( T, 3, 8, [1,1] );
+        SetEntrySCTable( T, 4, 5, [1,3] );
+        SetEntrySCTable( T, 4, 6, [1,2,1,4] );
+        SetEntrySCTable( T, 4, 7, [1,1,1,4,1,8] );
+        SetEntrySCTable( T, 4, 8, [1,3] );
+        SetEntrySCTable( T, 5, 6, [1,1,1,2,1,5] );
+        SetEntrySCTable( T, 5, 7, [1,3] );
+        SetEntrySCTable( T, 5, 8, [1,2,1,7] );
+        SetEntrySCTable( T, 6, 7, [1,4,1,6] );
+        SetEntrySCTable( T, 6, 8, [1,2,1,5] );
+        SetEntrySCTable( T, 7, 8, [1,6] );
         
-        parlist := [[6,1],[6,2],[6,3,0],[6,3,1],[6,4,0],[6,4,1],[6,4,2],[6,4,3]];
-        Append( parlist, List( [0..Size( F )-2], 
-                x->[6,4,PrimitiveElement( F )^x ]));
-        Append( parlist, [[6,5]] );
-        Append( parlist, [[6,6,1],[6,6,2]] );
-        Append( parlist, List( F, x->[6,6,3,x] ));
-        Append( parlist, [[6,6,4,Zero(F)],[6,6,4,One(F)]] );
-        Append( parlist, [[6,7],[6,8]] );
+        return LieAlgebraByStructureConstants( F, T );
         
-    elif dim = 6 and Characteristic( F ) = 3 then
+    elif pars = [ 9, 1 ] then
         
-        parlist := [[6,1],[6,2],[6,3,1],[6,3,2]];
-        Append( parlist, List( F, x->[6,3,3,x] ));
-        Append( parlist, [[6,3,4,Zero(F)],[6,3,4,Z(Size(F))],[6,3,4,One(F)]] );
-        Append( parlist, [[6,4],[6,5],[6,6],[6,7]] );
+        SetEntrySCTable( T, 1, 2, [1,3] );
+        SetEntrySCTable( T, 1, 3, [1,5] );
+        SetEntrySCTable( T, 1, 5, [1,6] );
+        SetEntrySCTable( T, 1, 6, [1,7] );
+        SetEntrySCTable( T, 1, 7, [1,6,1,9] );
+        SetEntrySCTable( T, 1, 9, [1,2] );
+        SetEntrySCTable( T, 2, 3, [1,4] );
+        SetEntrySCTable( T, 2, 4, [1,6] );
+        SetEntrySCTable( T, 2, 6, [1,8] );
+        SetEntrySCTable( T, 2, 8, [1,6,1,9] );
+        SetEntrySCTable( T, 2, 9, [1,1] );
+        SetEntrySCTable( T, 3, 4, [1,7] );
+        SetEntrySCTable( T, 3, 5, [1,8] );
+        SetEntrySCTable( T, 3, 7, [1,1,1,8] );
+        SetEntrySCTable( T, 3, 8, [1,2,1,7] );
+        SetEntrySCTable( T, 4, 5, [1,6,1,9] );
+        SetEntrySCTable( T, 4, 6, [1,2,1,7] );
+        SetEntrySCTable( T, 4, 7, [1,3,1,6,1,9] );
+        SetEntrySCTable( T, 4, 9, [1,5] );
+        SetEntrySCTable( T, 5, 6, [1,1,1,8] );
+        SetEntrySCTable( T, 5, 8, [1,3,1,6,1,9] );
+        SetEntrySCTable( T, 5, 9, [1,4] );
+        SetEntrySCTable( T, 6, 7, [1,1,1,4,1,8] );
+        SetEntrySCTable( T, 6, 8, [1,2,1,5,1,7] );
+        SetEntrySCTable( T, 7, 8, [1,3,1,9] );
+        SetEntrySCTable( T, 7, 9, [1,8] );
+        SetEntrySCTable( T, 8, 9, [1,7] );            
         
-        fpars := [];
-        
-        x := Indeterminate( F );
-        for a in F do
-            if not IsIrreducible( x^3+x^2-a ) then
-                f := Factors( x^3+x^2-a );
-                i := 1;
-                repeat
-                    k := CoefficientsOfUnivariatePolynomial( f[i] )[1];
-                until Degree( f[i] ) = 1;
-                l := k^3;
-                if not l in fpars then
-                    Add( fpars, l );
-                fi;
-            fi;
-        od;
-        
-        Append( parlist, List( fpars, x->[6,8,x] ));
-        
-        Append( parlist, [[6,9],[6,10],[6,11,0],[6,11,1],[6,12],[6,13]] );
-        
-    elif dim = 6 and Characteristic( F ) = 5 then
-        
-        parlist := [[6,1],[6,2],[6,3,1],[6,3,2]];
-        Append( parlist, List( F, x->[6,3,3,x] ));
-        Append( parlist, [[6,3,4,Zero(F)],[6,3,4,Z(Size(F))],[6,3,4,One(F)]] );
-        Append( parlist, [[6,4],[6,5],[6,6],[6,7],[6,8],[6,9]] );
-        
-    elif dim = 6 and Characteristic( F ) >= 7 then
-         parlist := [[6,1],[6,2],[6,3,1],[6,3,2]];
-        Append( parlist, List( F, x->[6,3,3,x] ));
-        Append( parlist, [[6,3,4,Zero(F)],[6,3,4,Z(Size(F))],[6,3,4,One(F)]] );
-        Append( parlist, [[6,4],[6,5],[6,6],[6,7]] );
-        
-    else
-        
-        Error( "The list of non-solvable Lie algebras is not available for these parameters." );
-        
+        return LieAlgebraByStructureConstants( F, T );
     fi;
-    
-    return List( parlist, x->NonSolvableLieAlgebra( F, x ));
-    
-    end );
-    
+end;
     
 
-InstallMethod( SimpleLieAlgebras,
+
+InstallMethod( AllSimpleLieAlgebras,
         "for a finite field and a positive int",
         true,
         [ IsField and IsFinite, IsPosInt ], 
         0,
         function( F, dim )        
     
-    local VaughanLieAlgebras;
     
-    
-    VaughanLieAlgebras := function( F, pars )   
-        local T;
-        
-        if not pars in [[7,1],[7,2],[8,1],[8,2],[9,1]] then
-            Error( "Invalid parameters!" );
-        fi;
-        
-        T := EmptySCTable( pars[1], 0, "antisymmetric" );
-        
-        if pars = [ 7, 1 ] then
-            
-            SetEntrySCTable( T, 1, 2, [1,3] );
-            SetEntrySCTable( T, 1, 3, [1,4] );
-            SetEntrySCTable( T, 1, 4, [1,5] );
-            SetEntrySCTable( T, 1, 5, [1,6] );
-            SetEntrySCTable( T, 1, 6, [1,7] );
-            SetEntrySCTable( T, 1, 7, [1,1] );
-            
-            SetEntrySCTable( T, 2, 7, [1,2] );
-            SetEntrySCTable( T, 3, 6, [1,2] );
-            SetEntrySCTable( T, 4, 5, [1,2] );
-            SetEntrySCTable( T, 4, 6, [1,3] );
-            SetEntrySCTable( T, 4, 7, [1,4] );
-            SetEntrySCTable( T, 6, 7, [1,6] );
-            
-            return LieAlgebraByStructureConstants( F, T );
-            
-        elif pars = [ 7, 2 ] then
-            
-            SetEntrySCTable( T, 1, 2, [1,3] );
-            SetEntrySCTable( T, 1, 3, [1,1,1,4] );
-            SetEntrySCTable( T, 1, 4, [1,5] );
-            SetEntrySCTable( T, 1, 5, [1,6] );
-            SetEntrySCTable( T, 1, 6, [1,7] );
-            
-            SetEntrySCTable( T, 2, 3, [1,2] );
-            SetEntrySCTable( T, 2, 5, [1,2,1,4] );
-            SetEntrySCTable( T, 2, 6, [1,5] );
-            SetEntrySCTable( T, 2, 7, [1,1,1,4] );
-            SetEntrySCTable( T, 3, 4, [1,2,1,4] );
-            SetEntrySCTable( T, 3, 5, [1,3] );
-            SetEntrySCTable( T, 3, 6, [1,1,1,4,1,6] );
-            SetEntrySCTable( T, 3, 7, [1,5] );
-            SetEntrySCTable( T, 4, 7, [1,6] );
-            SetEntrySCTable( T, 5, 6, [1,6] );
-            SetEntrySCTable( T, 5, 7, [1,7] );
-            
-            return LieAlgebraByStructureConstants( F, T );
-            
-        elif pars = [8,1] then
-            
-            SetEntrySCTable( T, 1, 3, [1,5] );
-            SetEntrySCTable( T, 1, 4, [1,6] );
-            SetEntrySCTable( T, 1, 7, [1,2] );
-            SetEntrySCTable( T, 1, 8, [1,1] );
-            SetEntrySCTable( T, 2, 3, [1,7] );
-            SetEntrySCTable( T, 2, 4, [1,5,1,8] );
-            SetEntrySCTable( T, 2, 5, [1,2] );
-            SetEntrySCTable( T, 2, 6, [1,1] );
-            SetEntrySCTable( T, 2, 8, [1,2] );
-            SetEntrySCTable( T, 3, 6, [1,4] );
-            SetEntrySCTable( T, 3, 8, [1,3] );
-            SetEntrySCTable( T, 4, 5, [1,4] );
-            SetEntrySCTable( T, 4, 7, [1,3] );
-            SetEntrySCTable( T, 4, 8, [1,4] );
-            SetEntrySCTable( T, 5, 6, [1,6] );
-            SetEntrySCTable( T, 5, 7, [1,7] );
-            SetEntrySCTable( T, 6, 7, [1,8] );
-            
-            return LieAlgebraByStructureConstants( F, T );
-            
-        elif pars = [ 8, 2 ] then
-            
-            SetEntrySCTable( T, 1, 2, [1,3] );
-            SetEntrySCTable( T, 1, 3, [1,2,1,5] );
-            SetEntrySCTable( T, 1, 4, [1,6] );
-            SetEntrySCTable( T, 1, 5, [1,2] );
-            SetEntrySCTable( T, 1, 6, [1,1,1,4,1,8] );
-            SetEntrySCTable( T, 1, 8, [1,4] );
-            SetEntrySCTable( T, 2, 3, [1,4] );
-            SetEntrySCTable( T, 2, 4, [1,1] );
-            SetEntrySCTable( T, 2, 5, [1,6] );
-            SetEntrySCTable( T, 2, 6, [1,2,1,7] );
-            SetEntrySCTable( T, 2, 7, [1,2,1,5] );
-            SetEntrySCTable( T, 3, 4, [1,2,1,7] );
-            SetEntrySCTable( T, 3, 5, [1,1,1,4,1,8] );
-            SetEntrySCTable( T, 3, 6, [1,1] );
-            SetEntrySCTable( T, 3, 7, [1,2,1,3] );
-            SetEntrySCTable( T, 3, 8, [1,1] );
-            SetEntrySCTable( T, 4, 5, [1,3] );
-            SetEntrySCTable( T, 4, 6, [1,2,1,4] );
-            SetEntrySCTable( T, 4, 7, [1,1,1,4,1,8] );
-            SetEntrySCTable( T, 4, 8, [1,3] );
-            SetEntrySCTable( T, 5, 6, [1,1,1,2,1,5] );
-            SetEntrySCTable( T, 5, 7, [1,3] );
-            SetEntrySCTable( T, 5, 8, [1,2,1,7] );
-            SetEntrySCTable( T, 6, 7, [1,4,1,6] );
-            SetEntrySCTable( T, 6, 8, [1,2,1,5] );
-            SetEntrySCTable( T, 7, 8, [1,6] );
-            
-            return LieAlgebraByStructureConstants( F, T );
-            
-        elif pars = [ 9, 1 ] then
-            
-            SetEntrySCTable( T, 1, 2, [1,3] );
-            SetEntrySCTable( T, 1, 3, [1,5] );
-            SetEntrySCTable( T, 1, 5, [1,6] );
-            SetEntrySCTable( T, 1, 6, [1,7] );
-            SetEntrySCTable( T, 1, 7, [1,6,1,9] );
-            SetEntrySCTable( T, 1, 9, [1,2] );
-            SetEntrySCTable( T, 2, 3, [1,4] );
-            SetEntrySCTable( T, 2, 4, [1,6] );
-            SetEntrySCTable( T, 2, 6, [1,8] );
-            SetEntrySCTable( T, 2, 8, [1,6,1,9] );
-            SetEntrySCTable( T, 2, 9, [1,1] );
-            SetEntrySCTable( T, 3, 4, [1,7] );
-            SetEntrySCTable( T, 3, 5, [1,8] );
-            SetEntrySCTable( T, 3, 7, [1,1,1,8] );
-            SetEntrySCTable( T, 3, 8, [1,2,1,7] );
-            SetEntrySCTable( T, 4, 5, [1,6,1,9] );
-            SetEntrySCTable( T, 4, 6, [1,2,1,7] );
-            SetEntrySCTable( T, 4, 7, [1,3,1,6,1,9] );
-            SetEntrySCTable( T, 4, 9, [1,5] );
-            SetEntrySCTable( T, 5, 6, [1,1,1,8] );
-            SetEntrySCTable( T, 5, 8, [1,3,1,6,1,9] );
-            SetEntrySCTable( T, 5, 9, [1,4] );
-            SetEntrySCTable( T, 6, 7, [1,1,1,4,1,8] );
-            SetEntrySCTable( T, 6, 8, [1,2,1,5,1,7] );
-            SetEntrySCTable( T, 7, 8, [1,3,1,9] );
-            SetEntrySCTable( T, 7, 9, [1,8] );
-            SetEntrySCTable( T, 8, 9, [1,7] );            
-            
-            return LieAlgebraByStructureConstants( F, T );
-        fi;
-    end;
     
     if dim in [1,2,4] then 
         return [];
     elif dim = 3 then
-        return NonSolvableLieAlgebras( F, dim );
+        return AsList( AllNonSolvableLieAlgebras( F, dim ));
     elif dim = 5 and Characteristic( F ) = 5 then
         return [ NonSolvableLieAlgebra( F, [5,3] ) ];
     elif  dim = 5 and Characteristic( F ) <> 5 then 
@@ -1147,13 +1103,13 @@ InstallMethod( SimpleLieAlgebras,
     elif dim = 6 then
         return [ NonSolvableLieAlgebra( F, [6,2] ) ];
     elif dim = 7 and F = GF(2) then
-        return [ VaughanLieAlgebras( GF(2), [7,1] ), 
-                 VaughanLieAlgebras( GF(2), [7,2] )];
+        return [ VaughanLeeAlgebras( GF(2), [7,1] ), 
+                 VaughanLeeAlgebras( GF(2), [7,2] )];
     elif dim = 8 and F = GF(2) then
-        return [ VaughanLieAlgebras( GF(2), [8,1] ), 
-                 VaughanLieAlgebras( GF(2), [8,2] ) ];
+        return [ VaughanLeeAlgebras( GF(2), [8,1] ), 
+                 VaughanLeeAlgebras( GF(2), [8,2] ) ];
     elif dim = 9 and F = GF( 2 ) then
-        return [ VaughanLieAlgebras( GF( 2 ), [ 9, 1 ] )];
+        return [ VaughanLeeAlgebras( GF( 2 ), [ 9, 1 ] )];
     fi;      
     
     Error( "The list of simple Lie algebras is not available for these parameters." );

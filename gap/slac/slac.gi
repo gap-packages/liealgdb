@@ -1,10 +1,9 @@
-
 InstallMethod( SolvableLieAlgebra,  "for a field and a list", true,
    [ IsField, IsList ], 0, 
 
 function( F, data )
 
-   local d, no, a, b, S;
+   local d, no, a, b, S, L;
 
    if not Length( data ) >= 2 then 
       Error("<data> has to have length at least two"); 
@@ -13,106 +12,157 @@ function( F, data )
       Error("the first element of <data> has to be a positive integer");
    else
       d:= data[1];
-      if not d in [2,3,4] then
+      if not d in [1,2,3,4] then
          Error("the dimension has to be 1,2,3, or 4");
       fi;
    fi;
    no:= data[2];
-   if not no in [1..14] then
-      Error("the second element of <data> has to be in the range 1..14");
-   fi;
+   if d=1 then
+       if no > 1 then
+           Error( "the second element of <data> has to be <= 1" );
+       fi;
+   elif d=2 then
+      if no > 2 then
+         Error("the second element of <data> has to be <= 2");
+      fi;
+   elif d=3 then
+      if no > 4 then
+         Error("the second element of <data> has to be <= 4");
+      fi;
+   else
+      if not no in [1..14] then
+         Error("the second element of <data> has to be <= 14");
+      fi;
+    fi;
    if Length( data ) >=3 then
       a:= data[3];
    fi;
    if Length( data ) >= 4 then
       b:= data[4];
    fi;
-
-   if d = 2 then
+   
+   if d = 1 then
+       S:= EmptySCTable( 1, Zero(F), "antisymmetric" );
+       L := LieAlgebraByStructureConstants( F, S );
+       L!.arg := data;
+       return L;
+   elif d = 2 then
       if no=1 then
          S:= EmptySCTable( 2, Zero(F), "antisymmetric" );
-         return LieAlgebraByStructureConstants( F, S );
+         L := LieAlgebraByStructureConstants( F, S );
+         L!.arg := data;
+         return L;
       else
          S:= EmptySCTable( 2, Zero(F), "antisymmetric" );
          SetEntrySCTable( S, 2, 1, [One(F),1] );
-         return LieAlgebraByStructureConstants( F, S );
+         L := LieAlgebraByStructureConstants( F, S );
+         L!.arg := data;
+         return L;
       fi;
    elif d=3 then
       if no=1 then
          S:= EmptySCTable( 3, Zero(F), "antisymmetric" );
-         return LieAlgebraByStructureConstants( F, S );
+         L := LieAlgebraByStructureConstants( F, S );
+         L!.arg := data;
+         return L;
       elif no=2 then
          S:= EmptySCTable( 3, Zero(F), "antisymmetric" );
          SetEntrySCTable( S, 3, 1, [One(F),1] );
          SetEntrySCTable( S, 3, 2, [One(F),2] );
-     return LieAlgebraByStructureConstants( F, S );
+         L := LieAlgebraByStructureConstants( F, S );
+         L!.arg := data;
+         return L;
       elif no=3 then
          S:= EmptySCTable( 3, Zero(F), "antisymmetric" );
          SetEntrySCTable( S, 3, 1, [One(F),2] );
          SetEntrySCTable( S, 3, 2, [a,1,One(F),2] );
-         return LieAlgebraByStructureConstants( F, S );     
+         L := LieAlgebraByStructureConstants( F, S );     
+         L!.arg := data;
+         return L;
       else
          S:= EmptySCTable( 3, Zero(F), "antisymmetric" );
          SetEntrySCTable( S, 3, 1, [One(F),2] );
          SetEntrySCTable( S, 3, 2, [a,1] );
-         return LieAlgebraByStructureConstants( F, S );
+         L := LieAlgebraByStructureConstants( F, S );
+         L!.arg := data;
+         return L;
       fi;
    else
       if no=1 then
          S:= EmptySCTable( 4, Zero(F), "antisymmetric" );
-         return LieAlgebraByStructureConstants( F, S );
+         L := LieAlgebraByStructureConstants( F, S );
+         L!.arg := data;
+         return L;
       elif no=2 then
            S:= EmptySCTable( 4, Zero(F), "antisymmetric" );
            SetEntrySCTable( S, 4, 1, [One(F),1] );
            SetEntrySCTable( S, 4, 2, [One(F),2] );
            SetEntrySCTable( S, 4, 3, [One(F),3] );
-           return LieAlgebraByStructureConstants( F, S );   
+           L := LieAlgebraByStructureConstants( F, S );   
+           L!.arg := data;
+           return L;
       elif no=3 then
            S:= EmptySCTable( 4, Zero(F), "antisymmetric" );
            SetEntrySCTable( S, 4, 1, [One(F),1] );
            SetEntrySCTable( S, 4, 2, [One(F),3] );
            SetEntrySCTable( S, 4, 3, [-a,2,a+One(F),3] );
-           return LieAlgebraByStructureConstants( F, S );
+           L := LieAlgebraByStructureConstants( F, S );
+           L!.arg := data;
+           return L;
       elif no = 4 then
            S:= EmptySCTable( 4, Zero(F), "antisymmetric" );
            SetEntrySCTable( S, 4, 2, [One(F),3] );
            SetEntrySCTable( S, 4, 3, [One(F),3] );
-           return LieAlgebraByStructureConstants( F, S );
+           L := LieAlgebraByStructureConstants( F, S );
+           L!.arg := data;
+           return L;
       elif no = 5 then
            S:= EmptySCTable( 4, Zero(F), "antisymmetric" );
            SetEntrySCTable( S, 4, 2, [One(F),3] );
-           return LieAlgebraByStructureConstants( F, S );
+           L := LieAlgebraByStructureConstants( F, S );
+           L!.arg := data;
+           return L;
       elif no = 6 then
            S:= EmptySCTable( 4, Zero(F), "antisymmetric" );
            SetEntrySCTable( S, 4, 1, [One(F),2] );
            SetEntrySCTable( S, 4, 2, [One(F),3] );
            SetEntrySCTable( S, 4, 3, [a,1,b,2,One(F),3] );
-           return LieAlgebraByStructureConstants( F, S );
+           L := LieAlgebraByStructureConstants( F, S );
+           L!.arg := data;
+           return L;
       elif no = 7 then
            S:= EmptySCTable( 4, Zero(F), "antisymmetric" );
            SetEntrySCTable( S, 4, 1, [One(F),2] );
            SetEntrySCTable( S, 4, 2, [One(F),3] );
            SetEntrySCTable( S, 4, 3, [a,1,b,2] );
-           return LieAlgebraByStructureConstants( F, S );
+           L := LieAlgebraByStructureConstants( F, S );
+           L!.arg := data;
+           return L;
       elif no=8 then
            S:= EmptySCTable( 4, Zero(F), "antisymmetric" );
            SetEntrySCTable( S, 1, 2, [One(F),2] );
            SetEntrySCTable( S, 3, 4, [One(F),4] );
-           return LieAlgebraByStructureConstants( F, S );
+           L := LieAlgebraByStructureConstants( F, S );
+           L!.arg := data;
+           return L;
       elif no=9 then
            S:= EmptySCTable( 4, Zero(F), "antisymmetric" );
            SetEntrySCTable( S, 4, 1, [One(F),1,a,2] );
            SetEntrySCTable( S, 4, 2, [One(F),1] );
            SetEntrySCTable( S, 3, 1, [One(F),1] );
            SetEntrySCTable( S, 3, 2, [One(F),2] );
-           return LieAlgebraByStructureConstants( F, S );
+           L := LieAlgebraByStructureConstants( F, S );
+           L!.arg := data;
+           return L;
       elif no=10 then
            S:= EmptySCTable( 4, Zero(F), "antisymmetric" );
            SetEntrySCTable( S, 4, 1, [One(F),2] );
            SetEntrySCTable( S, 4, 2, [a,1] );
            SetEntrySCTable( S, 3, 1, [One(F),1] );
            SetEntrySCTable( S, 3, 2, [One(F),2] );
-           return LieAlgebraByStructureConstants( F, S );
+           L := LieAlgebraByStructureConstants( F, S );
+           L!.arg := data;
+           return L;
       elif no=11 then
            if Characteristic(F) <> 2 then
               Error( "The characteristic of F has to be 2 for L4_11");
@@ -124,27 +174,35 @@ function( F, data )
            SetEntrySCTable( S, 4, 3, [One(F)+b,3] );
            SetEntrySCTable( S, 3, 1, [One(F),2] );
            SetEntrySCTable( S, 3, 2, [a,1] );
-           return LieAlgebraByStructureConstants( F, S );
+           L := LieAlgebraByStructureConstants( F, S );
+           L!.arg := data;
+           return L;
       elif no=12 then
            S:= EmptySCTable( 4, Zero(F), "antisymmetric" );
            SetEntrySCTable( S, 4, 1, [One(F),1] );
            SetEntrySCTable( S, 4, 2, [2*One(F),2] );
            SetEntrySCTable( S, 4, 3, [One(F),3] );
            SetEntrySCTable( S, 3, 1, [One(F),2] );
-           return LieAlgebraByStructureConstants( F, S );
+           L := LieAlgebraByStructureConstants( F, S );
+           L!.arg := data;
+           return L;
       elif no=13 then
            S:= EmptySCTable( 4, Zero(F), "antisymmetric" );
            SetEntrySCTable( S, 4, 1, [One(F),1,a,3] );
            SetEntrySCTable( S, 4, 2, [One(F),2] );
            SetEntrySCTable( S, 4, 3, [One(F),1] );
            SetEntrySCTable( S, 3, 1, [One(F),2] );
-           return LieAlgebraByStructureConstants( F, S );   
+           L := LieAlgebraByStructureConstants( F, S );   
+           L!.arg := data;
+           return L;
       else
            S:= EmptySCTable( 4, Zero(F), "antisymmetric" );
            SetEntrySCTable( S, 4, 1, [a,3] );
            SetEntrySCTable( S, 4, 3, [One(F),1] );
            SetEntrySCTable( S, 3, 1, [One(F),2] );
-           return LieAlgebraByStructureConstants( F, S );
+           L := LieAlgebraByStructureConstants( F, S );
+           L!.arg := data;
+           return L;
       fi;
    fi;
 
@@ -155,10 +213,58 @@ InstallMethod( NilpotentLieAlgebra,  "for a field and a list", true,
 
 function( F, data )
 
-   local d, no, a, ff, arg,N6_1, N6_2, N6_3, N6_4, N6_5, N6_6, N6_7, N6_8, N6_9, N6_10,
-         N6_11, N6_12, N6_13, N6_14, N6_15, N6_16, N6_17, N6_18, N6_19, N6_20, N6_21, 
-         N6_22, N6_23, N6_24, N6_25, N6_26,N5_1, N5_2, N5_3, N5_4, N5_5, N5_6, N5_7, N5_8, N5_9;
+   local L, d, no, a, ff, arg,
+         N1_1, N2_1, N3_1, N3_2, N4_1, N4_2, N4_3, 
+         N6_1, N6_2, N6_3, N6_4, N6_5, N6_6, N6_7, N6_8, N6_9, N6_10,
+         N6_11, N6_12, N6_13, N6_14, N6_15, N6_16, N6_17, N6_18, N6_19, 
+	 N6_20, N6_21, N6_22, N6_23, N6_24, N6_25, N6_26,N5_1, N5_2, N5_3, 
+	 N5_4, N5_5, N5_6, N5_7, N5_8, N5_9;
 
+N1_1 := function( F )
+    local T;
+    T := EmptySCTable( 1, Zero(F), "antisymmetric" );
+    return LieAlgebraByStructureConstants( F, T );
+end;
+
+N2_1 := function( F )
+    local T;
+    T := EmptySCTable( 2, Zero(F), "antisymmetric" );
+    return LieAlgebraByStructureConstants( F, T );
+end;
+
+N3_1 := function( F )
+    local T;
+    T := EmptySCTable( 3, Zero(F), "antisymmetric" );
+    return LieAlgebraByStructureConstants( F, T );
+end;
+
+N3_2 := function( F )
+    local T;
+    T := EmptySCTable( 3, Zero(F), "antisymmetric" );
+    SetEntrySCTable( T, 1, 2, [1,3] );
+    return LieAlgebraByStructureConstants( F, T );
+end;
+
+N4_1 := function( F )
+    local T;
+    T := EmptySCTable( 4, Zero(F), "antisymmetric" );
+    return LieAlgebraByStructureConstants( F, T );
+end;
+
+N4_2 := function( F )
+    local T;
+    T := EmptySCTable( 4, Zero(F), "antisymmetric" );
+    SetEntrySCTable( T, 1, 2, [1,4] );
+    return LieAlgebraByStructureConstants( F, T );
+end;
+
+N4_3 := function( F )
+    local T;
+    T := EmptySCTable( 4, Zero(F), "antisymmetric" );
+    SetEntrySCTable( T, 1, 2, [1,3] );
+    SetEntrySCTable( T, 1, 3, [1,4] );
+    return LieAlgebraByStructureConstants( F, T );
+end;
 
 N5_1:= function( F )
 
@@ -563,21 +669,65 @@ end;
       Error("the first element of <data> has to be a positive integer");
    else
       d:= data[1];
-      if not d in [5,6] then
-         Error("the dimension has to be 5 or 6");
+      if not d in [1,2,3,4,5,6] then
+         Error("the dimension has to be an integer from 1 to 6");
       fi;
    fi;
    no:= data[2];
-   if not no in [1..26] then
-      Error("the second element of <data> has to be in the range 1..26");
+   if d=1 then
+       if no > 1 then
+           Error( "the second element of <data> has to be <= 1" );
+       fi;
+   elif d=2 then
+       if no > 1 then
+           Error( "the second element of <data> has to be <= 1" );
+       fi;
+   elif d=3 then
+       if no > 2 then
+           Error( "the second element of <data> has to be <= 2" );
+       fi;
+   elif d=4 then
+       if no > 3 then
+           Error( "the second element of <data> has to be <= 3" );
+       fi;
+   elif d=5 then
+       if no > 9 then
+           Error("the second element of <data> has to be <= 9");
+       fi;
+   else
+       if no > 26  then
+           Error("the second element of <data> has to be <= 26");
+       fi;
    fi;
 
    if Length( data ) >= 3 then a:= data[3]; fi;
-
-   if d = 5 then
+   
+   if d = 1 then
+       ff := [N1_1];
+       L := CallFuncList( ff[no], [ F ] );
+       L!.arg := data;
+       return L;
+   elif d = 2 then
+       ff := [N2_1];
+       L := CallFuncList( ff[no], [ F ] );
+       L!.arg := data;
+       return L;
+   elif d = 3 then
+       ff := [N3_1,N3_2];
+       L := CallFuncList( ff[no], [ F ] );
+       L!.arg := data;
+       return L;
+  elif d = 4 then
+       ff := [N4_1,N4_2,N4_3];
+       L := CallFuncList( ff[no], [ F ] );
+       L!.arg := data;
+       return L;
+   elif d = 5 then
       ff:= [ N5_1, N5_2, N5_3, N5_4, N5_5, N5_6, N5_7, N5_8, N5_9 ];
-      return CallFuncList( ff[no], [ F ] );
-   else
+      L := CallFuncList( ff[no], [ F ] );
+      L!.arg := data;
+      return L;
+  else
       ff:= [ N6_1, N6_2, N6_3, N6_4, N6_5, N6_6, N6_7, N6_8, N6_9, N6_10,
              N6_11, N6_12, N6_13, N6_14, N6_15, N6_16, N6_17, N6_18, N6_19,
              N6_20, N6_21, N6_22, N6_23, N6_24, N6_25, N6_26 ];
@@ -586,7 +736,9 @@ end;
       else
          arg:= [F];
       fi;
-      return CallFuncList( ff[no], arg );
+      L := CallFuncList( ff[no], arg );
+      L!.arg := data;
+      return L;
    fi;
          
 end );
@@ -1137,6 +1289,7 @@ solv_type:= function( L )
            else
               cfs:= List( [1..10], x -> x*One(F) );
            fi;
+           Add( cfs, Zero(F) );
            found:= false;
            while not found do
                u:= Random(cfs)*x1+Random(cfs)*x2+Random(cfs)*x3;
@@ -3702,121 +3855,235 @@ InstallMethod( LieAlgebraIdentification, "for a Lie algebra",
 end );
 
 
-InstallMethod( SolvableLieAlgebras, 
-    "for a finite field and a positive integer",
-    true,
-    [ IsField and IsFinite, IsPosInt ], 0,
-
-     function( F, dim )
-
-        local list, a, p, aa, sq, i, b, m, q, T, ff;
-
-        if not IsFinite(F) then Error("F has to be a finite field"); fi;
-        if not dim in [2,3,4] then Error("solvable Lie algebras of this dimension are not included"); fi;
-
-        if dim = 2 then
-           list:= [ ];
-           Add( list, SolvableLieAlgebra( F, [2,1] ) );
-           Add( list, SolvableLieAlgebra( F, [2,2] ) );
-           return list;
-        elif dim = 3 then
-
-           list:= [ ];
-           Add( list, SolvableLieAlgebra( F, [3,1] ) );
-           Add( list, SolvableLieAlgebra( F, [3,2] ) );
-           for a in F do
-               Add( list, SolvableLieAlgebra( F, [3,3, a] ) );
-           od;
-           p:= Characteristic( F );
-           aa:= [ Zero(F), One(F) ];
-           if p > 2 then
-              Add( aa, PrimitiveRoot(F) );
-           fi;
-
-           for a in aa do
-               Add( list, SolvableLieAlgebra( F, [3,4,a] ) );
-           od;
-
-        elif dim = 4 then
-           list := [ ];
-           Add( list, SolvableLieAlgebra( F, [4,1] ) );
-           Add( list, SolvableLieAlgebra( F, [4,2] ) );
-           for a in F do
-               Add( list, SolvableLieAlgebra( F, [4,3,a] ) );
-           od;           
-           Add( list, SolvableLieAlgebra( F, [4,4] ) );
-           Add( list, SolvableLieAlgebra( F, [4,5] ) );
-           for a in F do
-               for b in F do
-                   Add( list, SolvableLieAlgebra( F, [4,6,a,b] ) );
-               od;
-           od;  
-           for a in F do
-               Add( list, SolvableLieAlgebra( F, [4,7,a,a] ) );
-           od;         
-
-           q:= Size( F );
-           m:= q mod 6;
-           if IsOddInt( q ) then
-              if m = 1 then
-                 a:= PrimitiveRoot( F );
-                 Add( list, SolvableLieAlgebra( F, [4,7,a^0, Zero(F)] ) );
-                 Add( list, SolvableLieAlgebra( F, [4,7, a, Zero(F)] ) );
-                 Add( list, SolvableLieAlgebra( F, [4,7, a^2, Zero(F)] ) );
-              else
-                 Add( list, SolvableLieAlgebra( F, [4,7, One(F), Zero(F)] ) );
-              fi;
-              Add( list, SolvableLieAlgebra( F, [4,7, Zero(F), One(F)] ) );
-              Add( list, SolvableLieAlgebra( F, [4,7, Zero(F), a] ) );
-           else
-              if m = 4 then
-                 a:= PrimitiveRoot( F );
-                 Add( list, SolvableLieAlgebra( F, [4,7, a^0, Zero(F)] ) );
-                 Add( list, SolvableLieAlgebra( F, [4,7, a, Zero(F)] ) );
-                 Add( list, SolvableLieAlgebra( F, [4,7, a^2, Zero(F)] ) );
-              else
-                 Add( list, SolvableLieAlgebra( F, [4,7, One(F), Zero(F)] ) );
-              fi;
-              Add( list, SolvableLieAlgebra( F, [4,7, Zero(F), One(F)] ) );
-           fi;
-
-           Add( list, SolvableLieAlgebra( F, [4,8] ) );
+InstallMethod( AllSolvableLieAlgebras, 
+        "for a finite field and a positive integer",
+        true,
+        [ IsField and IsFinite, IsPosInt ], 0,
+        
+        function( F, dim )
     
-           # for M9 we let b be the smallest power of the primitive root
-           # such that T^2-T-b has no roots in F
-           a:= PrimitiveRoot( F );
-           T:= Indeterminate(F);
-           for i in [1..q-1] do
-               ff:= Factors( T^2-T-a^i );
-               if Length(ff) = 1 then
-                  Add( list, SolvableLieAlgebra( F, [4,9,a^i] ) );
-                  break;
-               fi;
-           od;
-
-           if IsEvenInt( q ) then
-              Add( list, SolvableLieAlgebra( F, [4,11, One(F), Zero(F) ] ) );
-           fi;
-           Add( list, SolvableLieAlgebra( F, [4,12] ) );
-
-           for a in F do
-               Add( list, SolvableLieAlgebra( F, [4,13,a] ) );
-           od; 
-
-           if IsEvenInt( q ) then
-              Add( list, SolvableLieAlgebra( F, [4,14, One(F)] ) );
-           else
-              Add( list, SolvableLieAlgebra( F, [4,14,One(F)] ) );
-              Add( list, SolvableLieAlgebra( F, [4,14, PrimitiveRoot(F)] ) );              
-           fi;
-             
-
-        else
-           list:= "not yet implemented";
-        fi;
-        return list;
-
+    local  parlist, R, fam;
+    
+    if not IsFinite(F) then Error("F has to be a finite field"); fi;
+    if not dim in [1,2,3,4] then Error("solvable Lie algebras of this dimension are not included"); fi;
+    
+    
+    
+    if dim = 1 then
+        parlist := [[1,1]];
+    elif dim = 2 then
+        parlist:= [[2,1],[2,2]];
+    elif dim = 3 then
+        parlist := EnumeratorByFunctions( NewFamily( IsList ),
+                           rec( 
+                                ElementNumber := function( e, x )
+            local aa;
+            
+            aa:= [ Zero(F), One(F) ];
+            if Characteristic( F ) > 2 then
+                Add( aa, PrimitiveRoot(F) );
+            fi;
+                      
+            if x in [1,2] then
+                return [3,x];
+            elif x in [3..Size( F )+2] then
+                return [3,3,Enumerator( F )[x-2]];
+            elif Characteristic( F ) = 2 and x in [Size( F )+3..Size( F )+4]
+              then return [3,4,aa[x-Size(F)-2]];
+          elif Characteristic( F ) <> 2 and x in [Size( F )+3..Size( F )+5]
+            then  return [3,4,aa[x-Size(F)-2]];
+          fi;
+      end,
+        NumberElement := function( e, x )
+          local list1, list2;
+          
+          list1 := [[3,1],[3,2]];
+          list2 := [[3,4,Zero(F)],[3,4,One(F)]];
+          if Characteristic( F ) > 2 then
+              Add( list2, [3,4,PrimitiveRoot(F)]);
+          fi;
+          
+          if x in list1 then
+              return Position( list1, x );
+          elif x{[1,2]} = [3,3] then
+              return Position( Enumerator( F ), x[3] ) + 2;
+          elif x in list2 then
+              return Position( list2, x ) + Size( F )+2;
+          fi;
+      end,
+        
+        Length := function( e )
+          if Characteristic( F ) = 2 then
+              return Size( F )+4;
+          else
+              return Size( F )+5;
+          fi;
+      end ));
+          
+  elif dim = 4 then
+      parlist := EnumeratorByFunctions( NewFamily( IsList ),
+                         rec( 
+                              ElementNumber := function( e, x )
+          local a, T, i, ff, q, l1, l2, l3, l4, l5;
+          
+          q:= Size( F ); a := PrimitiveRoot( F );
+          
+          l1 := [[4,7, Zero(F), One(F)],[4,7, Zero(F), a],[4,14,One(F)],
+                 [4,14,a],[4,7,a^0, Zero(F)],[4,7, a, Zero(F)],
+                 [4,7, a^2, Zero(F)]];
+          l2 := [[4,7, Zero(F), One(F)],[4,11, One(F), Zero(F) ],
+                 [4,14, One(F)],[4,7, One(F), Zero(F)]];
+          l3 := [[4,7, Zero(F), One(F)],[4,7, Zero(F), a],[4,14,One(F)],
+                 [4,14,a],[4,7, One(F), Zero(F)]];
+          l4 := [[4,7, Zero(F), One(F)],[4,11, One(F), Zero(F) ],
+                 [4,14, One(F)],[4,7, a^0, Zero(F)],
+                 [4,7, a, Zero(F)],[4,7, a^2, Zero(F)]];
+          l5 := [[4,7, Zero(F), One(F)],[4,7, Zero(F), a],[4,14,One(F)],
+                 [4,14,a],[4,7, One(F), Zero(F)]];
+          
+          if x in [1,2] then
+              return [4,x];
+          elif x in [3..Size( F )+2] then
+              return [4,3,Enumerator( F )[x-2]];
+          elif x in [Size( F )+3..Size( F )+4] then
+              return [4,x-Size(F)+1];
+          elif x in [Size(F)+5..Size(F)^2+Size(F)+4] then
+              return [4,6,
+                      Enumerator( F )[Int((x-Size( F )-5)/Size( F ))+1],
+                      Enumerator( F )[((x-Size(F)-5) mod Size( F ))+1]];
+          elif x in [Size(F)^2+Size(F)+5..Size(F)^2+2*Size(F)+4] then
+              return [4,7,Enumerator( F )[x-(Size(F)^2+Size(F)+4)],
+                      Enumerator( F )[x-(Size(F)^2+Size(F)+4)]];
+          elif x = Size(F)^2+2*Size(F)+5 then
+              return [4,8];
+          elif x = Size(F)^2+2*Size(F)+6 then
+              a:= PrimitiveRoot( F );
+              T:= Indeterminate(F);
+              for i in [1..q-1] do
+                  ff:= Factors( T^2-T-a^i );
+                  if Length(ff) = 1 then
+                      return [4,9,a^i];
+                      break;
+                  fi;
+              od;
+          elif x = Size(F)^2+2*Size(F)+7 then
+              return [4,12];
+          elif x in [Size(F)^2+2*Size(F)+8..Size(F)^2+3*Size(F)+7] then
+              return [4,13,Enumerator( F )[x-(Size(F)^2+2*Size(F)+7)]];
+          elif q mod 6 = 1 and
+            x in [Size(F)^2+3*Size(F)+8..Size(F)^2+3*Size(F)+14] then
+              return l1[x-(Size(F)^2+3*Size(F)+7)];
+          elif q mod 6 = 2 and
+            x in [Size(F)^2+3*Size(F)+8..Size(F)^2+3*Size(F)+11] then
+              return l2[x-(Size(F)^2+3*Size(F)+7)];
+          elif q mod 6 = 3 and 
+            x in [Size(F)^2+3*Size(F)+8..Size(F)^2+3*Size(F)+12] then
+              return l3[x-(Size(F)^2+3*Size(F)+7)];
+          elif q mod 6 = 4 and
+            x in [Size(F)^2+3*Size(F)+8..Size(F)^2+3*Size(F)+13] then
+              return l4[x-(Size(F)^2+3*Size(F)+7)];
+          elif q mod 6 = 5 and
+            x in [Size(F)^2+3*Size(F)+8..Size(F)^2+3*Size(F)+12] then
+              return l5[x-(Size(F)^2+3*Size(F)+7)];
+          fi;
+      end,
+        NumberElement := function( e, x )
+          local q, a, l1, l2, l3, l4, l5;
+          q:= Size( F ); a := PrimitiveRoot( F );
+          
+          l1 := [[4,7, Zero(F), One(F)],[4,7, Zero(F), a],[4,14,One(F)],
+                 [4,14,a],[4,7,a^0, Zero(F)],[4,7, a, Zero(F)],
+                 [4,7, a^2, Zero(F)]];
+          l2 := [[4,7, Zero(F), One(F)],[4,11, One(F), Zero(F) ],
+                 [4,14, One(F)],[4,7, One(F), Zero(F)]];
+          l3 := [[4,7, Zero(F), One(F)],[4,7, Zero(F), a],[4,14,One(F)],
+                 [4,14,a],[4,7, One(F), Zero(F)]];
+          l4 := [[4,7, Zero(F), One(F)],[4,11, One(F), Zero(F) ],
+                 [4,14, One(F)],[4,7, a^0, Zero(F)],
+                 [4,7, a, Zero(F)],[4,7, a^2, Zero(F)]];
+          l5 := [[4,7, Zero(F), One(F)],[4,7, Zero(F), a],[4,14,One(F)],
+                 [4,14,a],[4,7, One(F), Zero(F)]];
+          
+          if x[2] in [1,2] then
+              return x[2];
+          elif x[2] = 3 then
+              return Position( Enumerator( F ), x[3] )+2;
+          elif x[2] in [4,5] then
+              return Size( F )+x[2]-1;
+          elif x[2] = 6 then
+              return Size( F )+4+(Position( Enumerator( F ), x[3])-1)*
+                     Size( F )+Position( Enumerator( F ), x[4] );
+          elif x[2] = 7 and x[3]=x[4] then
+              return Size(F)^2+Size(F)+4+Position( Enumerator( F ), x[3] );
+          elif x[2] = 8 then
+              return Size(F)^2+2*Size(F)+5;
+          elif x[2] = 9 then
+              return Size(F)^2+2*Size(F)+6;
+          elif x[2] = 12 then
+              return Size(F)^2+2*Size(F)+7;
+          elif x[2] = 13 then
+              return Size(F)^2+2*Size(F)+7+
+                     Position( Enumerator( F ), x[3] );
+          elif q mod 6 = 1 and x in l1 then
+              return Size(F)^2+3*Size(F)+7+Position( l1, x );
+          elif q mod 6 = 2 and x in l2 then
+              return Size(F)^2+3*Size(F)+7+Position( l2, x );
+          elif q mod 6 = 3 and x in l3 then
+              return Size(F)^2+3*Size(F)+7+Position( l3, x );
+          elif q mod 6 = 4 and x in l4 then
+              return Size(F)^2+3*Size(F)+7+Position( l4, x );
+          elif q mod 6 = 5 and x in l5 then
+              return Size(F)^2+3*Size(F)+7+Position( l5, x );
+          fi;
+      end,
+        Length := function( e )
+          local q;
+          
+          q := Size( F );
+          if q mod 6 = 1 then
+              return q^2+3*q+14;
+          elif q mod 6 = 2 then
+              return q^2+3*q+11;
+          elif q mod 6 = 3 then
+              return q^2+3*q+12;
+          elif q mod 6 = 4 then
+              return q^2+3*q+13;
+          elif q mod 6 = 5 then
+              return q^2+3*q+12;
+          fi;
+      end ));
+  else
+      Error( "not yet implemented" );
+  fi;
+  R := rec( field := F,
+            dim := dim,
+            type := "Solvable",
+            parlist := parlist );
+  fam := NewFamily( IsLieAlgDBCollection_Solvable );
+  R := Objectify( NewType( fam, IsLieAlgDBCollection_Solvable ), R );
+  
+  return R;
 end );
+  
+InstallMethod(  Enumerator,
+        "method for LieAlgDBCollections",
+        [ IsLieAlgDBCollection_Solvable ],
+        function( R )
+    
+    return EnumeratorByFunctions( NewFamily( 
+                   CategoryCollections( IsLieAlgebra )), 
+                   rec( 
+                        ElementNumber := function( e, n )
+        local par;
+        par := R!.parlist[n];      
+        
+        return SolvableLieAlgebra( R!.field, par );
+    end, 
+      NumberElement := function( e, x )
+        return Position( R!.parlist, x!.arg );
+    end,
+      Length := function( x ) return Length( R!.parlist ); end ));
+  end );
 
 
  

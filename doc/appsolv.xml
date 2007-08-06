@@ -1,7 +1,7 @@
-<Appendix Label="listdescr">
+<Section Label="listdescr">
 <Heading>Description of the solvable and nilpotent Lie algebras</Heading>  
 
-In this appendix we list the multiplication tables of the nilpotent and
+In this section we list the multiplication tables of the nilpotent and
 solvable Lie algebras contained in the package. Some parametric classes
 contain isomorphic Lie algebras, for different values of the parameters.
 For exact descriptions of these isomorphisms we refer to <Cite Key="wdg05"/>,
@@ -37,7 +37,7 @@ ax_1+bx_2.</M> </Item>
 <Item> <M>L_4^9(a)</M> <M>[x_4,x_1] = x_1+ax_2, [x_4,x_2]=x_1, [x_3,x_1]=x_1, 
 [x_3,x_2]=x_2</M> .</Item> 
 <Item> <M>L_4^{10}(a)</M> <M>[x_4,x_1] = x_2, [x_4,x_2]=ax_1, [x_3,x_1]=x_1,
-[x_3,x_2]=x_2</M> .</Item> 
+[x_3,x_2]=x_2</M> Condition on F: the characteristic of F is 2.</Item> 
 <Item> <M>L_4^{11}(a,b)</M> <M>[x_4,x_1] = x_1, [x_4,x_2] = bx_2, 
 [x_4,x_3]=(1+b)x_3, [x_3,x_1]=x_2, [x_3,x_2]=ax_1</M>.
 Condition on F: the characteristic of F is 2. </Item>
@@ -100,8 +100,4 @@ x_6, [x_2,x_3]=x_6, [x_2,x_4]= x_5</M> .</Item>
 <Item> <M>N_{6,25}</M> <M>[x_1,x_2]=x_3, [x_1,x_3]=x_5, [x_1,x_4]=x_6</M> .</Item>
 <Item> <M>N_{6,26}</M> <M>[x_1,x_2]=x_4, [x_1,x_3]=x_5, [x_2,x_3]=x_6</M> .</Item>
 </List>
-
-
-
-
-</Appendix>
+</Section>

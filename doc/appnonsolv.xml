@@ -1,7 +1,7 @@
-<Appendix Label="nonsolvdescr">
+<Section Label="nonsolvdescr">
 <Heading>Description of the non-solvable Lie algebras</Heading>  
 
-In this appendix we list the non-solvable
+In this section we list the non-solvable
 Lie algebras contained in the package. 
 Our notation  follows <Cite Key="Strade"/>, where a more detailed description 
 can also be found. In particular if <Math>L</Math> is a Lie algebra over 
@@ -9,7 +9,7 @@ can also be found. In particular if <Math>L</Math> is a Lie algebra over
 <Math>F&tlt;x_1,\ldots,x_k&tgt;</Math> denotes the linear subspace generated
 by <Math>x_1,\ldots,x_k</Math>, and we also write
  <Math>Fx_1</Math> for <Math>F&tlt;x_1&tgt;</Math> 
-
+</Section>
 
 <Section Label="appdim3">
 <Heading>Dimension 3</Heading>
@@ -22,7 +22,7 @@ Lie algebras:
 </Item>
 <Item> If <A>char F>2</A> then the algebra is <Math>\mbox{sl}(2,F)</Math>.</Item>
 </Enum>
-See Theorem~3.2 of <Cite Key="Strade"/> for details.
+See Theorem 3.2 of <Cite Key="Strade"/> for details.
 </Section>
 
 <Section Label="appdim4">
@@ -31,7 +31,7 @@ Over a finite field <A>F</A>
 of characteristic 2 there are two isomorphism classes of 
 non-solvable Lie algebras with dimension 4, 
 while over a finite field <A>F</A> of odd characteristic 
-the number of isomorphism classes is one (see Theorem~4.1 of <Cite 
+the number of isomorphism classes is one (see Theorem 4.1 of <Cite 
 Key="Strade"/>). The classes are as follows:
 <Enum>
 <Item> characteristic 2: <Math>W(1;\underline 2)</Math> and 
@@ -65,7 +65,7 @@ non-solvable Lie algebras is <Math>3</Math> if the characteristic is at least
 The classes are as follows.
 <Enum>
 <Item><Math>\mbox{sl}(2,F)\oplus F&tlt;x,y&tgt;</Math>, <Math>[x,y]=\delta y</Math> where <Math>\delta\in\{0,1\}</Math>.</Item>
-<Item><Math>\mbox{sl}(2,F)\ltimes V(1)</Math> where <Math>V(1)</Math> is the irreducible 2-dimensional <Math>\mbox{sl}(2,F)</Math>=module.</Item>
+<Item><Math>\mbox{sl}(2,F)\ltimes V(1)</Math> where <Math>V(1)</Math> is the irreducible 2-dimensional <Math>\mbox{sl}(2,F)</Math>-module.</Item>
 <Item>If <Math>\mbox{char }F=3</Math> then there is an additional algebra, namely
 the non-split extension <Math>0\rightarrow V(1)\rightarrow L\rightarrow\mbox{sl}(2,F)\rightarrow 0</Math>.</Item>
 <Item>If <Math>\mbox{char }F=5</Math> then there is an additional algebra: <Math>W(1;\underline 1)</Math>.
@@ -113,7 +113,7 @@ See Theorem 5.1 of <Cite Key="Strade"/>.
 
 <Subsection Label="appdim6charodd"><Heading>General odd characteristic</Heading>
 If the characteristic of the field is odd, then the 6-dimensional non-solvable 
-Lie algebras are described by Theorem 5.2--5.4 of <Cite Key="Strade"/>.
+Lie algebras are described by Theorems 5.2--5.4 of <Cite Key="Strade"/>.
 Over such a field <Math>F</Math>, let us define 
 the following isomorphism 
 classes  of 6-dimensional non-solvable Lie algebras.
@@ -141,8 +141,8 @@ classes in Section <Ref Sect="appdim6charodd"/>, we also obtain the following
 isomorphism classes.
 <Enum>
 <Item><Math>\mbox{sl}(2,F)\ltimes V(2,\chi)</Math> where <Math>\chi</Math> is a 3-dimensional character of <Math>\mbox{sl}(2,F)</Math>. Each
-such character is described by a field element <Math>a</Math> such that
-<Math>T^3+T^2-a</Math> has a root in <Math>F</Math>; see Proposition 3.5 of
+such character is described by a field element <Math>\xi</Math> such that
+<Math>T^3+T^2-\xi</Math> has a root in <Math>F</Math>; see Proposition 3.5 of
 <Cite Key="Strade"/> for more details. 
 </Item>
 <Item><Math>W(1;\underline 1)\ltimes\mathcal O(1;\underline 1)</Math>
@@ -154,18 +154,20 @@ where <Math>\mathcal O(1;\underline 1)</Math> is considered as an abelian Lie al
 extension <Math>0\rightarrow V(1)\rightarrow L\rightarrow \mbox{sl}(2,F)\rightarrow 0</Math>; see  Proposition 4.5 of <Cite Key="Strade"/>. 
 We note that Proposition 4.5 of <Cite Key="Strade"/> lists 
 three such central extensions, but one of them is not a Lie algebra.</Item>
-<Item>One of the two non-split extensions <Math>0\rightarrow\mbox{rad } L\rightarrow L\rightarrow L/\mbox{rad } L\rightarrow 0</Math> with a 5-dimensional ideal; see Theorem~5.4 of <Cite Key="Strade"/>.</Item>
+<Item>One of the two non-split extensions <Math>0\rightarrow\mbox{rad }
+L\rightarrow L\rightarrow L/\mbox{rad } L\rightarrow 0</Math> with a
+5-dimensional ideal; see Theorem 5.4 of <Cite Key="Strade"/>.</Item>
 </Enum>
 
 We note here that  <Cite Key="Strade"/> lists one more non-solvable Lie algebra
-over a field of characteristic 3, namely the one in Theorem~5.3(5). However, 
+over a field of characteristic 3, namely the one in Theorem 5.3(5). However, 
 this 
-algebra is isomorphic to the one in Theorem~5.3(4).
+algebra is isomorphic to the one in Theorem 5.3(4).
 </Subsection>
 
 <Subsection  Label="appdim6char5"><Heading>Characteristic 5</Heading>
 If the characteristic of the field <Math>F</Math> is 5, then, besides the 
-classes in Section~<Ref Sect="appdim6charodd"/>, we also obtain the following 
+classes in Section <Ref Sect="appdim6charodd"/>, we also obtain the following 
 isomorphism classes.
 <Enum><Item><Math>W(1;\underline 1)\oplus F</Math>.</Item>
 <Item>The non-split central extension <Math>0\rightarrow F\rightarrow L\rightarrow W(1;\underline 1)\rightarrow 0</Math>.</Item></Enum>
@@ -174,5 +176,3 @@ isomorphism classes.
 
 </Section>
 
-
-</Appendix>

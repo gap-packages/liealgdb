@@ -10,7 +10,7 @@
 <TitlePage>
   <Title>&LieAlgDB;</Title>
   <Subtitle>A database of Lie algebras</Subtitle>
-  <Version>Version 1.0</Version>
+  <Version>Version 2.0</Version>
 
 <Author>
   Willem de Graaf
@@ -36,38 +36,38 @@ Italy<Br/>
        </Address> 
   </Author>
 
-  <Date>October 2006</Date>
+  <Date>August 2007</Date>
 
 
 
 <Abstract>
-This package provides access to the the classification of the following 
+This package provides access to the classification of the following 
 families of Lie algebras:
 <List>
-<Item>solvable Lie algebras of dimension at most 4;
+<Item> non-solvable Lie algebras over finite fields up to dimension 6;
 </Item>
-<Item>nilpotent Lie algebras of dimension at most 5, and those 
-of dimension~6 over a field of characteristic different from 2;
+<Item> nilpotent Lie algebras of dimension up to 9 over <A>GF(2)</A>, of dimension
+up to 7 over <A>GF(3)</A> or <A>GF(5)</A>;</Item>
+<Item> simple Lie algebras of dimensions between 7 and 9 over <A>GF(2)</A>;
 </Item>
-<Item>
-non-solvable Lie algebras of dimension at most 6 over finite fields;
+<Item> the classification of solvable Lie algebras of dimension at most 4;
 </Item>
-<Item>
-simple Lie algebras of dimension at most 6 over finite fields and those of
-dimension at most 9 over <A>GF(2)</A>.
+<Item> the classification of nilpotent Lie algebras of dimensions at most 5
+and those of dimension 6 over fields  of odd characteristic.
 </Item>
 </List>
 </Abstract>
 
 <Copyright>
-  &copyright; 2006 Willem de Graaf and Csaba Schneider
+  &copyright; 2006--2007 Willem de Graaf and Csaba Schneider
 </Copyright>
   
 <Acknowledgements>
 We are grateful to Andrea Caranti, Marco Costantini, Bettina Eick, 
 Helmut Strade, Michael Vaughan-Lee. Without 
 their help, interest, and encouragement, this package would not have been 
-completed.
+completed. We also acknowledge the effort of the referees to improve the
+implementation and the documentation.
 </Acknowledgements>
 
 </TitlePage>
@@ -80,33 +80,35 @@ completed.
 
 This is the manual for the &GAP; package <Package>LieAlgDB</Package>, 
 for accessing and working with several classifications of Lie algebras. <P/>
-In the mathematics literature many classifications of Lie algebras of various
+In the mathematical literature many classifications of Lie algebras of various
 types have been published (we refer to the bibliography for a few examples). 
 However, working with these classifications from paper is not always easy.
-This package aims at making a few classifications of small dimensional Lie
+This package aims at making a few classifications of small-dimensional Lie
 algebras that have appeared in recent years more accessible. For each 
 classification that is contained in the package,
 functions are provided that construct Lie algebras from that classification
 inside &GAP;. This allows the user to obtain easy access to the often rather
 complicated data contained in a classification, and to directly interface
 the Lie algebras to the functionality for Lie algebras which is already
-contained in &GAP;. <P/>
+contained in the system. <P/>
 The package contains the following classifications:
 <List>
-<Item> non-solvable Lie algebras over finite fields up to dimension 6 (from <Cite Key="Strade"/>),
+<Item> non-solvable Lie algebras over finite fields up to dimension 6 (from <Cite Key="Strade"/>);
 </Item>
-<Item> nilpotent Lie algebras of dimension upto 9 over <A>F=GF(2)</A>, of dimension
-upto 7 over <A>F=GF(3)</A> or <A>F=GF(5)</A> (from <Cite Key="sch"/>),</Item>
-<Item> simple Lie algebras of dimensions between 7 and 9 over <A>F=GF(2)</A> (from <Cite Key="VL"/>),
+<Item> nilpotent Lie algebras of dimension up to 9 over <A>GF(2)</A>, of dimension
+up to 7 over <A>GF(3)</A> or <A>GF(5)</A> (from <Cite Key="sch"/>);</Item>
+<Item> simple Lie algebras of dimensions between 7 and 9 over <A>GF(2)</A> (from <Cite Key="VL"/>);
 </Item>
-<Item> the classification of solvable Lie algebras of dimensions 2,3, and 4 (from <Cite Key="wdg05"/>), 
+<Item> the classification of solvable Lie algebras of dimension at most 4 (from <Cite Key="wdg05"/>); 
 </Item>
-<Item> the classification of nilpotent Lie algebras of dimensions 5 and 6 (from <Cite Key="wdg07"/>).
+<Item> the classification of nilpotent Lie algebras of dimension at most 
+5 and those
+of dimension 6 whose underlying field does not have characteristic 2 (from <Cite Key="wdg07"/>).
 </Item>
 </List>
 
 This manual is structured as follows. The next chapter contains a description of the main
-functions of the package. Subsequently, the appendices contain descriptions of the
+functions of the package. The third chapter contains descriptions of the
 classifications used in the package. These are of course also contained in published papers,
 but for the convenience of the user they have been added here.
 
@@ -116,12 +118,15 @@ but for the convenience of the user they have been added here.
 
 <#Include SYSTEM "families.xml">
 
-</Body>
+<Chapter><Heading>A description of the Lie algebras that are contained in the package</Heading>
 
-<#Include SYSTEM "appsolv.xml">
 <#Include SYSTEM "appnonsolv.xml">
+<#Include SYSTEM "appsimple.xml">
+<#Include SYSTEM "appsolv.xml">
 
 
+</Chapter>
+</Body>
 
 <Bibliography Databases="manual"/>
 
