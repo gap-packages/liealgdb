@@ -160,7 +160,7 @@ InstallMethod( AllNonSolvableLieAlgebras,
         # Make the domain.
                                 R := rec( field := F,
                                           dim := dim,
-                                          type := "Nonsolvable",
+                                          type := "NonSolvable",
                                           parlist := parlist );
                                 fam := NewFamily( IsLieAlgDBCollection_NonSolvable );
                                 

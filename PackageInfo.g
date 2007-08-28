@@ -8,9 +8,9 @@
 SetPackageInfo( rec(
   PackageName := "liealgdb",
   Subtitle := "A database of Lie algebras",
-  Version := "2.0.1",
+  Version := "2.0.2",
   Date    := "28/08/2007",
-  ArchiveURL := "http://www.sztaki.hu/~schneider/Research/LieAlgDB/liealgdb2r0p1",
+  ArchiveURL := "http://www.sztaki.hu/~schneider/Research/LieAlgDB/liealgdb2r0p2",
   ArchiveFormats := ".tar.gz",
 
 ##    - if no 'TextFiles' or 'BinaryFiles' are given and a .zoo archive is
@@ -59,11 +59,11 @@ SetPackageInfo( rec(
     )
   ],  
 
-  Status  := "deposited",
-  #CommunicatedBy 
-  #        := "Bettina Eick",
-  #AcceptDate 
-  #        := "",
+  Status  := "accepted",
+  CommunicatedBy 
+          := "Bettina Eick (Braunschweig)",
+  AcceptDate 
+          := "09/2007",
 
 ##  For a central overview of all packages and a collection of all package
 ##  archives it is necessary to have two files accessible which should be
@@ -115,7 +115,7 @@ SetPackageInfo( rec(
     BookName  := "LieAlgDB",
     ArchiveURLSubset := ["doc"],
     # format/extension can be one of .zoo, .tar.gz, .tar.bz2, -win.zip
-    Archive   := "http://www.sztaki.hu/~schneider/Research/LieAlgDB/liealgdbdoc2r0p1.tar.gz",
+    Archive   := "http://www.sztaki.hu/~schneider/Research/LieAlgDB/liealgdbdoc2r0p2.tar.gz",
     HTMLStart := "doc/chap0.html",
     PDFFile   := "doc/manual.pdf",
     # the path to the .six file used by GAP's help system

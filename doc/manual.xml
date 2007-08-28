@@ -10,7 +10,7 @@
 <TitlePage>
   <Title>&LieAlgDB;</Title>
   <Subtitle>A database of Lie algebras</Subtitle>
-  <Version>Version 2.0.1</Version>
+  <Version>Version 2.0.2</Version>
 
 <Author>
   Willem de Graaf
@@ -36,7 +36,7 @@ Italy<Br/>
        </Address> 
   </Author>
 
-  <Date>August 2007</Date>
+  <Date>September 2007</Date>
 
 
 

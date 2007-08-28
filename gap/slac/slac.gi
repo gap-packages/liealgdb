@@ -768,7 +768,7 @@ isomN:= function( L, x1, x2, x3, x4 )
          y4:= x1-x2+x3;
       fi;
       name:= "L4_13( ";
-      Append( name, StringPrint( F ) );
+      Append( name, LieAlgDBField2String( F ) );
       Append( name, ", " );
       Append( name, String( Zero(F) ) );
       Append( name, " )" );
@@ -809,7 +809,7 @@ isomM9:= function( L, x1, x2, x3, x4, a )
          x3:= Image( f, Basis( Source(f) )[2] );
          x4:= Image( f, Basis( Source(f) )[1] );
          name:= "L4_8( ";
-         Append( name, StringPrint( F ) );
+         Append( name, LieAlgDBField2String( F ) );
          Append( name, " )" );
          K:= SolvableLieAlgebra( F, [4,8] );
          f:= AlgebraHomomorphismByImages(K,L,Basis(K),[x1,x2,x3,x4]);
@@ -849,7 +849,7 @@ isomM9:= function( L, x1, x2, x3, x4, a )
             b:= a;
          fi;
          name:= "L4_9( ";
-         Append( name, StringPrint( F ) );
+         Append( name, LieAlgDBField2String( F ) );
          Append( name, ", " );
          Append( name, String( b ) );
          Append( name, " )" );
@@ -875,7 +875,7 @@ isomM10:= function( L, x1, x2, x3, x4, a )
          y3:= x3;
          y4:= b*x3+x4;
          name:= "L4_13( ";
-         Append( name, StringPrint( F ) );
+         Append( name, LieAlgDBField2String( F ) );
          Append( name, ", " );
          Append( name, String( Zero(F) ) );
          Append( name, " )" );
@@ -885,7 +885,7 @@ isomM10:= function( L, x1, x2, x3, x4, a )
          return rec( name:= [ name, [Zero(F)] ], isom:= f );
       else
          name:= "L4_10( ";
-         Append( name, StringPrint( F ) );
+         Append( name, LieAlgDBField2String( F ) );
          Append( name, ", " );
          Append( name, String( a ) );
          Append( name, " )" );
@@ -903,7 +903,7 @@ isomM11:= function( L, x1, x2, x3, x4, a, b )
                   
       if b = Zero(F) then
          name:= "L4_11( ";
-         Append( name, StringPrint( F ) );
+         Append( name, LieAlgDBField2String( F ) );
          Append( name, ", " );
          Append( name, String( a ) );
          Append( name, ", " );
@@ -922,7 +922,7 @@ isomM11:= function( L, x1, x2, x3, x4, a, b )
          y3:= eps*x3;
          y4:= gam*x3+del*x4;
          name:= "L4_11( ";
-         Append( name, StringPrint( F ) );
+         Append( name, LieAlgDBField2String( F ) );
          Append( name, ", " );
          Append( name, String( One(F) ) );
          Append( name, ", " );
@@ -933,7 +933,7 @@ isomM11:= function( L, x1, x2, x3, x4, a, b )
          return rec( name:= [ name, [One(F),Zero(F)] ],isom:= f);
       else 
          name:= "L4_11( ";
-         Append( name, StringPrint( F ) );
+         Append( name, LieAlgDBField2String( F ) );
          Append( name, ", " );
          Append( name, String( a ) );
          Append( name, ", " );
@@ -982,7 +982,7 @@ solv_type:= function( L )
         
         if x1*x2 = Zero(L) then
            name:= "L2_1( ";
-           Append( name, StringPrint( F ) );
+           Append( name, LieAlgDBField2String( F ) );
            Append( name, " )" );
            K:= SolvableLieAlgebra( F, [2,1] );
            f:= AlgebraHomomorphismByImages( K, L, Basis(K), Basis(L) );
@@ -992,7 +992,7 @@ solv_type:= function( L )
         c1:= Coefficients( b, x2*x1 );
         x2:= x2/c1[1];
         name:= "L2_2( ";
-        Append( name, StringPrint( F ) );
+        Append( name, LieAlgDBField2String( F ) );
         Append( name, " )" );
         K:= SolvableLieAlgebra( F, [2,2] );
         f:= AlgebraHomomorphismByImages( K, L, Basis(K), [x1,x2] );
@@ -1020,7 +1020,7 @@ solv_type:= function( L )
         if x1*x3 = Zero(L) and x2*x3 = Zero(L) then
            # Abelian!
            name:= "L3_1( ";
-           Append( name, StringPrint( F ) );
+           Append( name, LieAlgDBField2String( F ) );
            Append( name, " )" );
            K:= SolvableLieAlgebra( F, [3,1] );
            f:= AlgebraHomomorphismByImages( K, L, Basis(K), Basis(L) );
@@ -1033,7 +1033,7 @@ solv_type:= function( L )
         if c1[1] = c2[2] and c1[2] = Zero(F) and c2[1] = Zero(F) then
            x3:= x3/c1[1];
            name:= "L3_2( ";
-           Append( name, StringPrint( F ) );
+           Append( name, LieAlgDBField2String( F ) );
            Append( name, " )" );
            K:= SolvableLieAlgebra( F, [3,2] );
            f:= AlgebraHomomorphismByImages( K, L, Basis(K), [x1,x2,x3] );
@@ -1060,7 +1060,7 @@ solv_type:= function( L )
            x3:= x3/c2[2];
            par:= c2[1]/(c2[2]^2);
            name:= "L3_3( ";
-           Append( name, StringPrint( F ) );
+           Append( name, LieAlgDBField2String( F ) );
            Append( name, ", " );
            Append( name, String( par ) );
            Append( name, " )" );
@@ -1094,7 +1094,7 @@ solv_type:= function( L )
            fi;
         fi;
         name:= "L3_4( ";
-        Append( name, StringPrint( F ) );
+        Append( name, LieAlgDBField2String( F ) );
         Append( name, ", " );
         Append( name, String( par ) );
         Append( name, " )" );
@@ -1132,7 +1132,7 @@ solv_type:= function( L )
            c1:= Coefficients( Basis( adK, b_adK ), mat );
            if c1 = [ ] then # L is abelian
               name:= "L4_1( ";
-              Append( name, StringPrint( F ) );
+              Append( name, LieAlgDBField2String( F ) );
               Append( name, " )" );
               K:= SolvableLieAlgebra( F, [4,1] );
               f:= AlgebraHomomorphismByImages( K, L, Basis(K), Basis(L) );
@@ -1179,7 +1179,7 @@ solv_type:= function( L )
            if Degree(mp) = 1 then
               if c1[1] = Zero(F) then           
                  name:= "L4_1( ";
-                 Append( name, StringPrint( F ) );
+                 Append( name, LieAlgDBField2String( F ) );
                  Append( name, " )" );
                  K:= SolvableLieAlgebra( F, [4,1] );
                  f:= AlgebraHomomorphismByImages( K, L, Basis(K), Basis(L) );
@@ -1187,7 +1187,7 @@ solv_type:= function( L )
               else
                  x4:= x4/c1[1];
                  name:= "L4_2( ";
-                 Append( name, StringPrint( F ) );
+                 Append( name, LieAlgDBField2String( F ) );
                  Append( name, " )" );
                  K:= SolvableLieAlgebra( F, [4,2] );
                  f:= AlgebraHomomorphismByImages(K,L,Basis(K),[x1,x2,x3,x4]);
@@ -1254,7 +1254,7 @@ solv_type:= function( L )
                  x3:= x3/s;
                  x4:= x4/s;
                  name:= "L4_3( ";
-                 Append( name, StringPrint( F ) );
+                 Append( name, LieAlgDBField2String( F ) );
                  Append( name, ", " );
                  Append( name, String( t/s ) );
                  Append( name, " )" );
@@ -1266,7 +1266,7 @@ solv_type:= function( L )
                  x3:= x3/t;
                  x4:= x4/t;
                  name:= "L4_4( ";
-                 Append( name, StringPrint( F ) );
+                 Append( name, LieAlgDBField2String( F ) );
                  Append( name, " )" );
                  K:= SolvableLieAlgebra( F, [4,4] );
                  f:= AlgebraHomomorphismByImages(K,L,Basis(K),
@@ -1274,7 +1274,7 @@ solv_type:= function( L )
                  return rec( name:= [ name, [] ], isom:= f );
               else
                  name:= "L4_5( ";
-                 Append( name, StringPrint( F ) );
+                 Append( name, LieAlgDBField2String( F ) );
                  Append( name, " )" );
                  K:= SolvableLieAlgebra( F, [4,5] );
                  f:= AlgebraHomomorphismByImages(K,L,Basis(K),
@@ -1307,7 +1307,7 @@ solv_type:= function( L )
               x3:= x3/(c1[3]^2);
               x4:= x4/c1[3];
               name:= "L4_6( ";
-              Append( name, StringPrint( F ) );
+              Append( name, LieAlgDBField2String( F ) );
               Append( name, ", " );
               Append( name, String( c1[1]/(c1[3]^3) ) );
               Append( name, ", ");
@@ -1325,7 +1325,7 @@ solv_type:= function( L )
                  x4:= x4*s;
                  t:= s^2*c1[2];
                  name:= "L4_7( ";
-                 Append( name, StringPrint( F ) );
+                 Append( name, LieAlgDBField2String( F ) );
                  Append( name, ", " );
                  Append( name, String( t ) );
                  Append( name, ", ");
@@ -1404,7 +1404,7 @@ solv_type:= function( L )
                     x4:= x4/a;
                  fi;
                  name:= "L4_7( ";
-                 Append( name, StringPrint( F ) );
+                 Append( name, LieAlgDBField2String( F ) );
                  Append( name, ", " );
                  Append( name, String( c1[1] ) );
                  Append( name, ", ");
@@ -1446,7 +1446,7 @@ solv_type:= function( L )
                  x3:= Image( f, Basis( Source(f) )[2] );
                  x4:= Image( f, Basis( Source(f) )[1] );
                  name:= "L4_8( ";
-                 Append( name, StringPrint( F ) );
+                 Append( name, LieAlgDBField2String( F ) );
                  Append( name, " )" );
                  K:= SolvableLieAlgebra( F, [4,8] );
                  f:= AlgebraHomomorphismByImages(K,L,Basis(K),
@@ -1476,7 +1476,7 @@ solv_type:= function( L )
                        return isomN( L, y1, y2, y3, y4 );
                     else
                       name:= "L4_10( ";
-                      Append( name, StringPrint( F ) );
+                      Append( name, LieAlgDBField2String( F ) );
                       Append( name, ", " );
                       Append( name, String( Zero(F) ) );
                       Append( name, " )" );
@@ -1507,7 +1507,7 @@ solv_type:= function( L )
               elif D[1][1] = Zero(F) then
                  x4:= x4/D[1][3];
                  name:= "L4_6( ";
-                 Append( name, StringPrint( F ) );
+                 Append( name, LieAlgDBField2String( F ) );
                  Append( name, ", " );
                  Append( name, String( Zero(F) ) );
                  Append( name, ", ");
@@ -1559,7 +1559,7 @@ solv_type:= function( L )
               if D[1][3]=Zero(F) and D[3][1]=Zero(F) and D[1][1]=D[3][3] then
                  x4:= x4/D[1][1];
                  name:= "L4_12( ";
-                 Append( name, StringPrint( F ) );
+                 Append( name, LieAlgDBField2String( F ) );
                  Append( name, " )" );
                  K:= SolvableLieAlgebra( F, [4,12] );
                  f:= AlgebraHomomorphismByImages(K,L,Basis(K),
@@ -1604,7 +1604,7 @@ solv_type:= function( L )
                     a:= (v1/u1)*(u3/u1);
 
                     name:= "L4_13( ";
-                    Append( name, StringPrint( F ) );
+                    Append( name, LieAlgDBField2String( F ) );
                     Append( name, ", " );
                     Append( name, String( a ) );
                     Append( name, " )" );
@@ -1628,7 +1628,7 @@ solv_type:= function( L )
                     fi;
      
                     name:= "L4_13( ";
-                    Append( name, StringPrint( F ) );
+                    Append( name, LieAlgDBField2String( F ) );
                     Append( name, ", " );
                     Append( name, String( Zero(F) ) );
                     Append( name, " )" );
@@ -1663,7 +1663,7 @@ solv_type:= function( L )
                     if par = Zero(F) then
 
                        name:= "L4_7( ";
-                       Append( name, StringPrint( F ) );
+                       Append( name, LieAlgDBField2String( F ) );
                        Append( name, ", " );
                        Append( name, String( Zero(F) ) );
                        Append( name, ", " );
@@ -1678,7 +1678,7 @@ solv_type:= function( L )
 
                        
                        name:= "L4_14( ";
-                       Append( name, StringPrint( F ) );
+                       Append( name, LieAlgDBField2String( F ) );
                        Append( name, ", " );
                        Append( name, String( par ) );
                        Append( name, " )" );
@@ -1695,7 +1695,7 @@ solv_type:= function( L )
                     y3:= x1;
                     y4:= x4;
                     name:= "L4_7( ";
-                    Append( name, StringPrint( F ) );
+                    Append( name, LieAlgDBField2String( F ) );
                     Append( name, ", " );
                     Append( name, String( Zero(F) ) );
                     Append( name, ", " );
@@ -3820,7 +3820,7 @@ nilp_type:= function( L )
     Append( name, "_" );
     Append( name, String( r.type[2] ) );
     Append( name, "( ");
-    Append( name, StringPrint( F ) );
+    Append( name, LieAlgDBField2String( F ) );
     if Length(r.type) = 3 then
        Append( name, ", " );
        Append( name, String( r.type[3] ) );

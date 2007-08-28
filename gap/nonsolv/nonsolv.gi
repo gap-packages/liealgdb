@@ -867,8 +867,10 @@ InstallMethod( NonSolvableLieAlgebra,
                         SetEntrySCTable( T, 6, 1, [1,5] );        
                         L := LieAlgebraByStructureConstants( F, T );
                         SetName( L, Concatenation( "sl(2,", 
-                                String( Size( F )), ").(", String( F ), "+", 
-                                String( F ), "+", String( F ), ")(1)"  ));
+                                String( Size( F )), ").(", 
+				LieAlgDBField2String( F ), "+", 
+                                LieAlgDBField2String( F ), "+", 
+                                LieAlgDBField2String( F ), ")(1)"  ));
                         L!.arg := arg;
                         return L;
                         
@@ -888,8 +890,10 @@ InstallMethod( NonSolvableLieAlgebra,
                             SetEntrySCTable( T, 6, 3, [1,4] );        
                             L := LieAlgebraByStructureConstants( F, T );
                             SetName( L, Concatenation( "sl(2,", 
-                                    String( Size( F )), ").(", String(F), "+", 
-                                    String( F ), "+", String( F ), ")(2)"  ));
+                                    String( Size( F )), ").(", 
+                                    LieAlgDBField2String( F ), "+", 
+                                    LieAlgDBField2String( F ), "+", 
+                                    LieAlgDBField2String( F ), ")(2)"  ));
                             L!.arg := arg;
                             return L;
                             
@@ -907,7 +911,8 @@ InstallMethod( NonSolvableLieAlgebra,
                             SetEntrySCTable( T, 2, 5, [3,5] );
                             SetEntrySCTable( T, 3, 4, [2,5] );
                             L := LieAlgebraByStructureConstants( F, T );    
-                            SetName( L, Concatenation( "W(1;1)+", String( F )));
+                            SetName( L, Concatenation( "W(1;1)+", 
+                                    LieAlgDBField2String( F )));
                             L!.arg := arg;
                             return L;
                             
@@ -927,7 +932,7 @@ InstallMethod( NonSolvableLieAlgebra,
                             SetEntrySCTable( T, 4, 5, [1,6] );
                             L := LieAlgebraByStructureConstants( F, T );    
                             SetName( L, Concatenation( "W(1;1).", 
-                                    String( F )));
+                                    LieAlgDBField2String( F )));
                             L!.arg := arg;
                             return L;
                         else
