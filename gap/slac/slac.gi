@@ -950,7 +950,8 @@ solv_type:= function( L )
      local n, F, sp, k, BL, b, x1, x2, x3, x4, c1, c2, K, f, name, par, 
            id, num, c3, c4, mat, is_diag, i, j, facs, ev, s, t, sol, 
            sevec, tevec, cfs, u, v, w, found, y1, y2, y3, y4,  u1, u3, 
-           v1, v3, a, D, adM, adK, dd, bK, b_adK, ef, ev1, ev2, mp, q, C, R;
+           v1, v3, a, D, adM, adK, dd, bK, b_adK, ef, ev1, ev2, mp, q, C, 
+           R, exp;
 
      n:= Dimension( L );
      F:= LeftActingDomain( L );

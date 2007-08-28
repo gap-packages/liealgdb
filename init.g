@@ -4,7 +4,7 @@
 ##
 #H  $Id: 
 
-DeclareAutoPackage( "liealgdb", "2.0", 
+DeclareAutoPackage( "liealgdb", "2.0.1", 
   function()
     if not CompareVersionNumbers( VERSION, "4.4" ) then
       Info( InfoWarning, 1, "This version of the liealgdb package requires ",

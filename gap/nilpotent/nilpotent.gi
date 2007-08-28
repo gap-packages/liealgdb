@@ -5,7 +5,7 @@
 #W  This file contains some functions to access the classifications 
 #W  of small-dimensional nilpotent Lie algebras over small fields.
 ##
-#H  $Id: nilpotent.gi,v 1.7 2007/07/25 09:15:03 gap Exp $
+#H  $Id: nilpotent.gi,v 1.8 2007/08/28 20:07:31 gap Exp $
 
 InstallMethod( NrNilpotentLieAlgebras, 
         "for a finite field and a positive integer",
@@ -166,7 +166,7 @@ ReadStringToNilpotentLieAlgebra := function( string, p, dim )
     
     L := LieAlgebraByStructureConstants( GF(p), T );
     L!.arg := string;
-    Setter( IsLieNilpotentOverFp )( L, true );
+    Setter( IsLieNilpotent )( L, true );
     return L;
 end;
 
