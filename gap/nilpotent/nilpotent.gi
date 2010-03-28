@@ -26,7 +26,7 @@ InstallMethod( NrNilpotentLieAlgebras,
         return 9;
     elif dim = 6 and Characteristic( F ) > 2 then
         return 34;
-    elif dim = 6 and Size( F ) = 2 then
+    elif dim = 6 and Characteristic( F )= 2 then
         return 36;
     elif dim = 7 and Size( F ) = 2 then
         return 202;
@@ -56,9 +56,9 @@ InstallMethod( AllNilpotentLieAlgebras,
         [ IsField and IsFinite,  IsPosInt ], 
         0,
         function( F, dim )
-    local parlist, no, p, R, fam;
-    
-    
+    local parlist, no, l, ex, xi, p, R, fam;    
+
+     
     if dim = 1 then 
         parlist := [[1,1]];
     elif dim = 2 then
@@ -72,17 +72,36 @@ InstallMethod( AllNilpotentLieAlgebras,
     elif dim = 6 and Characteristic( F ) > 2 then
         parlist:= [ ];
         p:= PrimitiveRoot( F );
-        for no in [1..26] do
-            if no in [19,21,22,24] then
+        for no in [1..28] do
+            if no in [ 19, 21 ] then
+                Add( parlist, [6,no,One(F)] );
+                Add( parlist, [6,no,p] );  
+            elif no in [ 22, 24 ] then
                 Add( parlist, [6,no,0] );
                 Add( parlist, [6,no,One(F)] );
-                Add( parlist, [6,no,p] );            
+                Add( parlist, [6,no,p] );                   
             else
                 Add( parlist, [6,no] );
             fi;
         od;
-    elif [ Size( F ), dim ] = [ 2, 6 ] then
-        parlist := _liealgdb_nilpotent_d6f2;
+     elif dim = 6 and Characteristic( F ) = 2 then        
+        parlist:= [ ];
+        ex:= First( [0..( Size( F )-1 )],i->Trace( F,PrimitiveElement( F )^i )= One( F ) );
+        xi:= PrimitiveElement( F )^ex;
+        l:=[1..36];
+        SubtractSet( l, [ 31, 32 ] );
+        for no in l do
+            if no in [ 19, 21 ] then
+                Add( parlist, [6,no,One(F)] );
+            elif no in [ 22, 24 ] then
+                Add( parlist, [6,no,0] );
+            elif no in [ 35, 36 ] then
+                Add( parlist, [6,no,0] );
+                Add( parlist, [6,no,xi] );  
+            else
+                Add( parlist, [6,no] );
+            fi;
+        od;
     elif [Size( F ), dim ] = [ 2, 7 ] then
         parlist := _liealgdb_nilpotent_d7f2;
     elif [Size( F ), dim ] = [ 2, 8 ] then

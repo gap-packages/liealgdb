@@ -10,17 +10,29 @@
 <TitlePage>
   <Title>&LieAlgDB;</Title>
   <Subtitle>A database of Lie algebras</Subtitle>
-  <Version>Version 2.0.2</Version>
+  <Version>Version 2.1</Version>
+
+<Author>
+  Serena Cical&#242;
+  <Email>cicalo@science.unitn.it</Email>
+ <Address>
+    	    Dipartimento di Matematica e Informatica<Br/>
+            Via Ospedale, 72<Br/>
+            09124 Cagliari<Br/>
+            Italy<Br/>
+       </Address> 
+   </Author>
+
 
 <Author>
   Willem de Graaf
   <Email>degraaf@science.unitn.it</Email>
   <Homepage>http://www.science.unitn.it/~degraaf/</Homepage>
           <Address>
-    	    Dipartimento di Matematica<Br/>
-Via Sommarive 14<Br/>
-I-38050 Povo (Trento)<Br/>
-Italy<Br/>
+    	   Dipartimento di Matematica<Br/>
+           Via Sommarive, 14<Br/>
+           38050 Povo (Trento)<Br/>
+           Italy<Br/>
        </Address> 
   </Author>
 
@@ -36,7 +48,7 @@ Italy<Br/>
        </Address> 
   </Author>
 
-  <Date>September 2007</Date>
+  <Date>November 2010</Date>
 
 
 
@@ -52,8 +64,7 @@ up to 7 over <A>GF(3)</A> or <A>GF(5)</A>;</Item>
 </Item>
 <Item> the classification of solvable Lie algebras of dimension at most 4;
 </Item>
-<Item> the classification of nilpotent Lie algebras of dimensions at most 5
-and those of dimension 6 over fields  of odd characteristic.
+<Item> the classification of nilpotent Lie algebras of dimensions at most 6.
 </Item>
 </List>
 </Abstract>
@@ -66,8 +77,12 @@ and those of dimension 6 over fields  of odd characteristic.
 We are grateful to Andrea Caranti, Marco Costantini, Bettina Eick, 
 Helmut Strade, Michael Vaughan-Lee. Without 
 their help, interest, and encouragement, this package would not have been 
-completed. We also acknowledge the effort of the referees to improve the
-implementation and the documentation.
+made. We also acknowledge the effort of the referees to improve the
+implementation and the documentation.<P/>
+Serena Cical&#242; would like to thank the Centro de &#193;lgebra da
+Universidade de Lisboa for their kind hospitality during July - December 2009 and May - September 2010, when the
+classification of the 6-dimensional nilpotent Lie algebras over
+fields of characteristic 2 was made and added to the package.
 </Acknowledgements>
 
 </TitlePage>
@@ -102,14 +117,13 @@ up to 7 over <A>GF(3)</A> or <A>GF(5)</A> (from <Cite Key="sch"/>);</Item>
 <Item> the classification of solvable Lie algebras of dimension at most 4 (from <Cite Key="wdg05"/>); 
 </Item>
 <Item> the classification of nilpotent Lie algebras of dimension at most 
-5 and those
-of dimension 6 whose underlying field does not have characteristic 2 (from <Cite Key="wdg07"/>).
+6 (from <Cite Key="wdg07"/> and <Cite Key="cdgs10"/>).
 </Item>
 </List>
 
 This manual is structured as follows. The next chapter contains a description of the main
 functions of the package. The third chapter contains descriptions of the
-classifications used in the package. These are of course also contained in published papers,
+classifications used in the package. Most of these are contained in published papers,
 but for the convenience of the user they have been added here.
 
 

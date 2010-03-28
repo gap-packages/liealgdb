@@ -303,10 +303,9 @@ and the package does not contain a function called <A>SimpleLieAlgebra</A>.
 <Section Label="solvnilp">
 <Heading>Solvable and nilpotent Lie algebras</Heading>
 
-The package contains the classification of solvable Lie algebras of dimensions 2,3, and 4 
+The package contains the classification of solvable Lie algebras of dimensions 2, 3 and 4 
 (taken from <Cite Key="wdg05"/>), and the classification of nilpotent Lie algebras of 
-dimensions 5 and 6 (from <Cite Key="wdg07"/>). The classification of nilpotent Lie algebras
-of dimension 6 is only complete for base fields of characteristic not 2. The classifications
+dimensions 5 and 6 (from <Cite Key="cdgs10"/>). The classifications
 are complemented by a function for identifying a given Lie algebra as a member of the list.
 This function also returns an explicit isomorphism.
 
@@ -344,8 +343,8 @@ gap> SolvableLieAlgebra( Rationals, [4,6,1,2] );
 Here <A>F</A> is an arbitrary field, <A>pars</A> is a list of parameters with 
 length between <K>2</K> and <K>3</K>. The first entry of <A>pars</A>
 is the dimension of the algebra, which has to be 5 or 6. The second entry of <A>pars</A> 
-is the number of the Lie algebra with which it appears in the list of <Cite Key="wdg07"/>.
-A Lie algebra in the list of <Cite Key="wdg07"/> can have one parameter. In that case the
+is the number of the Lie algebra with which it appears in the list of Section <Ref Sect="listdescr"/>.
+A Lie algebra in the list of Section <Ref Sect="listdescr"/> can have one parameter. In that case the
 list <A>pars</A> also has to contain the parameter. 
 <Example>
 gap> NilpotentLieAlgebra( GF(3^7), [ 6, 24, Z(3^7)^101 ] );
@@ -377,14 +376,11 @@ usage.
 Here <A>F</A> is a finite field, and <A>dim</A> not greater than 9. 
 Further, if <A>dim=9</A> or <A>dim=8</A>, then <A>F</A> must be <A>GF(2)</A>;
 if <A>dim=7</A> then <A>F</A> must be one of <A>GF(2)</A>, <A>GF(3)</A>,
-<A>GF(5)</A>; if <A>dim=6</A> then either <A>F</A> must be <A>GF(2)</A>
-or the size of <A>F</A> must be odd; and if <A>dim&lt;6</A> then <A>F</A> can
+<A>GF(5)</A> and if <A>dim&#8804;6</A> then <A>F</A> can
 be an arbitrary finite field.
 A collection of all nilpotent Lie algebras over <A>F</A> of dimension
-<A>dim</A> is returned. If <A>dim</A> is not greater than 5 or <A>dim=6</A> 
-and the
-   characteristic of <A>F</A> is odd, then the collection of
-   nilpotent Lie algebras is determined by <Cite Key="wdg07"/>, otherwise the 
+<A>dim</A> is returned. If <A>dim</A> is not greater than 6 then the collection of
+   nilpotent Lie algebras is determined by <Cite Key="cdgs10"/>, otherwise the 
 classification can be found in <Cite Key="sch"/>. The output does not contain isomorphic Lie
 algebras. The order in which the Lie algebras appear in the collection
 is always the same. It is possible to construct an enumerator from the output 
@@ -395,7 +391,7 @@ usage.
 </ManSection>
 
 <ManSection>
-<Meth Name="NumberOfNilpotentLieAlgebras" 
+<Meth Name="NrNilpotentLieAlgebras" 
          Arg="F, dim"/>
    <Description>
 Here <A>F</A> is a finite field, and <A>dim</A> is an integer.
@@ -412,8 +408,7 @@ The number of nilpotent Lie algebras over <A>F</A> of dimension
          Arg="L"/>
    <Description>
 Here <A>L</A> is a solvable Lie algebra of dimension 2,3, or 4, or it is a
-nilpotent Lie algebra of dimension 5 or 6 (in the latter case it has to be of
-characteristic not 2). This function returns a record with three fields.
+nilpotent Lie algebra of dimension 5 or 6. This function returns a record with three fields.
 <List>
 <Item><A>name</A> This is a string containing the name of the Lie algebra. It starts
 with a capital L if it is a solvable Lie algebra of dimension 2,3,4. It starts with

@@ -8,8 +8,8 @@
 SetPackageInfo( rec(
   PackageName := "liealgdb",
   Subtitle := "A database of Lie algebras",
-  Version := "2.0.2",
-  Date    := "28/08/2007",
+  Version := "2.1",
+  Date    := "28/03/2010",
   ArchiveURL := "http://www.sztaki.hu/~schneider/Research/LieAlgDB/liealgdb2r0p2",
   ArchiveFormats := ".tar.gz",
 
@@ -28,6 +28,22 @@ SetPackageInfo( rec(
   Persons := [ 
 
     rec( 
+      LastName      := "Cicalo'",
+      FirstNames    := "Serena",
+      IsAuthor      := true,
+      IsMaintainer  := true,
+      Email         := "cicalo@science.unitn.it",
+      PostalAddress := Concatenation( [
+                     "Serena Cicalo'\n",
+                         "Dipartimento di Matematica e Informatica\n",
+                         "Via Ospedale 72\n",
+                         "Italy" ]),
+      Place         := "Cagliari",
+      Institution   := "Universita' di Cagliari"
+
+             ),
+
+    rec( 
       LastName      := "de Graaf",
       FirstNames    := "Willem",
       IsAuthor      := true,
@@ -40,7 +56,7 @@ SetPackageInfo( rec(
                          "Via Sommarive 14\n",
                          "Italy" ]),
       Place         := "Trento",
-      Institution   := "Universita di Trento"
+      Institution   := "Universita' di Trento"
              ),
                    rec( 
       LastName      := "Schneider",

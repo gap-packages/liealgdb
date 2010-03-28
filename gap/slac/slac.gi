@@ -214,11 +214,12 @@ InstallMethod( NilpotentLieAlgebra,  "for a field and a list", true,
 function( F, data )
 
    local L, d, no, a, ff, arg,
-         N1_1, N2_1, N3_1, N3_2, N4_1, N4_2, N4_3, 
-         N6_1, N6_2, N6_3, N6_4, N6_5, N6_6, N6_7, N6_8, N6_9, N6_10,
-         N6_11, N6_12, N6_13, N6_14, N6_15, N6_16, N6_17, N6_18, N6_19, 
-	 N6_20, N6_21, N6_22, N6_23, N6_24, N6_25, N6_26,N5_1, N5_2, N5_3, 
-	 N5_4, N5_5, N5_6, N5_7, N5_8, N5_9;
+         N1_1, N2_1, N3_1, N3_2, N4_1, N4_2, N4_3, N5_1, N5_2, N5_3, 
+	 N5_4, N5_5, N5_6, N5_7, N5_8, N5_9, N6_1, N6_2, N6_3, N6_4, 
+         N6_5, N6_6, N6_7, N6_8, N6_9, N6_10, N6_11, N6_12, N6_13, N6_14, 
+         N6_15, N6_16, N6_17, N6_18, N6_19, N6_20, N6_21, N6_22, N6_23, N6_24, 
+         N6_25, N6_26, N6_27, N6_28, N6_29, N6_30, N6_31, N6_32, N6_33, N6_34, 
+         N6_35, N6_36 ;
 
 N1_1 := function( F )
     local T;
@@ -254,7 +255,7 @@ end;
 N4_2 := function( F )
     local T;
     T := EmptySCTable( 4, Zero(F), "antisymmetric" );
-    SetEntrySCTable( T, 1, 2, [1,4] );
+    SetEntrySCTable( T, 1, 2, [1,3] );
     return LieAlgebraByStructureConstants( F, T );
 end;
 
@@ -492,8 +493,8 @@ N6_13:= function( F )
    T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
    SetEntrySCTable( T, 1, 2, [1,3] );
    SetEntrySCTable( T, 1, 3, [1,5] );
-   SetEntrySCTable( T, 2, 4, [1,5] );
    SetEntrySCTable( T, 1, 5, [1,6] );
+   SetEntrySCTable( T, 2, 4, [1,5] );
    SetEntrySCTable( T, 3, 4, [1,6] );
    return LieAlgebraByStructureConstants( F, T );
 
@@ -520,8 +521,8 @@ N6_15:= function( F )
    SetEntrySCTable( T, 1, 2, [1,3] );
    SetEntrySCTable( T, 1, 3, [1,4] );
    SetEntrySCTable( T, 1, 4, [1,5] );
-   SetEntrySCTable( T, 2, 3, [1,5] );
    SetEntrySCTable( T, 1, 5, [1,6] );
+   SetEntrySCTable( T, 2, 3, [1,5] );
    SetEntrySCTable( T, 2, 4, [1,6] );
    return LieAlgebraByStructureConstants( F, T );
 
@@ -541,7 +542,6 @@ N6_16:= function( F )
 end;
 
 N6_17:= function( F )
-
 
    local T;
    T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
@@ -572,6 +572,7 @@ N6_19:= function( F, a )
    T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
    SetEntrySCTable( T, 1, 2, [1,4] );
    SetEntrySCTable( T, 1, 3, [1,5] );
+   SetEntrySCTable( T, 1, 5, [1,6] );
    SetEntrySCTable( T, 2, 4, [1,6] );
    SetEntrySCTable( T, 3, 5, [a,6] );
    return LieAlgebraByStructureConstants( F, T );
@@ -596,8 +597,8 @@ N6_21:= function( F, a )
    T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
    SetEntrySCTable( T, 1, 2, [1,3] );
    SetEntrySCTable( T, 1, 3, [1,4] );
-   SetEntrySCTable( T, 2, 3, [1,5] );
    SetEntrySCTable( T, 1, 4, [1,6] );
+   SetEntrySCTable( T, 2, 3, [1,5] );
    SetEntrySCTable( T, 2, 5, [a,6] );
    return LieAlgebraByStructureConstants( F, T );
 
@@ -662,6 +663,134 @@ N6_26:= function( F )
 
 end;
 
+N6_27:= function( F )
+
+   local T;
+   T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+   SetEntrySCTable( T, 1, 2, [1,3] );
+   SetEntrySCTable( T, 1, 3, [1,5] );
+   SetEntrySCTable( T, 2, 4, [1,6] );
+   return LieAlgebraByStructureConstants( F, T );
+
+end;
+
+N6_28:= function( F )
+
+   local T;
+   T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+   SetEntrySCTable( T, 1, 2, [1,3] );
+   SetEntrySCTable( T, 1, 3, [1,4] );
+   SetEntrySCTable( T, 1, 4, [1,5] );
+   SetEntrySCTable( T, 2, 3, [1,6] );
+   return LieAlgebraByStructureConstants( F, T );
+
+end;
+
+N6_29:= function( F )
+
+   local T;
+   T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+   SetEntrySCTable( T, 1, 2, [1,3] );
+   SetEntrySCTable( T, 1, 3, [1,5] );
+   SetEntrySCTable( T, 1, 5, [1,6] );
+   SetEntrySCTable( T, 2, 4, [1,5,1,6] );
+   SetEntrySCTable( T, 3, 4, [1,6] );
+   return LieAlgebraByStructureConstants( F, T );
+
+end;
+
+N6_30:= function( F )
+
+   local T;
+   T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+   SetEntrySCTable( T, 1, 2, [1,3] );
+   SetEntrySCTable( T, 1, 3, [1,4] );
+   SetEntrySCTable( T, 1, 4, [1,5] );
+   SetEntrySCTable( T, 1, 5, [1,6] );
+   SetEntrySCTable( T, 2, 3, [1,5,1,6] );
+   SetEntrySCTable( T, 2, 4, [1,6] );
+   return LieAlgebraByStructureConstants( F, T );
+
+end;
+
+N6_31:= function( F, a )
+
+   local T;
+   T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+   SetEntrySCTable( T, 1, 2, [1,3] );
+   SetEntrySCTable( T, 1, 3, [1,4] );
+   SetEntrySCTable( T, 1, 4, [1,5] );
+   SetEntrySCTable( T, 2, 3, [1,5,a,6] );
+   SetEntrySCTable( T, 2, 5, [1,6] );
+   SetEntrySCTable( T, 3, 4, [1,6] );
+   return LieAlgebraByStructureConstants( F, T );
+
+end;
+
+N6_32:= function( F, a )
+
+   local T;
+   T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+   SetEntrySCTable( T, 1, 2, [1,3] );
+   SetEntrySCTable( T, 1, 3, [1,4] );
+   SetEntrySCTable( T, 1, 4, [1,5] );
+   SetEntrySCTable( T, 2, 3, [a,6] );
+   SetEntrySCTable( T, 2, 5, [1,6] );
+   SetEntrySCTable( T, 3, 4, [1,6] );
+   return LieAlgebraByStructureConstants( F, T );
+
+end;
+
+N6_33:= function( F )
+
+   local T;
+   T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+   SetEntrySCTable( T, 1, 2, [1,4] );
+   SetEntrySCTable( T, 1, 3, [1,5] );
+   SetEntrySCTable( T, 2, 5, [1,6] );
+   SetEntrySCTable( T, 3, 4, [1,6] );
+   return LieAlgebraByStructureConstants( F, T );
+
+end;
+
+N6_34:= function( F )
+
+   local T;
+   T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+   SetEntrySCTable( T, 1, 2, [1,3] );
+   SetEntrySCTable( T, 1, 3, [1,4] );
+   SetEntrySCTable( T, 1, 5, [1,6] );
+   SetEntrySCTable( T, 2, 3, [1,5] );
+   SetEntrySCTable( T, 2, 4, [1,6] );
+   return LieAlgebraByStructureConstants( F, T );
+
+end;
+
+N6_35:= function( F, a )
+
+   local T;
+   T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+   SetEntrySCTable( T, 1, 2, [1,5] );
+   SetEntrySCTable( T, 1, 3, [1,6] );
+   SetEntrySCTable( T, 2, 4, [a,6] );
+   SetEntrySCTable( T, 3, 4, [1,5,1,6] );
+   return LieAlgebraByStructureConstants( F, T );
+
+end;
+
+N6_36:= function( F, a )
+
+   local T;
+   T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+   SetEntrySCTable( T, 1, 2, [1,3] );
+   SetEntrySCTable( T, 1, 3, [1,5] );
+   SetEntrySCTable( T, 1, 4, [a,6] );
+   SetEntrySCTable( T, 2, 3, [1,6] );
+   SetEntrySCTable( T, 2, 4, [1,5,1,6] );
+   return LieAlgebraByStructureConstants( F, T );
+
+end;
+
    if not Length( data ) >= 2 then 
       Error("<data> has to have length at least two"); 
    fi;
@@ -695,8 +824,8 @@ end;
            Error("the second element of <data> has to be <= 9");
        fi;
    else
-       if no > 26  then
-           Error("the second element of <data> has to be <= 26");
+       if no > 36  then
+           Error("the second element of <data> has to be <= 36");
        fi;
    fi;
 
@@ -730,8 +859,9 @@ end;
   else
       ff:= [ N6_1, N6_2, N6_3, N6_4, N6_5, N6_6, N6_7, N6_8, N6_9, N6_10,
              N6_11, N6_12, N6_13, N6_14, N6_15, N6_16, N6_17, N6_18, N6_19,
-             N6_20, N6_21, N6_22, N6_23, N6_24, N6_25, N6_26 ];
-      if no in [19,21,22,24] then
+             N6_20, N6_21, N6_22, N6_23, N6_24, N6_25, N6_27, N6_26, N6_28,
+             N6_29, N6_30, N6_31, N6_32, N6_33, N6_34, N6_35, N6_36];
+      if no in [19,21,22,24,31,32,35,36] then
          arg:= [F,a];
       else
          arg:= [F];
@@ -1730,68 +1860,68 @@ class_dim_le4:= function( L )
 
     local F, C, C1, D, i, x, y, z, u, T, V, K, A, cc, b, a;
 
-    F:= LeftActingDomain(L);
-    if Dimension(L) = 3 then
+    F:= LeftActingDomain( L );
+    if Dimension( L ) = 3 then
        if IsLieAbelian( L ) then
-          return rec( type:= [3,1], f:= liealg_hom( L, L, Basis(L), Basis(L) ) );
+          return rec( type:= [ 3, 1 ], f:= liealg_hom( L, L, Basis( L ), Basis( L ) ) );
        else
-          C:= LieCentre(L);
+          C:= LieCentre( L );
           for i in [1..3] do
-              if not Basis(L)[i] in C then 
-                 x:= Basis(L)[i]; break;
+              if not Basis( L )[i] in C then 
+                 x:= Basis( L )[i]; break;
               fi;
           od;
 
-          C:= Subalgebra( L, [x,Basis(C)[1]] );
+          C:= Subalgebra( L, [x,Basis( C )[1]] );
           for i in [1..3] do
-              if not Basis(L)[i] in C then 
-                 y:= Basis(L)[i]; break;
+              if not Basis( L )[i] in C then 
+                 y:= Basis( L )[i]; break;
               fi;
           od;
 
-          T:= EmptySCTable( 3, Zero(F), "antisymmetric" );
+          T:= EmptySCTable( 3, Zero( F ), "antisymmetric" );
           SetEntrySCTable( T, 1, 2, [1,3] );
           K:= LieAlgebraByStructureConstants( F, T );
-          return rec( type:= [3,2], f:= liealg_hom( L, K, [x,y,x*y], Basis(K) ) );
+          return rec( type:= [ 3, 2 ], f:= liealg_hom( L, K, [x,y,x*y], Basis( K ) ) );
        fi; 
-    elif Dimension(L) = 4 then
-       if IsLieAbelian(L) then
-          return rec( type:= [4,1], f:= liealg_hom( L, L, Basis(L), Basis(L) ) );
+    elif Dimension( L ) = 4 then
+       if IsLieAbelian( L ) then
+          return rec( type:= [ 4, 1 ], f:= liealg_hom( L, L, Basis( L ), Basis( L ) ) );
        else
-          C:= LieCentre(L);
-          if Dimension(C) = 2 then
+          C:= LieCentre( L );
+          if Dimension( C ) = 2 then
              for i in [1..4] do
-                 if not Basis(L)[i] in C then 
-                    x:= Basis(L)[i]; break;
+                 if not Basis( L )[i] in C then 
+                    x:= Basis( L )[i]; break;
                  fi;
              od;
 
-             C1:= Subalgebra( L, [ Basis(C)[1], Basis(C)[2], x ] );
+             C1:= Subalgebra( L, [ Basis( C )[1], Basis( C )[2], x ] );
              for i in [1..4] do
-                 if not Basis(L)[i] in C1 then 
-                    y:= Basis(L)[i]; break;
+                 if not Basis( L )[i] in C1 then 
+                    y:= Basis( L )[i]; break;
                  fi;
              od;
 
-             A:= Subalgebra( L, [ x*y ]);
-             if Basis(C)[1] in A then
-                u:= Basis(C)[2];
+             A:= Subalgebra( L, [ x*y ] );
+             if Basis( C )[1] in A then
+                u:= Basis( C )[2];
              else
-                u:= Basis(C)[1];
+                u:= Basis( C )[1];
              fi;
 
-             T:= EmptySCTable( 4, Zero(F), "antisymmetric" );
+             T:= EmptySCTable( 4, Zero( F ), "antisymmetric" );
              SetEntrySCTable( T, 1, 2, [1,3] );
              K:= LieAlgebraByStructureConstants( F, T );
-             return rec( type:= [4,2], f:= liealg_hom( L, K, [x,y,x*y,u], Basis(K) ) );
+             return rec( type:= [ 4, 2 ], f:= liealg_hom( L, K, [x,y,x*y,u], Basis( K ) ) );
 
-          elif Dimension(C) = 1 then
+          elif Dimension( C ) = 1 then
 
              D:= LieDerivedSubalgebra( L );
-             b:= ShallowCopy( Basis(D) );
+             b:= ShallowCopy( Basis( D ) );
              cc:= [ ];
              for i in [1..4] do
-                 x:= Basis(L)[i];
+                 x:= Basis( L )[i];
                  if not x in D then 
                     Add( cc, x );
                     Add( b, x );
@@ -1800,7 +1930,7 @@ class_dim_le4:= function( L )
              od;
 
              z:= cc[1]*cc[2];
-             if cc[1]*z <> Zero(L) then
+             if cc[1]*z <> Zero( L ) then
                 x:= cc[1]; y:= cc[2];
              else 
                 x:= cc[2]; y:= cc[1];
@@ -1808,17 +1938,17 @@ class_dim_le4:= function( L )
 
              z:= x*y; u:= x*z;
 
-             # we have to change y to make sure that [x,y]=z, and
-             # [y,u]=0.
+             # we have to change y to make sure that [x,y]= z, and
+             # [y,u]= 0.
              V:= Basis( Subalgebra( L, [u] ), [u] );
              a:= Coefficients( V, y*z )[1];
              y:= -a*x+y;
 
-             T:= EmptySCTable( 4, Zero(F), "antisymmetric" );
+             T:= EmptySCTable( 4, Zero( F ), "antisymmetric" );
              SetEntrySCTable( T, 1, 2, [1,3] );
              SetEntrySCTable( T, 1, 3, [1,4] );
              K:= LieAlgebraByStructureConstants( F, T );
-             return rec( type:= [4,3], f:= liealg_hom( L, K, [x,y,z,u], Basis(K) ) );
+             return rec( type:= [ 4, 3 ], f:= liealg_hom( L, K, [x,y,z,u], Basis( K ) ) );
 
           fi;
        fi;
@@ -1901,20 +2031,20 @@ end;
 class_dim_5:= function( K )
 
     local F, C, D, ind, i, bL, bsp, L, W, t, T, d, N, imgs, p, s, coc1, coc2, tau, M, coc21, coc22,
-          bM, cz, cx, type, a, b, c, m, mat, cf, c1, c2, x, mt, sp, y, r;
+          bM, cz, cx, type, a, b, c, m, mat, cf, c1, c2, x, mt, sp, y, y1, r;
 
-    if IsLieAbelian(K) then 
-       return rec( type:= [5,1], f:= liealg_hom( K, K, Basis(K), Basis(K) ) );
+    if IsLieAbelian( K ) then 
+       return rec( type:= [ 5, 1 ], f:= liealg_hom( K, K, Basis( K ), Basis( K ) ) );
     fi;
 
     F:= LeftActingDomain( K );
 
-    # see if there is an abelian component (necessarily of dim 1)
+    # see if there is an abelian component ( necessarily of dim 1 )
     C:= LieCentre( K );
-    D:= LieDerivedSubalgebra(K);
+    D:= LieDerivedSubalgebra( K );
     ind:= 0;
-    for i in [1..Dimension(C)] do
-        if not Basis(C)[i] in D then
+    for i in [1..Dimension( C )] do
+        if not Basis( C )[i] in D then
            ind:= i;
            break;
         fi;
@@ -1922,21 +2052,21 @@ class_dim_5:= function( K )
 
     if ind > 0 then
 
-       bL:= ShallowCopy( Basis(D) );
+       bL:= ShallowCopy( Basis( D ) );
        bsp:= ShallowCopy( bL );
-       Add( bsp, Basis(C)[ind] );
+       Add( bsp, Basis( C )[ind] );
        sp:= MutableBasis( F, bsp );
-       for i in [1..Dimension(K)] do
-           if not IsContainedInSpan( sp, Basis(K)[i] ) then
-              Add( bL, Basis(K)[i] );
-              CloseMutableBasis( sp, Basis(K)[i] );
+       for i in [1..Dimension( K )] do
+           if not IsContainedInSpan( sp, Basis( K )[i] ) then
+              Add( bL, Basis( K )[i] );
+              CloseMutableBasis( sp, Basis( K )[i] );
            fi;
        od;
        # now K = bL \oplus C[ind].
 
        L:= Subalgebra( K, bL );
-       bL:= ShallowCopy( Basis(L) );
-       Add( bL,  Basis(C)[ind] );
+       bL:= ShallowCopy( Basis( L ) );
+       Add( bL,  Basis( C )[ind] );
        W:= Basis( K, bL );
 
        # so now bL is a basis of K, the first n-1 elements form 
@@ -1957,60 +2087,70 @@ class_dim_5:= function( K )
        N:= LieAlgebraByStructureConstants( F, T );
 
        imgs:= [ ];
-       for x in Basis(K) do
+       for x in Basis( K ) do
            cx:= Coefficients( W, x );
-           y:= Image( tau, LinearCombination( Basis(L), cx{[1..Length(cx)-1]} ) );
-           y:= ShallowCopy( Coefficients( Basis( Range(tau) ), y ) );
-           Add( y, cx[ Length(cx) ]  );
-           Add( imgs, LinearCombination( Basis(N), y ) );
-       od;
+           y:= Image( tau, LinearCombination( Basis( L ), cx{[1..Length( cx )-1]} ) );
+           y:= ShallowCopy( Coefficients( Basis( Range( tau ) ), y ) );
+           Add( y, cx[ Length( cx ) ]  );
 
-       return rec( type:= [5,type[2]], f:= liealg_hom( K, N, Basis(K), imgs ) );
+           if type[2]= 2 then 
+              # isom 
+              y1:= ShallowCopy( y );
+              y1[1]:= y[1];
+              y1[2]:= y[2];
+              y1[3]:= y[3];
+              y1[4]:= y[5];
+              y1[5]:= y[4];
+              y:= ShallowCopy( y1 );
+           fi;
+           Add( imgs, LinearCombination( Basis( N ), y ) ); 
+       od;   
+       return rec( type:= [ 5, type[2] ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
 
     fi;
 
     # if there are no central components, then we look at the 
     # cocycle we get by dividing by the centre, and so on.
 
-    C:= LieCentre(K);
+    C:= LieCentre( K );
     p:= NaturalHomomorphismByIdeal( K, C );
-    L:= Range(p);
+    L:= Range( p );
     s:= function( v ) return PreImagesRepresentative( p, v ); end;
-    coc1:= function( u, v ) return s(u)*s(v)-s(u*v); end;  
+    coc1:= function( u, v ) return s( u )*s( v )-s( u*v ); end;  
 
     r:= class_dim_le4( L ); type:= r.type; tau:= r.f;
     M:= Range( tau );
-    coc2:= function( u, v ) return coc1( PreImage(tau,u), PreImage(tau,v) ); end;
+    coc2:= function( u, v ) return coc1( PreImage( tau,u ), PreImage( tau,v ) ); end;
     # i.e., the cocycle for M
     # now we need to map coc2 to normal form, according to the type of M 
 
-    if type = [4,1] then
+    if type = [ 4, 1 ] then
     
-       coc21:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[1]; end;
+       coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
         
        bM:= Basis( M, skew_symm_NF( M, coc21 ) );
-       T:= EmptySCTable( 5, Zero(F), "antisymmetric" );
+       T:= EmptySCTable( 5, Zero( F ), "antisymmetric" );
        SetEntrySCTable( T, 1, 2, [1,5] );
        SetEntrySCTable( T, 3, 4, [1,5] );
        N:= LieAlgebraByStructureConstants( F, T );
 
        imgs:= [ ];
-       for x in Basis(K) do
+       for x in Basis( K ) do
            # the coordinate of the central part of x:
            # this will be the coordinate of the central part of the 
            # image of x. 
-           cz:= Coefficients( Basis(C), x-s(Image(p,x)) )[1];       
-           cx:= ShallowCopy( Coefficients( bM, Image( tau, Image(p,x) ) ) );    
+           cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) )[1];       
+           cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p,x ) ) ) );    
            Add( cx, cz );
-           Add( imgs, LinearCombination( Basis(N), cx ) );
+           Add( imgs, LinearCombination( Basis( N ), cx ) );
        od;
 
-       return rec( type:= [5,4], f:= liealg_hom( K, N, Basis(K), imgs ) );
+       return rec( type:= [ 5, 4 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
 
-    elif type = [4,2] then
+    elif type = [ 4, 2 ] then
 
-       coc21:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[1]; end;
-       bM:= ShallowCopy( BasisVectors( Basis(M) ) );
+       coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
+       bM:= ShallowCopy( BasisVectors( Basis( M ) ) );
        a:= coc21( bM[1], bM[3] );
        b:= coc21( bM[1], bM[4] );
        c:= coc21( bM[2], bM[3] );
@@ -2030,49 +2170,49 @@ class_dim_5:= function( K )
        m[1][1]:= 1/a;
        m[1][2]:= -c;
        m[2][2]:= a;
-       m[4][4]:= 1/(a*d-b*c);
+       m[4][4]:= 1/( a*d-b*c );
        m[3][4]:= -m[4][4]*b/a;
        mat:= mat*m;
       
        mat:= TransposedMat( mat );
-       bM:= Basis( M, List( mat, x -> LinearCombination( Basis(M), x ) ) );
-       T:= EmptySCTable( 5, Zero(F), "antisymmetric" );
+       bM:= Basis( M, List( mat, x -> LinearCombination( Basis( M ), x ) ) );
+       T:= EmptySCTable( 5, Zero( F ), "antisymmetric" );
        SetEntrySCTable( T, 1, 2, [1,3] );
        SetEntrySCTable( T, 1, 3, [1,5] );
        SetEntrySCTable( T, 2, 4, [1,5] );
        N:= LieAlgebraByStructureConstants( F, T );
 
        imgs:= [ ];
-       for x in Basis(K) do
-           cz:= Coefficients( Basis(C), x-s(Image(p,x)) )[1];
+       for x in Basis( K ) do
+           cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) )[1];
            cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
            Add( cx, cz );
 
-           # effectively subtract a coboundary (i.e., apply one further
-           # isomorphism): 
-           # Here we have (in the normal form Lie algebra)
-           # [x1,x2]=x3. Hence c(x1,x2)=1, rest 0 is a coboundary.
+           # effectively subtract a coboundary ( i.e., apply one further
+           # isomorphism ): 
+           # Here we have ( in the normal form Lie algebra )
+           # [x1,x2]= x3. Hence c( x1,x2 )= 1, rest 0 is a coboundary.
            # The isomorphism corresponding to the subtraction of c
            # from the cocycle, subtracts coc21( x1, x2 )*x5 from
-           # the element. (Rather vague comment...).
+           # the element. ( Rather vague comment... ).
            cf:= coc21( bM[1], bM[2] );
            cx[5]:= cx[5] - cf*cx[3];
 
-           Add( imgs, LinearCombination( Basis(N), cx ) );
+           Add( imgs, LinearCombination( Basis( N ), cx ) );
        od;
 
-       return rec( type:= [5,5], f:= liealg_hom( K, N, Basis(K), imgs ) );           
+       return rec( type:= [ 5, 5 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );           
 
-    elif type = [4,3] then
+    elif type = [ 4, 3 ] then
 
-       coc21:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[1]; end;
-       bM:= Basis(M);
+       coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
+       bM:= Basis( M );
        a:= coc21( bM[1], bM[4] );
        b:= coc21( bM[2], bM[3] );
 
-       if not IsZero(b) then
+       if not IsZero( b ) then
 
-          T:= EmptySCTable( 5, Zero(F), "antisymmetric" );
+          T:= EmptySCTable( 5, Zero( F ), "antisymmetric" );
           SetEntrySCTable( T, 1, 2, [1,3] );
           SetEntrySCTable( T, 1, 3, [1,4] );
           SetEntrySCTable( T, 1, 4, [1,5] );
@@ -2080,130 +2220,126 @@ class_dim_5:= function( K )
           N:= LieAlgebraByStructureConstants( F, T );
           
           imgs:= [ ];
-          for x in Basis(K) do
-              cz:= Coefficients( Basis(C), x-s( Image(p,x) ) )[1];           
-              cx:= ShallowCopy( Coefficients( Basis(M), Image( tau, Image( p, x ) ) ) );
+          for x in Basis( K ) do
+              cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) )[1];           
+              cx:= ShallowCopy( Coefficients( Basis( M ), Image( tau, Image( p, x ) ) ) );
               cf:= a/b;
               cx[1]:= cx[1]*cf; cx[2]:= cx[2]*cf; cx[3]:= cx[3]*cf^2; cx[4]:= cx[4]*cf^3;
               Add( cx, cf^4*cz/a );
               
               # take care of the coboundary...
-              c1:= coc21( cf^-1*Basis(M)[1],cf^-1*Basis(M)[2] );
-              cx[5]:= cx[5] - c1*(cf^4/a)*cx[3];
+              c1:= coc21( cf^-1*Basis( M )[1],cf^-1*Basis( M )[2] );
+              cx[5]:= cx[5] - c1*( cf^4/a )*cx[3];
 
-              c1:= coc21( cf^-1*Basis(M)[1],cf^-2*Basis(M)[3] );
-              cx[5]:= cx[5] - c1*(cf^4/a)*cx[4];
+              c1:= coc21( cf^-1*Basis( M )[1],cf^-2*Basis( M )[3] );
+              cx[5]:= cx[5] - c1*( cf^4/a )*cx[4];
 
-              Add( imgs, LinearCombination( Basis(N), cx ) );
+              Add( imgs, LinearCombination( Basis( N ), cx ) );
           od;
-          return rec( type:= [5,6], f:= liealg_hom( K, N, Basis(K), imgs ) );
+          return rec( type:= [ 5, 6 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
 
        else
 
-          T:= EmptySCTable( 5, Zero(F), "antisymmetric" );
+          T:= EmptySCTable( 5, Zero( F ), "antisymmetric" );
           SetEntrySCTable( T, 1, 2, [1,3] );
           SetEntrySCTable( T, 1, 3, [1,4] );
           SetEntrySCTable( T, 1, 4, [1,5] );
           N:= LieAlgebraByStructureConstants( F, T );
           
           imgs:= [ ];
-          for x in Basis(K) do
-              cz:= Coefficients( Basis(C), x-s( Image( p, x ) ) )[1];           
-              cx:= ShallowCopy( Coefficients( Basis(M), Image( tau, Image(p,x) ) ) );
+          for x in Basis( K ) do
+              cz:= Coefficients( Basis( C ), x-s( Image( p, x ) ) )[1];           
+              cx:= ShallowCopy( Coefficients( Basis( M ), Image( tau, Image( p,x ) ) ) );
               Add( cx, cz/a );
               
               # take care of the coboundary...
-              cf:= coc21( Basis(M)[1], Basis(M)[2] );
+              cf:= coc21( Basis( M )[1], Basis( M )[2] );
               cx[5]:= cx[5] - cf/a*cx[3];
 
-              cf:= coc21( Basis(M)[1], Basis(M)[3] );
+              cf:= coc21( Basis( M )[1], Basis( M )[3] );
               cx[5]:= cx[5] - cf/a*cx[4];
 
-              Add( imgs, LinearCombination( Basis(N), cx ) );
+              Add( imgs, LinearCombination( Basis( N ), cx ) );
           od;
-          return rec( type:= [5,7], f:= liealg_hom( K, N, Basis(K), imgs ) );
+          return rec( type:= [ 5, 7 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
 
        fi;
 
     elif type = [ 3, 1 ] then
 
-       coc21:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[1]; end;
-       coc22:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[2]; end;
+       coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
+       coc22:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[2]; end;
 
        bM:= skew_symm_NF( M, coc21 );
 
-       b:= coc22( bM[1], bM[3] ); c:= coc22(bM[2],bM[3]);
-       if IsZero(b) then
+       b:= coc22( bM[1], bM[3] ); c:= coc22( bM[2],bM[3] );
+       if IsZero( b ) then
           # change the basis bM so that it becomes nonzero.
           bM[1]:= bM[1]+bM[2];
-          b:= coc22(bM[1],bM[3]); c:= coc22(bM[2],bM[3]);
+          b:= coc22( bM[1],bM[3] ); c:= coc22( bM[2],bM[3] );
        fi;
 
        # change the basis so that c becomes zero... 
        bM[2]:= bM[2]-c/b*bM[1];
  
        bM:= Basis( M, bM );
-       a:= coc22(bM[1],bM[2]);
-       b:= coc22(bM[1],bM[3]);
+       a:= coc22( bM[1],bM[2] );
+       b:= coc22( bM[1],bM[3] );
 
-       T:= EmptySCTable( 5, Zero(F), "antisymmetric" );
+       T:= EmptySCTable( 5, Zero( F ), "antisymmetric" );
        SetEntrySCTable( T, 1, 2, [1,4] );
        SetEntrySCTable( T, 1, 3, [1,5] );
        N:= LieAlgebraByStructureConstants( F, T );
 
        imgs:= [ ];
-       for x in Basis(K) do
+       for x in Basis( K ) do
            # the coordinate of the central part of x:
-           cz:= Coefficients( Basis(C), x-s( Image( p, x ) ) );           
+           cz:= Coefficients( Basis( C ), x-s( Image( p, x ) ) );           
            cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
 
            # account for the base change in the centre:
            cz[2]:= -cz[1]*a/b+cz[2]/b;
            Append( cx, cz );
-           Add( imgs, LinearCombination( Basis(N), cx ) );
+           Add( imgs, LinearCombination( Basis( N ), cx ) );
        od;
 
-       return rec( type:= [5,8], f:= liealg_hom( K, N, Basis(K), imgs ) );
+       return rec( type:= [ 5, 8 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
 
     elif type = [ 3, 2 ] then
 
-       coc21:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[1]; end;
-       coc22:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[2]; end;
-       bM:= Basis(M);
-       m:= [[coc21(bM[1],bM[3]),coc21(bM[2],bM[3])],
-            [coc22(bM[1],bM[3]),coc22(bM[2],bM[3])] ];
+       coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
+       coc22:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[2]; end;
+       bM:= Basis( M );
+       m:= [[coc21( bM[1],bM[3] ),coc21( bM[2],bM[3] )],
+            [coc22( bM[1],bM[3] ),coc22( bM[2],bM[3] )] ];
 
        m:= m^-1;
-       mt:= TransposedMat(m);
+       mt:= TransposedMat( m );
 
-       T:= EmptySCTable( 5, Zero(F), "antisymmetric" );
+       T:= EmptySCTable( 5, Zero( F ), "antisymmetric" );
        SetEntrySCTable( T, 1, 2, [1,3] );
        SetEntrySCTable( T, 1, 3, [1,4] );
        SetEntrySCTable( T, 2, 3, [1,5] );
        N:= LieAlgebraByStructureConstants( F, T );
 
-       c1:= mt[1][1]*coc21(bM[1],bM[2])+mt[2][1]*coc22(bM[1],bM[2]);
-       c2:= mt[1][2]*coc21(bM[1],bM[2])+mt[2][2]*coc22(bM[1],bM[2]);
+       c1:= mt[1][1]*coc21( bM[1],bM[2] )+mt[2][1]*coc22( bM[1],bM[2] );
+       c2:= mt[1][2]*coc21( bM[1],bM[2] )+mt[2][2]*coc22( bM[1],bM[2] );
           
        imgs:= [ ];
-       for x in Basis(K) do
-           cz:= Coefficients( Basis(C), x-s( Image( p, x ) ) );           
-           cx:= ShallowCopy( Coefficients( Basis(M), Image( tau, Image( p, x ) ) ) );
+       for x in Basis( K ) do
+           cz:= Coefficients( Basis( C ), x-s( Image( p, x ) ) );           
+           cx:= ShallowCopy( Coefficients( Basis( M ), Image( tau, Image( p, x ) ) ) );
            Append( cx, cz*mt );
               
            # take care of the coboundary...
            cx[4]:= cx[4] - c1*cx[3];
            cx[5]:= cx[5] - c2*cx[3];
-           Add( imgs, LinearCombination( Basis(N), cx ) );
+           Add( imgs, LinearCombination( Basis( N ), cx ) );
        od;
-       return rec( type:= [5,9], f:= liealg_hom( K, N, Basis(K), imgs ) );
-
-
+       return rec( type:= [ 5, 9 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
     fi;
 
-
 end;
-
 
 comp_mat:= function( x, y, det )
 
@@ -2219,25 +2355,86 @@ comp_mat:= function( x, y, det )
 end;
 
 
+sq_free:= function( r )
+
+  # r is a rational number, we output a list of two rationals [a,b],
+  # such that b is square free, r = a^2b and b is an integer.
+
+  local sign, f, u, v, k, n1, n2, d1, d2;
+  
+  if r >= 0 then
+     sign:= 1;
+  else
+     sign:= -1;
+     r:= -r;
+  fi;
+
+  f:= Factors( NumeratorRat( r ) );
+  u:= [ ]; v:=  [ ];
+  k:= 1;
+  while k <= Length( f ) do
+      if k < Length( f ) then
+         if f[k]= f[k+1] then
+            Add( u, f[k] );
+            k:= k+2;
+         else 
+            Add( v, f[k] );
+            k:= k+1;
+         fi;
+      else
+         Add( v, f[k] );
+         k:= k+1;
+      fi;
+  od;
+
+  n1:= Product( u ); n2:= Product( v );
+
+  f:= Factors( DenominatorRat( r ) );
+  u:= [ ]; v:=  [ ];
+  k:= 1;
+  while k <= Length( f ) do
+      if k < Length( f ) then
+         if f[k]= f[k+1] then
+            Add( u, f[k] );
+            k:= k+2;
+         else 
+            Add( v, f[k] );
+            k:= k+1;
+         fi;
+      else
+         Add( v, f[k] );
+         k:= k+1;
+      fi;
+  od;
+
+  d1:= Product( u ); d2:= Product( v );
+
+  return [n1/(d1*d2), sign*n2*d2 ];
+
+end;
+
+
 class_dim_6:= function( K )
 
-    local F, C, D, ind, i, bL, bsp, sp, W, r, T, d, N, imgs, x, cx, g, p, L, 
-          s, coc1, coc2, coc21, coc22, coc23, type, tau, M, bM, a, b, c, m, 
+    local F, C, D, ind, i, bL, bsp, sp, W, r, T, d, N, imgs, x, cx, g, P, p, L, 
+          s, coc1, coc2, coc21, coc22, coc23, type, tau, M, bM, aa, a, bb, b, c, m, 
           v1, v2, e, f, c1, c2, c3, c4, a21, tt, cz1, cx1, s13, s24, s14, 
-          t, u, v, cf, y, cz, a42, store, q, cc, f1, f2, f3, f4, f5, cf1; 
+          t, uu, u, v, cf, y, y1, cz, a32, a41, a42, store, q, cc, f1, f2, f3, f4, 
+          f5, ff, cf1, xi, ex, eps,root; 
 
-    if IsCommutative(K) then 
-       return rec( type:= [6,1], f:= liealg_hom( K, K, Basis(K), Basis(K) ) );
+    if IsLieAbelian( K ) then 
+       return rec( type:= [ 6, 1 ], f:= liealg_hom( K, K, Basis( K ), Basis( K ) ) );
     fi;
 
     F:= LeftActingDomain( K );
+  
 
-    # see if there is an abelian component (necessarily of dim 1)
+    # see if there is an abelian component ( necessarily of dim 1 )
     C:= LieCentre( K );
-    D:= LieDerivedSubalgebra(K);
+    D:= LieDerivedSubalgebra( K );
     ind:= 0;
-    for i in [1..Dimension(C)] do
-        if not Basis(C)[i] in D then
+    for i in [1..Dimension( C )] do
+        if not Basis( C )[i] in D then
            ind:= i;
            break;
         fi;
@@ -2245,21 +2442,21 @@ class_dim_6:= function( K )
 
     if ind > 0 then
 
-       bL:= ShallowCopy( Basis(D) );
+       bL:= ShallowCopy( Basis( D ) );
        bsp:= ShallowCopy( bL );
-       Add( bsp, Basis(C)[ind] );
+       Add( bsp, Basis( C )[ind] );
        sp:= MutableBasis( F, bsp );
-       for i in [1..Dimension(K)] do
-           if not IsContainedInSpan( sp, Basis(K)[i] ) then
-              Add( bL, Basis(K)[i] );
-              CloseMutableBasis( sp, Basis(K)[i] );
-           fi;
+       for i in [1..Dimension( K )] do
+          if not IsContainedInSpan( sp, Basis( K )[i] ) then
+             Add( bL, Basis( K )[i] );
+             CloseMutableBasis( sp, Basis( K )[i] );
+          fi;
        od;
        # now K = bL \oplus C[ind].
 
        L:= Subalgebra( K, bL );
-       bL:= ShallowCopy( Basis(L) );
-       Add( bL,  Basis(C)[ind] );
+       bL:= ShallowCopy( Basis( L ) );
+       Add( bL,  Basis( C )[ind] );
        W:= Basis( K, bL );
 
        # so now bL is a basis of K, the first n-1 elements form 
@@ -2271,143 +2468,165 @@ class_dim_6:= function( K )
        T:= ShallowCopy( StructureConstantsTable( Basis( Range( tau ) ) ) );
        d:= Dimension( Range( tau ) );
        for i in [1..d] do
-           T[i]:= ShallowCopy( T[i] );
-           Add( T[i], [ [], [] ] );
+          T[i]:= ShallowCopy( T[i] );
+          Add( T[i], [ [], [] ] );
        od;
        T[d+3]:= T[d+2]; T[d+2]:= T[d+1];
        T[d+1]:= List( [1..d+1], x -> [ [], [] ] );
-
        N:= LieAlgebraByStructureConstants( F, T );
 
        imgs:= [ ];
-       for x in Basis(K) do
-           cx:= Coefficients( W, x );
-           y:= Image( tau, LinearCombination( Basis(L), cx{[1..Length(cx)-1]} ) );
-           y:= ShallowCopy( Coefficients( Basis( Range(tau) ), y ) );
-           Add( y, cx[ Length(cx) ]  );
-           Add( imgs, LinearCombination( Basis(N), y ) );
+
+       for x in Basis( K ) do
+          cx:= Coefficients( W, x );
+          y:= Image( tau, LinearCombination( Basis( L ), cx{[1..Length( cx )-1]} ) );
+          y:= ShallowCopy( Coefficients( Basis( Range( tau ) ), y ) );
+          Add( y, cx[ Length( cx ) ]  );
+          if type[2]= 2 then 
+             # isom 
+             y1:= ShallowCopy( y );
+             y1[1]:= y[1];
+             y1[2]:= y[2];
+             y1[3]:= y[3];
+             y1[4]:= y[6];
+             y1[5]:= y[4];
+             y1[6]:= y[5];
+             y:= ShallowCopy( y1 );
+          elif type[2]= 3 then 
+             # isom 
+             y1:= ShallowCopy( y );
+             y1[1]:= y[1];
+             y1[2]:= y[2];
+             y1[3]:= y[3];
+             y1[4]:= y[4];
+             y1[5]:= y[6];
+             y1[6]:= y[5];
+             y:= ShallowCopy( y1 );
+          fi;
+          Add( imgs, LinearCombination( Basis( N ), y ) );          
        od;
-
-       return rec( type:= [6,type[2]], f:= liealg_hom( K, N, Basis(K), imgs ) );
-
+       return rec( type:= [ 6, type[2] ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
     fi;
 
 
     # if there are no central components, then we look at the 
     # cocycle we get by dividing by the centre, and so on.
 
-    C:= LieCentre(K);
+    C:= LieCentre( K );
     p:= NaturalHomomorphismByIdeal( K, C );
-    L:= Range(p);
+    L:= Range( p );
     s:= function( v ) return PreImagesRepresentative( p, v ); end;
-    coc1:= function( u, v ) return s(u)*s(v)-s(u*v); end;  
+    coc1:= function( u, v ) return s( u )*s( v )-s( u*v ); end;  
 
-    if Dimension(L) <= 4 then
+    if Dimension( L ) <= 4 then
        r:= class_dim_le4( L );
     else
        r:= class_dim_5( L );
     fi;
     type:= r.type; tau:= r.f;
     M:= Range( tau );
-    coc2:= function( u, v ) return coc1( PreImage(tau,u), PreImage(tau,v) ); end;
+    coc2:= function( u, v ) return coc1( PreImage( tau,u ), PreImage( tau,v ) ); end;
     # i.e., the cocycle for M
     # now we need to map coc2 to normal form, according to the type of M 
 
     if type = [ 5, 2 ] then
 
-       coc21:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[1]; end;
+       coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
 
-       bM:= ShallowCopy( BasisVectors( Basis( (M) ) ) );
+       bM:= ShallowCopy( BasisVectors( Basis( ( M ) ) ) );
 
        # we change the basis bM so that the cocycle is in "normal form":
 
-       a:= coc21(bM[1],bM[3]); d:= coc21(bM[2],bM[3]);
+       a:= coc21( bM[1],bM[3] ); d:= coc21( bM[2],bM[3] );
  
-       m:= comp_mat( a, d, One(F) );
+       m:= comp_mat( a, d, One( F ) );
        v1:= m[1][1]*bM[1]+m[1][2]*bM[2];
        v2:= m[2][1]*bM[1]+m[2][2]*bM[2];
        bM[1]:= v1; bM[2]:= v2;
 
-       b:= coc21(bM[1],bM[4]); c:= coc21(bM[1],bM[5]);
+       b:= coc21( bM[1],bM[4] ); c:= coc21( bM[1],bM[5] );
        bM[4]:= bM[4]-b*bM[3];
        bM[5]:= bM[5]-c*bM[3];
 
-       e:= coc21(bM[2],bM[4]); f:= coc21(bM[2],bM[5]); 
-       g:= coc21(bM[4],bM[5]);
+       e:= coc21( bM[2],bM[4] ); f:= coc21( bM[2],bM[5] ); 
+       g:= coc21( bM[4],bM[5] );
 
-       if not (IsZero(e) and IsZero(f)) then
+       if not ( IsZero( e ) and IsZero( f ) ) then
           m:= comp_mat( e, f, 1/g );
           v1:= m[1][1]*bM[4]+m[1][2]*bM[5];
           v2:= m[2][1]*bM[4]+m[2][2]*bM[5];
           bM[4]:= v1; bM[5]:= v2;
 
-          T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+          T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
           SetEntrySCTable( T, 1, 2, [1,3] );
           SetEntrySCTable( T, 1, 3, [1,6] );
           SetEntrySCTable( T, 4, 5, [1,6] );
           N:= LieAlgebraByStructureConstants( F, T );
 
           imgs:= [ ];
-          c1:= coc21(bM[1],bM[2]);
+          c1:= coc21( bM[1],bM[2] );
           bM:= Basis( M, bM );
-          for x in Basis(K) do
-              cz:= Coefficients( Basis(C), x-s( Image( p, x ) ) );  
-              cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-              Append( cx, cz );
-              
-              # take care of the coboundary...
-              cx[6]:= cx[6] - c1*cx[3];
 
-              # isomorphism to M_2 (see paper):
-              cx[5]:= cx[5]-cx[2];
-              Add( imgs, LinearCombination( Basis(N), cx )  );
+          for x in Basis( K ) do
+
+             cz:= Coefficients( Basis( C ), x-s( Image( p, x ) ) );  
+             cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+             Append( cx, cz );
+              
+             # take care of the coboundary...
+             cx[6]:= cx[6] - c1*cx[3];
+
+             # isomorphism to M_2 ( see paper ):
+             cx[5]:= cx[5]-cx[2];
+             Add( imgs, LinearCombination( Basis( N ), cx )  );
           od;
-          return rec( type:= [6,10], f:= liealg_hom( K, N, Basis(K), imgs ) );
+          return rec( type:= [ 6, 10 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
 
        else
 
           bM[4]:= bM[4]/g;
-          T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+          T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
           SetEntrySCTable( T, 1, 2, [1,3] );
           SetEntrySCTable( T, 1, 3, [1,6] );
           SetEntrySCTable( T, 4, 5, [1,6] );
           N:= LieAlgebraByStructureConstants( F, T );
           
           imgs:= [ ];
-          c1:= coc21(bM[1],bM[2]);
+          c1:= coc21( bM[1],bM[2] );
           bM:= Basis( M, bM );
-          for x in Basis(K) do
-              cz:= Coefficients( Basis(C), x-s(Image(p,x)) );
-              cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
 
-              Append( cx, cz );
+          for x in Basis( K ) do
+
+             cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+             cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+             Append( cx, cz );
               
-              # take care of the coboundary...
-              cx[6]:= cx[6] - c1*cx[3];
-              Add( imgs, LinearCombination( Basis(N), cx ) );
+             # take care of the coboundary...
+             cx[6]:= cx[6] - c1*cx[3];
+             Add( imgs, LinearCombination( Basis( N ), cx ) );
           od;
-          return rec( type:=[6,10], f:= liealg_hom( K, N, Basis(K), imgs ) );
+          return rec( type:= [ 6, 10 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
 
        fi;
-    elif type = [5,3] then
 
-       coc21:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[1]; end;
+    elif type = [ 5, 3 ] then
 
-       bM:= ShallowCopy( BasisVectors( Basis(M) ) );
+       coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
+
+       bM:= ShallowCopy( BasisVectors( Basis( M ) ) );
 
        # we change the basis bM so that the cocycle is in "normal form":
 
-       a:= coc21(bM[1],bM[4]);
-
+       a:= coc21( bM[1],bM[4] );
        bM[2]:= bM[2]/a; bM[3]:= bM[3]/a; bM[4]:= bM[4]/a;
-       b:= coc21(bM[1],bM[5]); d:= coc21(bM[2],bM[5]);
+       b:= coc21( bM[1],bM[5] ); d:= coc21( bM[2],bM[5] );
        bM[1]:= bM[1]-b/d*bM[2];
        bM[5]:= bM[5]/d;
-
        c:= coc21( bM[2],bM[3] );
-       if not IsZero(c) then
 
-          T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+       if not IsZero( c ) then
+
+          T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
           SetEntrySCTable( T, 1, 2, [1,3] );
           SetEntrySCTable( T, 1, 3, [1,4] );
           SetEntrySCTable( T, 1, 4, [1,6] );
@@ -2416,27 +2635,29 @@ class_dim_6:= function( K )
           N:= LieAlgebraByStructureConstants( F, T );
 
           imgs:= [ ];
-          c1:= coc21(bM[1],bM[2]);
-          c2:= coc21(bM[1],bM[3]);
+          c1:= coc21( bM[1],bM[2] );
+          c2:= coc21( bM[1],bM[3] );
           bM:= Basis( M, bM );
-          for x in Basis(K) do
-              cz:= Coefficients( Basis(C), x-s(Image(p,x)) );           
-              cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-              Append( cx, cz );
-              
-              # take care of the coboundary...
-              cx[6]:= cx[6] - c1*cx[3]-c2*cx[4];
 
-              # make c equal to 1...
-              cx[1]:= cx[1]/c; cx[2]:= cx[2]/c; cx[3]:= cx[3]/c^2;
-              cx[4]:= cx[4]/c^3; cx[5]:= cx[5]/c^3; cx[6]:= cx[6]/c^4;
-              Add( imgs, LinearCombination( Basis(N), cx ) );
+          for x in Basis( K ) do
+
+             cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+             cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+             Append( cx, cz );
+              
+             # take care of the coboundary...
+             cx[6]:= cx[6] - c1*cx[3]-c2*cx[4];
+
+             # make c equal to 1...
+             cx[1]:= cx[1]/c; cx[2]:= cx[2]/c; cx[3]:= cx[3]/c^2;
+             cx[4]:= cx[4]/c^3; cx[5]:= cx[5]/c^3; cx[6]:= cx[6]/c^4;
+             Add( imgs, LinearCombination( Basis( N ), cx ) );
           od;
-          return rec( type:= [6,11], f:= liealg_hom( K, N, Basis(K), imgs ) );
+          return rec( type:= [ 6, 11 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
 
        else
 
-          T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+          T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
           SetEntrySCTable( T, 1, 2, [1,3] );
           SetEntrySCTable( T, 1, 3, [1,4] );
           SetEntrySCTable( T, 1, 4, [1,6] );
@@ -2444,205 +2665,521 @@ class_dim_6:= function( K )
           N:= LieAlgebraByStructureConstants( F, T );
 
           imgs:= [ ];
-          c1:= coc21(bM[1],bM[2]);
-          c2:= coc21(bM[1],bM[3]);
-          bM:= Basis(M,bM);
-          for x in Basis(K) do
-              cz:= Coefficients( Basis(C), x-s(Image(p,x)) );           
-              cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-              Append( cx, cz );
+          c1:= coc21( bM[1],bM[2] );
+          c2:= coc21( bM[1],bM[3] );
+          bM:= Basis( M,bM );
+
+          for x in Basis( K ) do
+
+             cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+             cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+             Append( cx, cz );
               
-              # take care of the coboundary...
-              cx[6]:= cx[6] - c1*cx[3]-c2*cx[4];
-              Add( imgs, LinearCombination( Basis(N), cx ) );
+             # take care of the coboundary...
+             cx[6]:= cx[6] - c1*cx[3]-c2*cx[4];
+             Add( imgs, LinearCombination( Basis( N ), cx ) );
           od;
-          return rec( type:= [6,12], f:= liealg_hom( K, N, Basis(K), imgs ) );
+          return rec( type:= [ 6, 12 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
 
        fi;
 
-    elif type = [5,5] then
+    elif type = [ 5, 5 ] then
 
-       coc21:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[1]; end;
-       bM:= ShallowCopy( BasisVectors( Basis(M) ) );;
+       coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
+
+       bM:= ShallowCopy( BasisVectors( Basis( M ) ) );;
 
        # we change the basis bM so that the cocycle is in "normal form":
 
-       b:= coc21(bM[1],bM[5]);
+       b:= coc21( bM[1],bM[5] );
        bM[2]:= bM[2]/b; bM[3]:= bM[3]/b; bM[5]:= bM[5]/b;
-       a:= coc21(bM[1],bM[4]); c:= coc21(bM[2],bM[3]);
+       a:= coc21( bM[1],bM[4] ); c:= coc21( bM[2],bM[3] );
        bM[1]:= bM[1]-a*bM[3]; bM[2]:= bM[2]+c*bM[4];
+    
+       if not Characteristic( F )= 2 then
 
-       imgs:= [ ];
-       c1:= coc21(bM[1],bM[2]);
-       c2:= coc21(bM[1],bM[3]);
-       d:= coc21(bM[2],bM[4])-c2;
+          imgs:= [ ];
+          c1:= coc21( bM[1],bM[2] );
+          c2:= coc21( bM[1],bM[3] );
+          d:= coc21( bM[2],bM[4] )-c2;
 
-       T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-       SetEntrySCTable( T, 1, 2, [1,3] );
-       SetEntrySCTable( T, 1, 3, [1,5] );
-       SetEntrySCTable( T, 2, 4, [1,5] );
-       SetEntrySCTable( T, 1, 5, [1,6] );
-       SetEntrySCTable( T, 3, 4, [1,6] );
-       N:= LieAlgebraByStructureConstants( F, T );
-       bM:= Basis(M,bM);
-       for x in Basis(K) do
-           cz:= Coefficients( Basis(C), x-s(Image(p,x)) );           
-           cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-           Append( cx, cz );
+          T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+          SetEntrySCTable( T, 1, 2, [1,3] );
+          SetEntrySCTable( T, 1, 3, [1,5] );
+          SetEntrySCTable( T, 2, 4, [1,5] );
+          SetEntrySCTable( T, 1, 5, [1,6] );
+          SetEntrySCTable( T, 3, 4, [1,6] );
+          N:= LieAlgebraByStructureConstants( F, T );
+
+          bM:= Basis( M,bM );
+
+          for x in Basis( K ) do
+
+             cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+             cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+             Append( cx, cz );
               
-           # take care of the coboundary...
-           cx[6]:= cx[6] - c1*cx[3]-c2*cx[5];
+             # take care of the coboundary...
+             cx[6]:= cx[6] - c1*cx[3]-c2*cx[5];
            
-           if not IsZero(d) then
-              # map it to 1:
-              cx[1]:= cx[1]/d; cx[3]:= cx[3]/d; cx[4]:= cx[4]/d^2;
-              cx[5]:= cx[5]/d^2; cx[6]:= cx[6]/d^3; 
-              # make isom with the Lie alg where d=0:
-              cx[5]:= cx[5]+(cx[2]+cx[3])/2;
-              cx[4]:= cx[4]+cx[1]/2;
-              cx[3]:= cx[3]+cx[2];
-           fi;
-           Add( imgs, LinearCombination( Basis(N), cx ) );
-       od;
-       return rec( type:= [6,13], f:= liealg_hom( K, N, Basis(K), imgs ) );
-       
+             if not IsZero( d ) then
+
+                # map it to 1:
+                cx[1]:= cx[1]/d; cx[3]:= cx[3]/d; cx[4]:= cx[4]/d^2;
+                cx[5]:= cx[5]/d^2; cx[6]:= cx[6]/d^3; 
+
+                # make isom with the Lie alg where d= 0:
+                cx[5]:= cx[5]+( cx[2]+cx[3] )/2;
+                cx[4]:= cx[4]+cx[1]/2;
+                cx[3]:= cx[3]+cx[2];
+             fi;
+             Add( imgs, LinearCombination( Basis( N ), cx ) );
+          od;
+          return rec( type:= [ 6, 13 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+
+       else
+
+          c1:= coc21( bM[1],bM[2] );
+          c2:= coc21( bM[1],bM[3] );
+          d:= coc21( bM[2],bM[4] )-c2;
+
+          if IsZero( d ) then
+ 
+             imgs:= [ ];
+             c1:= coc21( bM[1],bM[2] );
+             c2:= coc21( bM[1],bM[3] );
+                  
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+             SetEntrySCTable( T, 1, 2, [1,3] );
+             SetEntrySCTable( T, 1, 3, [1,5] );
+             SetEntrySCTable( T, 2, 4, [1,5] );
+             SetEntrySCTable( T, 1, 5, [1,6] );
+             SetEntrySCTable( T, 3, 4, [1,6] );
+             N:= LieAlgebraByStructureConstants( F, T );
+
+             bM:= Basis( M,bM );
+
+             for x in Basis( K ) do
+
+                cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+                cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                Append( cx, cz );
+              
+                # take care of the coboundary...
+                cx[6]:= cx[6] - c1*cx[3]-c2*cx[5];
+                Add( imgs, LinearCombination( Basis( N ), cx ) );
+             od;
+             return rec( type:= [ 6, 13 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+
+          else
+
+             imgs:= [ ];
+             c1:= coc21( bM[1],bM[2] );
+             c2:= coc21( bM[1],bM[3] );
+
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+             SetEntrySCTable( T, 1, 2, [1,3] );
+             SetEntrySCTable( T, 1, 3, [1,5] );
+             SetEntrySCTable( T, 1, 5, [1,6] );
+             SetEntrySCTable( T, 2, 4, [1,5,1,6] );
+             SetEntrySCTable( T, 3, 4, [1,6] );
+             N:= LieAlgebraByStructureConstants( F, T );
+
+             bM:= Basis( M,bM );
+
+             for x in Basis( K ) do
+
+                cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+                cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                Append( cx, cz );
+              
+                # take care of the coboundary...
+                cx[6]:= cx[6] - c1*cx[3]-c2*cx[5];
+   
+                cx[1]:= cx[1]/d;  cx[3]:= cx[3]/d;
+                cx[4]:= cx[4]/d^2; cx[5]:= cx[5]/d^2; cx[6]:= cx[6]/d^3;
+                Add( imgs, LinearCombination( Basis( N ), cx ) );
+             od;
+             return rec( type:= [ 6, 29 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+
+          fi;
+       fi;
+
     elif type = [ 5, 6 ] then
 
-       coc21:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[1]; end;
-       bM:= ShallowCopy( BasisVectors( Basis(M) ) );
+       coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
+
+       bM:= ShallowCopy( BasisVectors( Basis( M ) ) );
 
        # we change the basis bM so that the cocycle is in "normal form":
 
-       a:= coc21(bM[1],bM[5]); 
-       b:= coc21(bM[2],bM[3])-coc21(bM[1],bM[4]); 
-       c:= coc21(bM[2],bM[5]);
+       a:= coc21( bM[1],bM[5] ); 
+       b:= coc21( bM[2],bM[3] )-coc21( bM[1],bM[4] ); 
+       c:= coc21( bM[2],bM[5] );
 
-       if not IsZero(c) then
-          a21:= -a/c; a42:= -(a^2/c^2+b/c)/2;
-          bM[1]:= bM[1]+a21*bM[2];
-          bM[2]:= bM[2]+a42*bM[4];
-          bM[3]:= bM[3]+a42*bM[5];
-          bM[4]:= bM[4]+a21*bM[5];
-          c:= coc21(bM[2],bM[5]);
+       if not IsZero( c ) then
 
-          imgs:= [ ];
-          c1:= coc21(bM[1],bM[2]);
-          c2:= coc21(bM[1],bM[3]);
-          c3:= coc21(bM[1],bM[4]);
+          if not Characteristic( F )= 2 then
 
-          T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-          SetEntrySCTable( T, 1, 2, [1,3] );
-          SetEntrySCTable( T, 1, 3, [1,4] );
-          SetEntrySCTable( T, 1, 4, [1,5] );
-          SetEntrySCTable( T, 2, 3, [1,5] );
-          SetEntrySCTable( T, 2, 5, [1,6] );
-          SetEntrySCTable( T, 3, 4, [-1,6] );
-          N:= LieAlgebraByStructureConstants( F, T );
-          bM:= Basis( M, bM );
-          for x in Basis(K) do
-              cz:= Coefficients( Basis(C), x-s(Image(p,x)) );           
-              cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-              Append( cx, cz );
+             a21:= -a/c; a42:= -( a^2/c^2+b/c )/2;
+             bM[1]:= bM[1]+a21*bM[2];
+             bM[2]:= bM[2]+a42*bM[4];
+             bM[3]:= bM[3]+a42*bM[5];
+             bM[4]:= bM[4]+a21*bM[5];
+             c:= coc21( bM[2],bM[5] );
+
+             imgs:= [ ];
+             c1:= coc21( bM[1],bM[2] );
+             c2:= coc21( bM[1],bM[3] );
+             c3:= coc21( bM[1],bM[4] );
+
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+             SetEntrySCTable( T, 1, 2, [1,3] );
+             SetEntrySCTable( T, 1, 3, [1,4] );
+             SetEntrySCTable( T, 1, 4, [1,5] );
+             SetEntrySCTable( T, 2, 3, [1,5] );
+             SetEntrySCTable( T, 2, 5, [1,6] );
+             SetEntrySCTable( T, 3, 4, [-1,6] );
+             N:= LieAlgebraByStructureConstants( F, T );
+
+             bM:= Basis( M, bM );
+
+             for x in Basis( K ) do
+
+                cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+                cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                Append( cx, cz );
               
-              # take care of the coboundary...
-              cx[6]:= cx[6] - c1*cx[3]-c2*cx[4]-c3*cx[5];
+                # take care of the coboundary...
+                cx[6]:= cx[6] - c1*cx[3]-c2*cx[4]-c3*cx[5];
            
-              # make c=1;
-              cx[6]:= cx[6]/c;
-              Add( imgs, LinearCombination( Basis(N), cx ) );
-          od;
-          return rec( type:= [6,14], f:= liealg_hom( K, N, Basis(K), imgs ) );
-       else
+                # make c= 1;
+                cx[6]:= cx[6]/c;
+                Add( imgs, LinearCombination( Basis( N ), cx ) );
+             od;
+             return rec( type:= [ 6, 14 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+          
+          elif Characteristic( F )= 2 and IsFinite(F) then 
 
-          a21:= b/(2*a); 
-          bM[1]:= bM[1]+a21*bM[2];
-          bM[4]:= bM[4]+a21*bM[5];
+             a21:= a/c; a32:= a/c+( b/c )^( Size( F )/2 );
+             bM[1]:= bM[1]+a21*bM[2];
+             bM[2]:= bM[2]+a32*bM[3];
+             bM[3]:= bM[3]+a32*bM[4]+a21*a32*bM[5];
+             bM[4]:= bM[4]+( a21+a32 )*bM[5];
+             c:= coc21( bM[2],bM[5] );
 
-          imgs:= [ ];
-          c1:= coc21(bM[1],bM[2]);
-          c2:= coc21(bM[1],bM[3]);
-          c3:= coc21(bM[1],bM[4]);
+             imgs:= [ ];
+             c1:= coc21( bM[1],bM[2] );
+             c2:= coc21( bM[1],bM[3] );
+             c3:= coc21( bM[1],bM[4] );
 
-          T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-          SetEntrySCTable( T, 1, 2, [1,3] );
-          SetEntrySCTable( T, 1, 3, [1,4] );
-          SetEntrySCTable( T, 1, 4, [1,5] );
-          SetEntrySCTable( T, 2, 3, [1,5] );
-          SetEntrySCTable( T, 1, 5, [1,6] );
-          SetEntrySCTable( T, 2, 4, [1,6] );
-          N:= LieAlgebraByStructureConstants( F, T );
-          bM:= Basis( M, bM );
-          for x in Basis(K) do
-              cz:= Coefficients( Basis(C), x-s(Image(p,x)) );           
-              cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-              Append( cx, cz );
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+             SetEntrySCTable( T, 1, 2, [1,3] );
+             SetEntrySCTable( T, 1, 3, [1,4] );
+             SetEntrySCTable( T, 1, 4, [1,5] );
+             SetEntrySCTable( T, 2, 3, [1,5] );
+             SetEntrySCTable( T, 2, 5, [1,6] );
+             SetEntrySCTable( T, 3, 4, [1,6] );
+             N:= LieAlgebraByStructureConstants( F, T );
+
+             bM:= Basis( M, bM );
+
+             for x in Basis( K ) do
+
+                cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+                cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                Append( cx, cz );
               
-              # take care of the coboundary...
-              cx[6]:= cx[6] - c1*cx[3]-c2*cx[4]-c3*cx[5];
-
-              # make a=1:
-              cx[6]:= cx[6]/a;
+                # take care of the coboundary...
+                cx[6]:= cx[6] - c1*cx[3]-c2*cx[4]-c3*cx[5];
            
-              Add( imgs, LinearCombination( Basis(N), cx ) );
-          od;
-          return rec( type:= [6,15], f:= liealg_hom( K, N, Basis(K), imgs ) );
+                # make c= 1;
+                cx[6]:= cx[6]/c;
+                Add( imgs, LinearCombination( Basis( N ), cx ) );
+             od;
+             return rec( type:= [ 6, 14 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+
+          else 
+
+             a21:= a/c; a32:= a/c;
+             bM[1]:= bM[1]+a21*bM[2];
+             bM[2]:= bM[2]+a32*bM[3];
+             bM[3]:= bM[3]+a32*bM[4]+a21*a32*bM[5];
+             bM[4]:= bM[4]+( a21+a32 )*bM[5];
+             c:= coc21( bM[2],bM[5] );
+
+             imgs:= [ ];
+             c1:= coc21( bM[1],bM[2] );
+             c2:= coc21( bM[1],bM[3] );
+             c3:= coc21( bM[1],bM[4] );
+
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+             SetEntrySCTable( T, 1, 2, [1,3] );
+             SetEntrySCTable( T, 1, 3, [1,4] );
+             SetEntrySCTable( T, 1, 4, [1,5] );
+             SetEntrySCTable( T, 2, 3, [1,5,b/c,6] );
+             SetEntrySCTable( T, 2, 5, [1,6] );
+             SetEntrySCTable( T, 3, 4, [1,6] );
+             N:= LieAlgebraByStructureConstants( F, T );
+
+             bM:= Basis( M, bM );
+
+             for x in Basis( K ) do
+
+                cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+                cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                Append( cx, cz );
+              
+                # take care of the coboundary...
+                cx[6]:= cx[6] - c1*cx[3]-c2*cx[4]-c3*cx[5];
+           
+                # make c= 1;
+                cx[6]:= cx[6]/c;
+                Add( imgs, LinearCombination( Basis( N ), cx ) );
+             od;
+             return rec( type:= [ 6, 31, b/c ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+          fi;         
+
+       else # i.e., c = 0
+
+          if not Characteristic( F )= 2 then
+
+             a21:= b/( 2*a ); 
+             bM[1]:= bM[1]+a21*bM[2];
+             bM[4]:= bM[4]+a21*bM[5];
+
+             imgs:= [ ];
+             c1:= coc21( bM[1],bM[2] );
+             c2:= coc21( bM[1],bM[3] );
+             c3:= coc21( bM[1],bM[4] );
+
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+             SetEntrySCTable( T, 1, 2, [1,3] );
+             SetEntrySCTable( T, 1, 3, [1,4] );
+             SetEntrySCTable( T, 1, 4, [1,5] );
+             SetEntrySCTable( T, 2, 3, [1,5] );
+             SetEntrySCTable( T, 1, 5, [1,6] );
+             SetEntrySCTable( T, 2, 4, [1,6] );
+             N:= LieAlgebraByStructureConstants( F, T );
+           
+             bM:= Basis( M, bM );
+
+             for x in Basis( K ) do
+
+                cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+                cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                Append( cx, cz );
+              
+                # take care of the coboundary...
+                cx[6]:= cx[6] - c1*cx[3]-c2*cx[4]-c3*cx[5];
+
+                # make a= 1:
+                cx[6]:= cx[6]/a;           
+                Add( imgs, LinearCombination( Basis( N ), cx ) );
+             od;
+             return rec( type:= [ 6, 15 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+       
+          else 
+           
+             imgs:= [ ];
+             c1:= coc21( bM[1],bM[2] );
+             c2:= coc21( bM[1],bM[3] );
+             c3:= coc21( bM[1],bM[4] );
+
+             if not IsZero( b ) then 
+
+                T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+                SetEntrySCTable( T, 1, 2, [1,3] );
+                SetEntrySCTable( T, 1, 3, [1,4] );
+                SetEntrySCTable( T, 1, 4, [1,5] );
+                SetEntrySCTable( T, 1, 5, [1,6] );
+                SetEntrySCTable( T, 2, 3, [1,5,1,6] );
+                SetEntrySCTable( T, 2, 4, [1,6] );
+                N:= LieAlgebraByStructureConstants( F, T );
+                tt:= [ 6, 30 ];
+
+             else
+
+                T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+                SetEntrySCTable( T, 1, 2, [1,3] );
+                SetEntrySCTable( T, 1, 3, [1,4] );
+                SetEntrySCTable( T, 1, 4, [1,5] );
+                SetEntrySCTable( T, 1, 5, [1,6] );
+                SetEntrySCTable( T, 2, 3, [1,5] );
+                SetEntrySCTable( T, 2, 4, [1,6] );
+                N:= LieAlgebraByStructureConstants( F, T );
+                tt:= [ 6, 15 ];
+             fi;
+
+             bM:= Basis( M, bM );
+             b:= b/a; #( we will divide by a, also changing b )
+
+             for x in Basis( K ) do
+
+                cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+                cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                Append( cx, cz );
+
+                # take care of the coboundary...
+                cx[6]:= cx[6] - c1*cx[3]-c2*cx[4]-c3*cx[5];
+
+                # make a= 1:
+                cx[6]:= cx[6]/a;
+ 
+                if not IsZero( b ) then
+
+                   # make it 1:
+                   cx[1]:= cx[1]/b; cx[2]:= cx[2]/b^2; cx[3]:= cx[3]/b^3;
+                   cx[4]:= cx[4]/b^4; cx[5]:= cx[5]/b^5; cx[6]:= cx[6]/b^6;
+                fi;
+                Add( imgs, LinearCombination( Basis( N ), cx ) );
+             od;
+             return rec( type:= tt, f:= liealg_hom( K, N, Basis( K ), imgs ) );
+      
+          fi;
        fi;
-
+     
     elif type = [ 5, 7 ] then
 
-       coc21:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[1]; end;
-       bM:= ShallowCopy( BasisVectors( Basis(M) ) );
+       coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
+       
+       bM:= ShallowCopy( BasisVectors( Basis( M ) ) );
 
        # we change the basis bM so that the cocycle is in "normal form":
 
-       a:= coc21(bM[1],bM[5]); 
-       b:= coc21(bM[2],bM[3]);
-       c:= coc21(bM[2],bM[5]);
+       a:= coc21( bM[1],bM[5] ); 
+       b:= coc21( bM[2],bM[3] );
+       c:= coc21( bM[2],bM[5] );
 
-       if not IsZero(c) then
-          a21:= -a/c; a42:= -(b/c)/2;
+       if not IsZero( c ) then
+
+          a21:= -a/c; 
           bM[1]:= bM[1]+a21*bM[2];
-          bM[2]:= bM[2]+a42*bM[4];
-          bM[3]:= bM[3]+a42*bM[5];
 
-          c:= coc21(bM[2],bM[5]);
+          if not Characteristic( F )= 2 then
 
-          imgs:= [ ];
-          c1:= coc21(bM[1],bM[2]);
-          c2:= coc21(bM[1],bM[3]);
-          c3:= coc21(bM[1],bM[4]);
+             a42:= -( b/c )/2;
+             bM[2]:= bM[2]+a42*bM[4];
+             bM[3]:= bM[3]+a42*bM[5];
 
-          T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-          SetEntrySCTable( T, 1, 2, [1,3] );
-          SetEntrySCTable( T, 1, 3, [1,4] );
-          SetEntrySCTable( T, 1, 4, [1,5] );
-          SetEntrySCTable( T, 2, 5, [1,6] );
-          SetEntrySCTable( T, 3, 4, [-1,6] );
-          N:= LieAlgebraByStructureConstants( F, T );
-          bM:= Basis( M, bM );
-          for x in Basis(K) do
-              cz:= Coefficients( Basis(C), x-s(Image(p,x)) );           
-              cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-              Append( cx, cz );
+             c:= coc21( bM[2],bM[5] );
+
+             imgs:= [ ];
+             c1:= coc21( bM[1],bM[2] );
+             c2:= coc21( bM[1],bM[3] );
+             c3:= coc21( bM[1],bM[4] );
+
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+             SetEntrySCTable( T, 1, 2, [1,3] );
+             SetEntrySCTable( T, 1, 3, [1,4] );
+             SetEntrySCTable( T, 1, 4, [1,5] );
+             SetEntrySCTable( T, 2, 5, [1,6] );
+             SetEntrySCTable( T, 3, 4, [-1,6] );
+             N:= LieAlgebraByStructureConstants( F, T );
+          
+             bM:= Basis( M, bM );
+
+             for x in Basis( K ) do
+
+                cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+                cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                Append( cx, cz );
               
-              # take care of the coboundary...
-              cx[6]:= cx[6] - c1*cx[3]-c2*cx[4]-c3*cx[5];
+                # take care of the coboundary...
+                cx[6]:= cx[6] - c1*cx[3]-c2*cx[4]-c3*cx[5];
            
-              # make c=1;
-              cx[6]:= cx[6]/c;
-              Add( imgs, LinearCombination( Basis(N), cx ) );
-          od;
-          return rec( type:= [6,16], f:= liealg_hom( K, N, Basis(K), imgs ) );
+                # make c= 1;
+                cx[6]:= cx[6]/c;
+                Add( imgs, LinearCombination( Basis( N ), cx ) );
+             od;
+             return rec( type:= [ 6, 16 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+
+          elif Characteristic( F )= 2 and IsFinite(F) then
+
+             a32:= ( b/c )^( Size( F )/2 );
+             bM[2]:= bM[2]+a32*bM[3];
+             bM[3]:= bM[3]+a32*bM[4];
+             bM[4]:= bM[4]+a32*bM[5];
+
+             c:= coc21( bM[2],bM[5] );
+
+             imgs:= [ ];
+             c1:= coc21( bM[1],bM[2] );
+             c2:= coc21( bM[1],bM[3] );
+             c3:= coc21( bM[1],bM[4] );
+
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+             SetEntrySCTable( T, 1, 2, [1,3] );
+             SetEntrySCTable( T, 1, 3, [1,4] );
+             SetEntrySCTable( T, 1, 4, [1,5] );
+             SetEntrySCTable( T, 2, 5, [1,6] );
+             SetEntrySCTable( T, 3, 4, [1,6] );
+             N:= LieAlgebraByStructureConstants( F, T );
+          
+             bM:= Basis( M, bM );
+
+             for x in Basis( K ) do
+
+                cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+                cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                Append( cx, cz );
+              
+                # take care of the coboundary...
+                cx[6]:= cx[6] - c1*cx[3]-c2*cx[4]-c3*cx[5];
+           
+                # make c= 1;
+                cx[6]:= cx[6]/c;
+                Add( imgs, LinearCombination( Basis( N ), cx ) );
+             od;
+             return rec( type:= [ 6, 16 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+
+          else
+
+             c:= coc21( bM[2],bM[5] );
+
+             imgs:= [ ];
+             c1:= coc21( bM[1],bM[2] );
+             c2:= coc21( bM[1],bM[3] );
+             c3:= coc21( bM[1],bM[4] );
+
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+             SetEntrySCTable( T, 1, 2, [1,3] );
+             SetEntrySCTable( T, 1, 3, [1,4] );
+             SetEntrySCTable( T, 1, 4, [1,5] );
+             SetEntrySCTable( T, 2, 3, [b/c,6] );
+             SetEntrySCTable( T, 2, 5, [1,6] );
+             SetEntrySCTable( T, 3, 4, [1,6] );
+             N:= LieAlgebraByStructureConstants( F, T );
+          
+             bM:= Basis( M, bM );
+
+             for x in Basis( K ) do
+
+                cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+                cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                Append( cx, cz );
+              
+                # take care of the coboundary...
+                cx[6]:= cx[6] - c1*cx[3]-c2*cx[4]-c3*cx[5];
+           
+                # make c= 1;
+                cx[6]:= cx[6]/c;
+                Add( imgs, LinearCombination( Basis( N ), cx ) );
+             od;
+             return rec( type:= [ 6, 32, b/c ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+
+          fi;
+
        else
 
           imgs:= [ ];
-          c1:= coc21(bM[1],bM[2]);
-          c2:= coc21(bM[1],bM[3]);
-          c3:= coc21(bM[1],bM[4]);
+          c1:= coc21( bM[1],bM[2] );
+          c2:= coc21( bM[1],bM[3] );
+          c3:= coc21( bM[1],bM[4] );
 
-          if not IsZero(b) then 
+          if not IsZero( b ) then 
 
-             T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
              SetEntrySCTable( T, 1, 2, [1,3] );
              SetEntrySCTable( T, 1, 3, [1,4] );
              SetEntrySCTable( T, 1, 4, [1,5] );
@@ -2650,9 +3187,10 @@ class_dim_6:= function( K )
              SetEntrySCTable( T, 2, 3, [1,6] );
              N:= LieAlgebraByStructureConstants( F, T );
              tt:= [ 6, 17 ];
+
           else
 
-             T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
              SetEntrySCTable( T, 1, 2, [1,3] );
              SetEntrySCTable( T, 1, 3, [1,4] );
              SetEntrySCTable( T, 1, 4, [1,5] );
@@ -2662,132 +3200,148 @@ class_dim_6:= function( K )
           fi;
 
           bM:= Basis( M, bM );
-          b:= b/a; #(we will divide by a, also changing b)
+          b:= b/a; #( we will divide by a, also changing b )
 
-          for x in Basis(K) do
+          for x in Basis( K ) do
 
-              cz:= Coefficients( Basis(C), x-s(Image(p,x)) );           
-              cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-              Append( cx, cz );
+             cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+             cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+             Append( cx, cz );
 
-              # take care of the coboundary...
-              cx[6]:= cx[6] - c1*cx[3]-c2*cx[4]-c3*cx[5];
+             # take care of the coboundary...
+             cx[6]:= cx[6] - c1*cx[3]-c2*cx[4]-c3*cx[5];
 
-              # make a=1:
-              cx[6]:= cx[6]/a;
+             # make a= 1:
+             cx[6]:= cx[6]/a;
  
-              if not IsZero(b) then
-                 # make it 1:
-                 cx[1]:= cx[1]/b; cx[2]:= cx[2]/b^2; cx[3]:= cx[3]/b^3;
-                 cx[4]:= cx[4]/b^4; cx[5]:= cx[5]/b^5; cx[6]:= cx[6]/b^6;
-              fi;
-            
-              Add( imgs, LinearCombination( Basis(N), cx ) );
+             if not IsZero( b ) then
+
+                # make it 1:
+                cx[1]:= cx[1]/b; cx[2]:= cx[2]/b^2; cx[3]:= cx[3]/b^3;
+                cx[4]:= cx[4]/b^4; cx[5]:= cx[5]/b^5; cx[6]:= cx[6]/b^6;
+             fi;           
+             Add( imgs, LinearCombination( Basis( N ), cx ) );
           od;
-          return rec( type:= tt, f:= liealg_hom( K, N, Basis(K), imgs ) );
+          return rec( type:= tt, f:= liealg_hom( K, N, Basis( K ), imgs ) );
        fi;       
 
     elif type = [ 5, 8 ] then
 
-       coc21:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[1]; end;
-       bM:= ShallowCopy( BasisVectors( Basis(M) ) );
+       coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
+
+       bM:= ShallowCopy( BasisVectors( Basis( M ) ) );
 
        # we change the basis bM so that the cocycle is in "normal form":
+       a:= coc21( bM[1],bM[4] );
+       b:= coc21( bM[1],bM[5] );
+       c:= coc21( bM[2],bM[3] );
+       d:= coc21( bM[2],bM[4] ); 
+       e:= coc21( bM[2],bM[5] );
+       f:= coc21( bM[3],bM[5] );
 
-       d:= coc21(bM[2],bM[4]); 
-       e:= coc21(bM[2],bM[5]);
-       f:= coc21(bM[3],bM[5]);
-       if not IsZero(f) then
+       if not IsZero( f ) then
+
           bM[2]:= bM[2]-e/f*bM[3];
           bM[4]:= bM[4]-e/f*bM[5];
-       elif not IsZero(d) then
+
+       elif not IsZero( d ) then
+
           bM[3]:= bM[3]-e/d*bM[2];
           bM[5]:= bM[5]-e/d*bM[4];
+
        else
-          v:= bM[2];
-          bM[2]:= bM[2]-bM[3];
-          bM[3]:= bM[3]+v;
-          v:= bM[4];
-          bM[4]:= bM[4]-bM[5];
-          bM[5]:= v+bM[5];
+ 
+          if not Characteristic( F )= 2 then
+
+             v:= bM[2];
+             bM[2]:= bM[2]-bM[3];
+             bM[3]:= bM[3]+v;
+             v:= bM[4];
+             bM[4]:= bM[4]-bM[5];
+             bM[5]:= v+bM[5];
+          fi;
        fi;
+          
+       d:= coc21( bM[2],bM[4] ); 
+           
+       if not IsZero( d ) then
 
-       d:= coc21(bM[2],bM[4]);
-       if not IsZero(d) then
-
-          # make d=1:
+          # make d= 1:
           bM[1]:= bM[1]/d; bM[4]:= bM[4]/d; bM[5]:= bM[5]/d;
-          # and a=c=0
-          a:= coc21(bM[1],bM[4]);
-          c:= coc21(bM[2],bM[3]);
+          # and a= c= 0
+          a:= coc21( bM[1],bM[4] );
+          c:= coc21( bM[2],bM[3] );
           bM[1]:= bM[1]-a*bM[2];
           bM[3]:= bM[3]-c*bM[4];
+          b:= coc21( bM[1],bM[5] );
 
-          b:= coc21(bM[1],bM[5]);
-
-          if IsZero(b) then
-             f:= coc21(bM[3],bM[5]);
-             T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-             SetEntrySCTable( T, 1, 2, [1,4] );
-             SetEntrySCTable( T, 1, 3, [1,5] );
-             SetEntrySCTable( T, 2, 4, [1,6] );
-             SetEntrySCTable( T, 3, 5, [f,6] );
-             N:= LieAlgebraByStructureConstants( F, T );
-
-             bM:= Basis( M, bM );
-
-             imgs:= [ ];
-             c1:= coc21(bM[1],bM[2]);
-             c2:= coc21(bM[1],bM[3]);
-             for x in Basis(K) do
-
-                 cz:= Coefficients( Basis(C), x-s(Image(p,x)) );           
-                 cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-                 Append( cx, cz );
-
-                 # take care of the coboundary...
-                 cx[6]:= cx[6] - c1*cx[4]-c2*cx[5];
-
-                 Add( imgs, LinearCombination( Basis(N), cx ) );
-             od;
-             return rec( type:= [ 6, 19, f ], f:= liealg_hom( K, N, Basis(K), imgs ) );
-
-          else # i.e., b <> 0
+          if not IsZero( b ) then  
 
              bM[3]:= bM[3]/b;
              bM[5]:= bM[5]/b;
-             f:= coc21(bM[3],bM[5]);
+             f:= coc21( bM[3],bM[5] );
 
-             if not IsZero(f) then
+             if not IsZero( f ) then
 
-                T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+                if IsFinite( F ) then
+                   if not Characteristic( F )= 2  then
+                      xi:= PrimitiveElement( F );
+                      ex:= LogFFE( f, xi );
+                      if IsEvenInt( ex ) then
+                         f:= One( F );
+                         eps:= xi^( ex/2 );
+                      else
+                         f:= xi;
+                         eps:= xi^( ( ex-1 )/2 );
+                      fi;
+                   else
+                      eps:= f^( Size( F )/2 );
+                      f:= One( F );
+                   fi;
+                elif F = Rationals then
+                   u:= sq_free( f );
+                   eps:= u[1];
+                   f:= u[2];
+                else
+                   eps:= 1;
+                fi;
+
+                T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
                 SetEntrySCTable( T, 1, 2, [1,4] );
                 SetEntrySCTable( T, 1, 3, [1,5] );
+                SetEntrySCTable( T, 1, 5, [1,6] );
                 SetEntrySCTable( T, 2, 4, [1,6] );
                 SetEntrySCTable( T, 3, 5, [f,6] );
                 N:= LieAlgebraByStructureConstants( F, T );
+                
                 bM:= Basis( M, bM );
+
                 imgs:= [ ];
-                c1:= coc21(bM[1],bM[2]);
-                c2:= coc21(bM[1],bM[3]);
+                c1:= coc21( bM[1],bM[2] );
+                c2:= coc21( bM[1],bM[3] );
 
-                for x in Basis(K) do
+                for x in Basis( K ) do
 
-                    cz:= Coefficients( Basis(C), x-s(Image(p,x)) );           
-                    cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-                    Append( cx, cz );
+                   cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+                   cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                   Append( cx, cz );
 
-                    cx[3]:= cx[3] + cx[1]/f;
+                   # take care of the coboundary...
+                   cx[6]:= cx[6] - c1*cx[4]-c2*cx[5];
 
-                    # take care of the coboundary...
-                    cx[6]:= cx[6] - c1*cx[4]-c2*cx[5];
-
-                    Add( imgs, LinearCombination( Basis(N), cx ) );
-                od;
-                return rec( type:= [ 6, 19, f ], f:= liealg_hom( K, N, Basis(K), imgs ) );
-             else # i.e., f=0
+                   # isom 
+                   cx[2]:= cx[2]*eps;
+                   cx[3]:= cx[3]*eps^2;
+                   cx[4]:= cx[4]*eps;
+                   cx[5]:= cx[5]*eps^2;
+                   cx[6]:= cx[6]*eps^2;      
+                   Add( imgs, LinearCombination( Basis( N ), cx ) );
+                od; 
+                return rec( type:= [ 6, 19, f ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+             
+             else # i.e., f= 0
                              
-                T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+                T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
                 SetEntrySCTable( T, 1, 2, [1,4] );
                 SetEntrySCTable( T, 1, 3, [1,5] );
                 SetEntrySCTable( T, 1, 5, [1,6] );
@@ -2797,323 +3351,751 @@ class_dim_6:= function( K )
                 bM:= Basis( M, bM );
 
                 imgs:= [ ];
-                c1:= coc21(bM[1],bM[2]);
-                c2:= coc21(bM[1],bM[3]);
-                for x in Basis(K) do
+                c1:= coc21( bM[1],bM[2] );
+                c2:= coc21( bM[1],bM[3] );
 
-                    cz:= Coefficients( Basis(C), x-s(Image(p,x)) );           
-                    cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-                    Append( cx, cz );
+                for x in Basis( K ) do
 
-                    # take care of the coboundary...
-                    cx[6]:= cx[6] - c1*cx[4]-c2*cx[5];
+                   cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+                   cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                   Append( cx, cz );
 
-                    Add( imgs, LinearCombination( Basis(N), cx ) );
+                   # take care of the coboundary...
+                   cx[6]:= cx[6] - c1*cx[4]-c2*cx[5];
+                   Add( imgs, LinearCombination( Basis( N ), cx ) );
                 od;
-                return rec( type:= [ 6, 20 ], f:= liealg_hom( K, N, Basis(K), imgs ) );
+                return rec( type:= [ 6, 20 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+             fi;
+
+          else # i.e., b = 0
+
+             f:= coc21( bM[3],bM[5] );
+
+             if not IsZero( f ) then
+
+                ff:= ShallowCopy( f );
+                if IsFinite( F ) then
+                   if not Characteristic( F )= 2  then
+                      xi:= PrimitiveElement( F );
+                      ex:= LogFFE( f, xi );
+                      if IsEvenInt( ex ) then
+                         f:= One( F );
+                         eps:= xi^( ex/2 );
+                      else
+                         f:= xi;
+                         eps:= xi^( ( ex-1 )/2 );
+                      fi;
+                   else
+                      eps:= f^( Size( F )/2 );
+                      f:= One( F );
+                   fi;
+                elif F = Rationals then
+                   u:= sq_free( f );
+                   eps:= u[1];
+                   f:= u[2];
+                else
+                   eps:= 1;
+                fi;
+                     
+                T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+                SetEntrySCTable( T, 1, 2, [1,4] );
+                SetEntrySCTable( T, 1, 3, [1,5] );
+                SetEntrySCTable( T, 1, 5, [1,6] );
+                SetEntrySCTable( T, 2, 4, [1,6] );
+                SetEntrySCTable( T, 3, 5, [f,6] );
+                N:= LieAlgebraByStructureConstants( F, T );
+
+                bM:= Basis( M, bM );
+
+                imgs:= [ ];
+                c1:= coc21( bM[1],bM[2] );
+                c2:= coc21( bM[1],bM[3] );
+
+                for x in Basis( K ) do
+
+                   cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+                   cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                   Append( cx, cz );
+
+                   cx[3]:= cx[3] - cx[1]/ff;
+
+                   # take care of the coboundary...
+                   cx[6]:= cx[6] - c1*cx[4]-c2*cx[5];
+
+                   # isom 
+                   cx[2]:= cx[2]*eps;
+                   cx[3]:= cx[3]*eps^2;
+                   cx[4]:= cx[4]*eps;
+                   cx[5]:= cx[5]*eps^2;
+                   cx[6]:= cx[6]*eps^2;
+                   Add( imgs, LinearCombination( Basis( N ), cx ) );
+                od;
+                return rec( type:= [ 6, 19, f ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
              fi;
           fi;
-       else # i.e., d=0
 
-          # make f=1:
-          bM[1]:= bM[1]/f; bM[4]:= bM[4]/f; bM[5]:= bM[5]/f;
-          # and c=0, a=1
-          a:= coc21(bM[1],bM[4]);
-          c:= coc21(bM[2],bM[3]);
-          bM[2]:= bM[2]+c*bM[5];
-          bM[2]:= bM[2]/a; bM[4]:= bM[4]/a;
+       else # i.e., d= 0
 
-          b:= coc21(bM[1],bM[5]);        
+          f:= coc21( bM[3],bM[5] );
 
-          T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-          SetEntrySCTable( T, 1, 2, [1,4] );
-          SetEntrySCTable( T, 1, 3, [1,5] );
-          SetEntrySCTable( T, 1, 5, [1,6] );
-          SetEntrySCTable( T, 2, 4, [1,6] );
-          N:= LieAlgebraByStructureConstants( F, T );
+          if not IsZero( f ) then 
+          
+             # make f= 1:
+             bM[1]:= bM[1]/f; bM[4]:= bM[4]/f; bM[5]:= bM[5]/f;
+             # and c= 0, a= 1
+             a:= coc21( bM[1],bM[4] );
+             c:= coc21( bM[2],bM[3] );
+             bM[2]:= bM[2]+c*bM[5];
+             bM[2]:= bM[2]/a; bM[4]:= bM[4]/a;
+             b:= coc21( bM[1],bM[5] );        
 
-          bM:= Basis( M, bM );
-          imgs:= [ ];
-          c1:= coc21(bM[1],bM[2]);
-          c2:= coc21(bM[1],bM[3]);
-          for x in Basis(K) do
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+             SetEntrySCTable( T, 1, 2, [1,4] );
+             SetEntrySCTable( T, 1, 3, [1,5] );
+             SetEntrySCTable( T, 1, 5, [1,6] );
+             SetEntrySCTable( T, 2, 4, [1,6] );
+             N:= LieAlgebraByStructureConstants( F, T );
 
-              cz:= Coefficients( Basis(C), x-s(Image(p,x)) );           
-              cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-              Append( cx, cz );
+             bM:= Basis( M, bM );
 
-              # take care of the coboundary...
-              cx[6]:= cx[6] - c1*cx[4]-c2*cx[5];
+             imgs:= [ ];
+             c1:= coc21( bM[1],bM[2] );
+             c2:= coc21( bM[1],bM[3] );
 
-              if not IsZero(b) then
-                 cx[2]:= cx[2]/b^2; cx[3]:= cx[3]/b; cx[4]:= cx[4]/b^2;
-                 cx[5]:= cx[5]/b; cx[6]:= cx[6]/b^2;
-                 cx[3]:= cx[3]+cx[1];
-              fi;
-              cx1:= ShallowCopy( cx );
-              cx1[2]:= cx[3]; cx1[3]:= cx[2];
-              cx1[4]:= cx[5]; cx1[5]:= cx[4];
+             for x in Basis( K ) do
 
-              Add( imgs, LinearCombination( Basis(N), cx1 ) );
-          od;
-          return rec( type:= [ 6, 20 ], f:= liealg_hom( K, N, Basis(K), imgs ) );
+                cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+                cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                Append( cx, cz );
 
+                # take care of the coboundary...
+                cx[6]:= cx[6] - c1*cx[4]-c2*cx[5];
+
+                if not IsZero( b ) then
+
+                   cx[2]:= cx[2]/b^2; cx[3]:= cx[3]/b; cx[4]:= cx[4]/b^2;
+                   cx[5]:= cx[5]/b; cx[6]:= cx[6]/b^2;
+                   cx[3]:= cx[3]+cx[1];
+                fi;
+
+                cx1:= ShallowCopy( cx );
+                cx1[2]:= cx[3]; cx1[3]:= cx[2];
+                cx1[4]:= cx[5]; cx1[5]:= cx[4];
+                Add( imgs, LinearCombination( Basis( N ), cx1 ) );
+             od;
+             return rec( type:= [ 6, 20 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+
+          else # i.d., d= f= 0 and char 2
+
+             # make e= 1:
+             bM[1]:= bM[1]/e; bM[4]:= bM[4]/e; bM[5]:= bM[5]/e;
+             # and a= b= c= 0,
+             a:= coc21( bM[1],bM[4] );
+             b:= coc21( bM[1],bM[5] );
+             bM[1]:= bM[1]-b*bM[2]-a*bM[3];
+             bM[3]:= bM[3]-c*bM[5];
+
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+             SetEntrySCTable( T, 1, 2, [1,4] );
+             SetEntrySCTable( T, 1, 3, [1,5] );
+             SetEntrySCTable( T, 2, 5, [1,6] );
+             SetEntrySCTable( T, 3, 4, [1,6] );
+             N:= LieAlgebraByStructureConstants( F, T );
+   
+             bM:= Basis( M, bM );
+      
+             imgs:= [ ];
+             c1:= coc21( bM[1],bM[2] );
+             c2:= coc21( bM[1],bM[3] );
+        
+             for x in Basis( K ) do
+
+                cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+                cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                Append( cx, cz );
+
+                cx[6]:= cx[6]-c1*cx[4]-c2*cx[5];
+                Add( imgs, LinearCombination( Basis( N ), cx ) );
+             od;
+             return rec( type:= [ 6, 33 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+          fi;
        fi;
 
     elif type = [ 5, 9 ] then
 
-       coc21:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[1]; end;
-       bM:= ShallowCopy( BasisVectors( Basis(M) ) );
+       coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
+       
+       bM:= ShallowCopy( BasisVectors( Basis( M ) ) );
 
        # we change the basis bM so that the cocycle is in "normal form":
 
-       a:= coc21(bM[1],bM[4]); 
-       b:= coc21(bM[1],bM[5]);
-       c:= coc21(bM[2],bM[5]);
-       if not IsZero(c) then
+       a:= coc21( bM[1],bM[4] ); 
+       b:= coc21( bM[1],bM[5] );
+       c:= coc21( bM[2],bM[5] );
+
+       if not IsZero( c ) then
+
           bM[1]:= bM[1]-b/c*bM[2];
-          bM[4]:= bM[4]-b/c*bM[5];
-       elif not IsZero(a) then
+          bM[4]:= bM[4]-b/c*bM[5];   
+       
+       elif not IsZero( a ) then
+       
           bM[2]:= bM[2]-b/a*bM[1];
           bM[5]:= bM[5]-b/a*bM[4];
-       else
-          v:= bM[1];
-          bM[1]:= bM[1]-bM[2];
-          bM[2]:= v+bM[2];
-          bM[3]:= 2*bM[3];
-          v:= bM[4];
-          bM[4]:= 2*(bM[4]-bM[5]);
-          bM[5]:= 2*(v+bM[5]);
+       
+       else 
+       
+          if not Characteristic( F )= 2 then
+     
+             v:= bM[1];
+             bM[1]:= bM[1]-bM[2];
+             bM[2]:= v+bM[2];
+             bM[3]:= 2*bM[3];
+             v:= bM[4];
+             bM[4]:= 2*( bM[4]-bM[5] );
+             bM[5]:= 2*( v+bM[5] );
+          fi;
        fi;
+       
+       b:= coc21( bM[1],bM[5] );
 
-       a:= coc21(bM[1],bM[4]);
-       c:= coc21(bM[2],bM[5]);
+       if IsZero( b ) then 
 
-       T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-       SetEntrySCTable( T, 1, 2, [1,3] );
-       SetEntrySCTable( T, 1, 3, [1,4] );
-       SetEntrySCTable( T, 2, 3, [1,5] );
-       SetEntrySCTable( T, 1, 4, [1,6] );
-       SetEntrySCTable( T, 2, 5, [c/a,6] );
-       N:= LieAlgebraByStructureConstants( F, T );
-       bM:= Basis( M, bM );
-       imgs:= [ ];
-       c1:= coc21(bM[1],bM[2]);
-       c2:= coc21(bM[1],bM[3]);
-       c3:= coc21(bM[2],bM[3]);
-       for x in Basis(K) do
+          a:= coc21( bM[1],bM[4] );
+          c:= coc21( bM[2],bM[5] );
+          
+          aa:= ShallowCopy( a );  
+          if IsFinite( F ) then
+             if not Characteristic( F )= 2  then
+                xi:= PrimitiveElement( F );
+                ex:= LogFFE( c/a, xi );
+                if IsEvenInt( ex ) then
+                   c:= One( F )*a;
+                   eps:= xi^( ex/2 );
+                else
+                   c:= xi*a;
+                   eps:= xi^( ( ex-1 )/2 );
+                fi;
+             else
+                eps:= ( c/a )^( Size( F )/2 );
+                c:= One( F )*a;
+             fi;
+          elif F = Rationals then
+             u:= sq_free( c/a );
+             eps:= u[1];
+             c:= u[2]*a;
+          else
+             eps:= 1;
+          fi;
+          
+          T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+          SetEntrySCTable( T, 1, 2, [1,3] );
+          SetEntrySCTable( T, 1, 3, [1,4] );
+          SetEntrySCTable( T, 2, 3, [1,5] );
+          SetEntrySCTable( T, 1, 4, [1,6] );
+          SetEntrySCTable( T, 2, 5, [c/a,6] );
+          N:= LieAlgebraByStructureConstants( F, T );
+       
+          bM:= Basis( M, bM );
+        
+          imgs:= [ ];
+          c1:= coc21( bM[1],bM[2] );
+          c2:= coc21( bM[1],bM[3] );
+          c3:= coc21( bM[2],bM[3] );
+         
+          for x in Basis( K ) do
 
-           cz:= Coefficients( Basis(C), x-s(Image(p,x)) );           
-           cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-           Append( cx, cz );
+             cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+             cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+             Append( cx, cz );
 
-           # take care of the coboundary...
-           cx[6]:= cx[6] - c1*cx[3]-c2*cx[4]-c3*cx[5];
+             # take care of the coboundary...
+             cx[6]:= cx[6] - c1*cx[3]-c2*cx[4]-c3*cx[5];
 
-           cx[6]:= cx[6]/a;
-           Add( imgs, LinearCombination( Basis(N), cx ) );
-       od;
-       return rec( type:= [ 6, 21, c/a ], f:= liealg_hom( K, N, Basis(K), imgs ));
+             cx[6]:= cx[6]/aa;
+
+             # isom 
+             cx[2]:= cx[2]*eps;
+             cx[3]:= cx[3]*eps;
+             cx[4]:= cx[4]*eps;
+             cx[5]:= cx[5]*eps^2;
+             cx[6]:= cx[6]*eps;          
+             Add( imgs, LinearCombination( Basis( N ), cx ) );
+          od;
+          return rec( type:= [ 6, 21, c/a ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+
+       else 
+
+          T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+          SetEntrySCTable( T, 1, 2, [1,3] );
+          SetEntrySCTable( T, 1, 3, [1,4] );
+          SetEntrySCTable( T, 1, 5, [1,6] );
+          SetEntrySCTable( T, 2, 3, [1,5] );
+          SetEntrySCTable( T, 2, 4, [1,6] );
+          N:= LieAlgebraByStructureConstants( F, T );
+
+          bM:= Basis( M, bM );
+
+          imgs:= [ ];
+          c1:= coc21( bM[1],bM[2] );
+          c2:= coc21( bM[1],bM[3] );
+          c3:= coc21( bM[2],bM[3] );
+     
+          for x in Basis( K ) do
+
+             cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );           
+             cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+             Append( cx, cz );
+
+             # take care of the coboundary...
+             cx[6]:= cx[6] - c1*cx[3]-c2*cx[4]-c3*cx[5];
+
+             cx[6]:= cx[6]/b;
+             Add( imgs, LinearCombination( Basis( N ), cx ) );
+          od;
+          return rec( type:= [ 6, 34 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );    
+       fi;
 
     elif type = [ 4, 1 ] then
 
-       coc21:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[1]; end;
-       coc22:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[2]; end;
+       coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
+       coc22:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[2]; end;
 
        bM:= skew_symm_NF( M, coc21 );
 
-       if IsZero( coc21(bM[3],bM[4]) ) then
+       if IsZero( coc21( bM[3],bM[4] ) ) then
+         
           # find a linear combination of coc21, coc22 that is nondegenerate:
-          y:= coc22(bM[1],bM[2]); a:= coc22(bM[1],bM[3]);
-          b:= coc22(bM[1],bM[4]); c:= coc22(bM[2],bM[3]);
-          d:= coc22(bM[2],bM[4]); e:= coc22(bM[3],bM[4]);
+          y:= coc22( bM[1],bM[2] ); a:= coc22( bM[1],bM[3] );
+          b:= coc22( bM[1],bM[4] ); c:= coc22( bM[2],bM[3] );
+          d:= coc22( bM[2],bM[4] ); e:= coc22( bM[3],bM[4] );
+  
           if IsZero( a*d-b*c ) then
+    
              x:= 1-y;
+
           else
+             
              x:= -y;
           fi;
 
-          if IsZero(x) then
+          if IsZero( x ) then
+
              store:= coc21;
              coc21:= coc22;
              # so now coc21 has become coc22, need to make coc22 equal to
-             # the old coc21 (otherwise no longer independent).
+             # the old coc21 ( otherwise no longer independent ).
              coc22:= store;
              r:= 1; t:= 0;
+
           else
+
              f1:= coc21;
-             coc21:= function(u,v) return x*f1(u,v)+coc22(u,v); end;
+             f2:= ShallowCopy( coc22 );
+             coc21:= function( u,v ) return x*f1( u,v )+f2( u,v ); end;
              r:= 0; t:= 1;
           fi;
+
           bM:= skew_symm_NF( M, coc21 );
 
           u:= x; v:= 1;
           # i.e., we have made a base change in the centre, corresponding 
           # to theta_1 --> u*theta_1 + v*\theta_2
           #    theta_2 --> r*theta_1 + t*\theta_2
+
        else
+
           u:= 1; v:= 0;
           r:= 0; t:= 1;
        fi;
 
-       y:= coc22(bM[1],bM[2]);
-       if not IsZero(y) then
+       y:= coc22( bM[1],bM[2] );
+
+       if not IsZero( y ) then
+
           f2:= coc22;
-          coc22:= function(u,v) return -y*coc21(u,v)+f2(u,v); end;
+          coc22:= function( u,v ) return -y*coc21( u,v )+f2( u,v ); end;
           r:= -u*y+r; t:= -v*y+t;
           # a new base change...
        fi;
 
-       a:= coc22(bM[1],bM[3]);
-       if IsZero(a) then
-          # try to make it 0:
-          b:= coc22(bM[1],bM[4]);
-          c:= coc22(bM[2],bM[3]);
-          d:= coc22(bM[2],bM[4]);
-          if not IsZero(b) then
+       a:= coc22( bM[1],bM[3] );
+
+       if IsZero( a ) then
+
+          # try to make it not 0:
+          b:= coc22( bM[1],bM[4] );
+          c:= coc22( bM[2],bM[3] );
+          d:= coc22( bM[2],bM[4] );
+
+          if not IsZero( b ) then
+
              bM[3]:= bM[3]+bM[4];
-             a:= coc22(bM[1],bM[3]);
-          elif not IsZero(c) then
+             a:= coc22( bM[1],bM[3] );
+
+          elif not IsZero( c ) then
+
              bM[1]:= bM[1]+bM[2];
-             a:= coc22(bM[1],bM[3]);
-          elif not IsZero(d) then
+             a:= coc22( bM[1],bM[3] );
+
+          elif not IsZero( d ) then
+
              bM[1]:= bM[1]+bM[2];
              bM[3]:= bM[3]+bM[4];
-             a:= coc22(bM[1],bM[3]);
+             a:= coc22( bM[1],bM[3] );
           fi;
        fi;
 
-       if not IsZero(a) then
+       if not IsZero( a ) then
+
           # make it 1:
           bM[1]:= bM[1]/a; bM[4]:= bM[4]/a;
 
           # make b,c -> 0
-          b:= coc22(bM[1],bM[4]); c:= coc22(bM[2],bM[3]);
+          b:= coc22( bM[1],bM[4] ); c:= coc22( bM[2],bM[3] );
           bM[2]:= bM[2]-c*bM[1]; bM[4]:= bM[4]-b*bM[3];
 
-          e:= coc22(bM[3],bM[4]);
-          if not IsZero(e) then
+          e:= coc22( bM[3],bM[4] );
+
+          if IsZero( e ) then 
+
+             b:= coc22( bM[2],bM[4] );
+            
+             bb:= ShallowCopy( b );
+             if not IsZero( b ) then 
+                if IsFinite( F ) then
+                   if not Characteristic( F )= 2  then
+                      xi:= PrimitiveElement( F );
+                      ex:= LogFFE( b, xi );
+                      if IsEvenInt( ex ) then
+                         b:= One( F );
+                         eps:= xi^( ex/2 );
+                      else
+                         b:= xi;
+                         eps:= xi^( ( ex-1 )/2 );
+                      fi;
+                   else
+                      eps:= b^( Size( F )/2 );
+                      b:= Zero( F );
+                   fi;
+                elif F = Rationals then
+                   uu:= sq_free( b );
+                   eps:= uu[1];
+                   b:= uu[2];
+                else
+                   eps:= 1;
+                fi;
+             fi;
+
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+             SetEntrySCTable( T, 1, 2, [1,5] );
+             SetEntrySCTable( T, 1, 3, [1,6] );
+             SetEntrySCTable( T, 2, 4, [b,6] );
+             SetEntrySCTable( T, 3, 4, [1,5] );
+             N:= LieAlgebraByStructureConstants( F, T );
+          
+             bM:= Basis( M, bM );
+          
+             imgs:= [ ];
+
+             q:= coc21( bM[1],bM[2] ); # we have to change that back to 1...
+        
+             for x in Basis( K ) do
+
+                cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+                cz1:= ShallowCopy( cz );
+                cz1[1]:= u/q*cz[1]+v/q*cz[2];
+                cz1[2]:= r*cz[1]+t*cz[2];
+
+                cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                Append( cx, cz1 );
+                
+                if not IsZero( bb ) then
+                   # isom 
+                   cx[1]:= cx[1]/eps;
+                   cx[3]:= cx[3]/eps;
+                   cx[5]:= cx[5]/eps;
+                   cx[6]:= cx[6]/eps^2;    
+                   if Characteristic( F )= 2  then
+                      # isom 
+                      cx1:= ShallowCopy( cx );
+                      cx1[1]:= cx[1]+cx[4];
+                      cx1[2]:= cx[2];
+                      cx1[3]:= cx[2]+cx[3];
+                      cx1[4]:= cx[1];
+                      cx1[5]:= cx[6];
+                      cx1[6]:= cx[5]+cx[6];   
+                      cx:= ShallowCopy( cx1 ); 
+                   fi;
+                fi;                
+                Add( imgs, LinearCombination( Basis( N ), cx ) );
+             od;   
+             return rec( type:= [ 6, 22, b ], f:= liealg_hom( K, N, Basis( K ), imgs ) ); 
+
+          else
+ 
              # make it 1:
              bM[2]:= bM[2]/e; bM[4]:= bM[4]/e;
+             a:= coc22( bM[2],bM[4] );
 
-             a:= coc22(bM[2],bM[4]);
+             if not Characteristic( F )= 2 then
 
-             if not IsZero(a) and not IsZero( a+1/4 ) then
-                b:= a+1/4;
-             elif IsZero(a) then
-                b:= 1;
-             elif IsZero( a+1/4 ) then
-                b:= 0;
+                if not IsZero( a ) and not IsZero( a+1/4 ) then
+
+                   b:= a+1/4;
+
+                elif IsZero( a ) then
+                
+                   b:= One( F );
+
+                elif IsZero( a+1/4 ) then
+ 
+                   b:= Zero( F );
+                fi;
+
+                bb:= ShallowCopy( b );
+                if not IsZero( b ) then 
+                   if IsFinite( F ) then                      
+                      xi:= PrimitiveElement( F );
+                      ex:= LogFFE( b, xi );
+                      if IsEvenInt( ex ) then
+                         b:= One( F );
+                         eps:= xi^( ex/2 );
+                      else
+                         b:= xi;
+                         eps:= xi^( ( ex-1 )/2 );
+                      fi;                      
+                   elif F = Rationals then
+                      uu:= sq_free( b );
+                      eps:= uu[1];
+                      b:= uu[2];
+                   else
+                      eps:= 1;
+                   fi;
+                fi;
+           
+                T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+                SetEntrySCTable( T, 1, 2, [1,5] );
+                SetEntrySCTable( T, 1, 3, [1,6] );
+                SetEntrySCTable( T, 2, 4, [b,6] );
+                SetEntrySCTable( T, 3, 4, [1,5] );
+                N:= LieAlgebraByStructureConstants( F, T );
+           
+                bM:= Basis( M, bM );
+
+                imgs:= [ ];
+
+                q:= coc21( bM[1],bM[2] ); # we have to change that back to 1...
+      
+                for x in Basis( K ) do
+
+                   cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+                   cz1:= ShallowCopy( cz );
+                   cz1[1]:= u/q*cz[1]+v/q*cz[2];
+                   cz1[2]:= r*cz[1]+t*cz[2];
+
+                   cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                   Append( cx, cz1 );
+
+                   cx1:= ShallowCopy( cx );
+                
+                   if not IsZero( a ) and not IsZero( a+1/4 ) then
+
+                      cx1[1]:= ( 1/( 4*a )+1 )*cx[1]; 
+                      cx1[2]:= cx[3];
+                      cx1[3]:= a*cx[2]+cx[3]/2;
+                      cx1[4]:= cx[4]+1/( 2*a )*cx[1];
+                      cx1[5]:= -cx[5]/2+cx[6];
+                      cx1[6]:= ( a+1/4 )*cx[5];
+
+                   elif IsZero( a ) then
+
+                      cx1[1]:= cx[4];
+                      cx1[2]:= -cx[2]/4;
+                      cx1[3]:= cx[2]/4-cx[3]/2;
+                      cx1[4]:= 2*cx[1]-cx[4];
+                      cx1[5]:= -cx[5]/2+cx[6];
+                      cx1[6]:= cx[5]/2;
+   
+                   elif IsZero( a+1/4 ) then
+
+                      cx1[1]:= -2*cx[1]+cx[4];
+                      cx1[2]:= cx[2]/2-2*cx[3];
+                      cx1[3]:= cx[2]/2-cx[3];
+                      cx1[4]:= -4*cx[1]+cx[4];
+                      cx1[6]:= -cx[5]+2*cx[6];
+                   fi;
+
+                   cx:= ShallowCopy( cx1 );
+
+                   if not IsZero( bb ) then
+                      # isom 
+                      cx[1]:= cx[1]/eps;
+                      cx[3]:= cx[3]/eps;
+                      cx[5]:= cx[5]/eps;
+                      cx[6]:= cx[6]/eps^2;    
+                   fi;
+                   Add( imgs, LinearCombination( Basis( N ), cx ) );
+                od;
+                return rec( type:= [ 6, 22, b ], f:= liealg_hom( K, N, Basis( K ), imgs ) ); 
+               
+             else
+ 
+                b:= coc22( bM[2],bM[4] );
+
+                bb:= ShallowCopy( b );
+                if not IsZero( b ) then 
+                   if IsFinite( F ) then
+                      ex:= First( [0..( Size( F )-1 )],i->Trace( F,PrimitiveElement( F )^i )= One( F ) );
+                      xi:= PrimitiveElement( F )^ex;
+                      P:= PolynomialRing( F,["y"] );
+                      y:= P.1;
+                      if Trace( F, b )= Zero( F ) then
+                         root:= Factors( P,y^2+y+b )[1];
+                         eps:= CoefficientsOfUnivariatePolynomial( root )[1];
+                         b:= Zero( F );
+                      else  
+                         root:= Factors( P,y^2+y+b+xi )[1];                        
+                         eps:= CoefficientsOfUnivariatePolynomial( root )[1]; 
+                         b:= xi;
+                      fi;
+                   else
+                      eps:= 1;
+                   fi;
+                fi;
+                
+                T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+                SetEntrySCTable( T, 1, 2, [1,5] );
+                SetEntrySCTable( T, 1, 3, [1,6] );
+                SetEntrySCTable( T, 2, 4, [b,6] );
+                SetEntrySCTable( T, 3, 4, [1,5,1,6] );
+                N:= LieAlgebraByStructureConstants( F, T );
+          
+                bM:= Basis( M, bM );
+
+                imgs:= [ ];
+
+                q:= coc21( bM[1],bM[2] ); # we have to change that back to 1...
+
+                for x in Basis( K ) do
+
+                   cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+                   cz1:= ShallowCopy( cz );
+                   cz1[1]:= u/q*cz[1]+v/q*cz[2];
+                   cz1[2]:= r*cz[1]+t*cz[2];
+
+                   cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                   Append( cx, cz1 );
+
+                   if not IsZero( bb ) then
+                      # isom 
+                      cx1:= ShallowCopy( cx );
+                      cx1[1]:= cx[1]+cx[4]*eps;
+                      cx1[2]:= cx[2];
+                      cx1[3]:= cx[2]*eps+cx[3];
+                      cx1[4]:= cx[4];
+                      cx1[5]:= cx[5];
+                      cx1[6]:= cx[5]*eps+cx[6];                                              
+                      cx:= ShallowCopy( cx1 );  
+                   fi;                  
+                   Add( imgs, LinearCombination( Basis( N ), cx ) );
+                od;   
+                return rec( type:= [ 6, 35, b ], f:= liealg_hom( K, N, Basis( K ), imgs ) ); 
              fi;
-          else
-             b:= coc22(bM[2],bM[4]);
           fi;
+                  
+       else # i.e, a= 0, which means that b= c= d= 0
 
-          T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-          SetEntrySCTable( T, 1, 2, [1,5] );
-          SetEntrySCTable( T, 1, 3, [1,6] );
-          SetEntrySCTable( T, 2, 4, [b,6] );
-          SetEntrySCTable( T, 3, 4, [1,5] );
-          N:= LieAlgebraByStructureConstants( F, T );
-          bM:= Basis( M, bM );
-          imgs:= [ ];
-
-          q:= coc21(bM[1],bM[2]); # we have to change that back to 1...
-          for x in Basis(K) do
-
-              cz:= Coefficients( Basis(C), x-s( Image(p,x) ) );
-
-              cz1:= ShallowCopy( cz );
-              cz1[1]:= u/q*cz[1]+v/q*cz[2];
-              cz1[2]:= r*cz[1]+t*cz[2];
-
-              cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-              Append( cx, cz1 );
-
-              if not IsZero(e) then
-                 # make another isomorphism...
-                 cx1:= ShallowCopy( cx );
-                 if not IsZero(a) and not IsZero(a+1/4) then
-                    cx1[1]:= (1/(4*a)+1)*cx[1]; 
-                    cx1[2]:= cx[3];
-                    cx1[3]:= a*cx[2]+cx[3]/2;
-                    cx1[4]:= cx[4]+1/(2*a)*cx[1];
-                    cx1[5]:= -cx[5]/2+cx[6];
-                    cx1[6]:= (a+1/4)*cx[5];
-                 elif IsZero(a) then
-                    cx1[1]:= cx[4];
-                    cx1[2]:= -cx[2]/4;
-                    cx1[3]:= cx[2]/4-cx[3]/2;
-                    cx1[4]:= 2*cx[1]-cx[4];
-                    cx1[5]:= -cx[5]/2+cx[6];
-                    cx1[6]:= cx[5]/2;   
-                 elif IsZero(a+1/4) then
-                    cx1[1]:= -2*cx[1]+cx[4];
-                    cx1[2]:= cx[2]/2-2*cx[3];
-                    cx1[3]:= cx[2]/2-cx[3];
-                    cx1[4]:= -4*cx[1]+cx[4];
-                    cx1[6]:= -cx[5]+2*cx[6];
-                 fi;
-                 cx:= ShallowCopy( cx1 );
-              fi;
-              Add( imgs, LinearCombination( Basis(N), cx ) );
-          od;
-          return rec( type:= [ 6, 22, b ], f:= liealg_hom( K, N, Basis(K), imgs ) );
-
-       else # i.e, a=0, which means that b=c=d=0.
-
-          # make e=1:
-          e:= coc22(bM[3],bM[4]);
+          # make e= 1:
+          e:= coc22( bM[3],bM[4] );
           f2:= coc22;          
-          coc22:= function(u,v) return f2(u,v)/e; end;
+          coc22:= function( u,v ) return f2( u,v )/e; end;
           r:= r/e; t:= t/e;
 
           # subtract coc22 from coc21:
           f1:= coc21;
-          coc21:= function(u,v) return f1(u,v)-coc22(u,v); end;
+          coc21:= function( u,v ) return f1( u,v )-coc22( u,v ); end;
           u:= u-r; v:= v-t;
+  
+          if not Characteristic( F )= 2 then
 
-          T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-          SetEntrySCTable( T, 1, 2, [1,5] );
-          SetEntrySCTable( T, 1, 3, [1,6] );
-          SetEntrySCTable( T, 2, 4, [1,6] );
-          SetEntrySCTable( T, 3, 4, [1,5] );
-          N:= LieAlgebraByStructureConstants( F, T );
-          bM:= Basis( M, bM );
-          imgs:= [ ];
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+             SetEntrySCTable( T, 1, 2, [1,5] );
+             SetEntrySCTable( T, 1, 3, [1,6] );
+             SetEntrySCTable( T, 2, 4, [1,6] );
+             SetEntrySCTable( T, 3, 4, [1,5] );
+             N:= LieAlgebraByStructureConstants( F, T );
+       
+             bM:= Basis( M, bM );
+     
+             imgs:= [ ];
 
-          for x in Basis(K) do
+             for x in Basis( K ) do
 
-              cz:= Coefficients( Basis(C), x-s( Image(p,x) ) );
+                cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+                cz1:= ShallowCopy( cz );
+                cz1[1]:= u*cz[1]+v*cz[2];
+                cz1[2]:= r*cz[1]+t*cz[2];
 
-              cz1:= ShallowCopy( cz );
-              cz1[1]:= u*cz[1]+v*cz[2];
-              cz1[2]:= r*cz[1]+t*cz[2];
+                cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                Append( cx, cz1 );
 
-              cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-              Append( cx, cz1 );
+                # isom 
+                cx1:= ShallowCopy( cx );
+                cx1[1]:= cx[1]-cx[4];
+                cx1[2]:= cx[2]/4-cx[3]/4;
+                cx1[3]:= cx[2]/4+cx[3]/4;
+                cx1[4]:= -cx[1]-cx[4];
+                cx1[5]:= cx[5]/2-cx[6]/2;
+                cx1[6]:= cx[5]/2+cx[6]/2;   
+                cx:= ShallowCopy( cx1 );
+                Add( imgs, LinearCombination( Basis( N ), cx ) );
+             od;
+             return rec( type:= [ 6, 22, One( F ) ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
 
-              # isom 
-              cx1:= ShallowCopy( cx );
-              cx1[1]:= cx[1]-cx[4];
-              cx1[2]:= cx[2]/4-cx[3]/4;
-              cx1[3]:= cx[2]/4+cx[3]/4;
-              cx1[4]:= -cx[1]-cx[4];
-              cx1[5]:= cx[5]/2-cx[6]/2;
-              cx1[6]:= cx[5]/2+cx[6]/2;   
-              cx:= ShallowCopy( cx1 );
-              Add( imgs, LinearCombination( Basis(N), cx ) );
-          od;
-          return rec( type:= [ 6, 22, One(F) ], f:= liealg_hom( K, N, Basis(K), imgs ) );
+          else
 
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+             SetEntrySCTable( T, 1, 2, [1,5] );
+             SetEntrySCTable( T, 1, 3, [1,6] );
+             SetEntrySCTable( T, 3, 4, [1,5,1,6] );
+             N:= LieAlgebraByStructureConstants( F, T );
+
+             bM:= Basis( M, bM );
+   
+             imgs:= [ ];
+
+             for x in Basis( K ) do
+
+                cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+                cz1:= ShallowCopy( cz );
+                cz1[1]:= u*cz[1]+v*cz[2];
+                cz1[2]:= r*cz[1]+t*cz[2];
+ 
+                cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                Append( cx, cz1 );
+
+                # isom 
+                cx1:= ShallowCopy( cx );
+                cx1[1]:= cx[4];
+                cx1[2]:= cx[2]+cx[3];
+                cx1[3]:= cx[2];
+                cx1[4]:= cx[1]+cx[4];
+                cx1[5]:= cx[5]+cx[6];
+                cx1[6]:= cx[5];   
+                cx:= ShallowCopy( cx1 );
+                Add( imgs, LinearCombination( Basis( N ), cx ) );
+             od;
+             return rec( type:= [ 6, 35, Zero( F ) ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+          fi;
        fi;   
 
     elif type = [ 4, 2 ] then
 
-       coc21:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[1]; end;
+       coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
+       coc22:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[2]; end;
 
-       coc22:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[2]; end;
-       bM:= ShallowCopy( BasisVectors( Basis(M) ) );
+       bM:= ShallowCopy( BasisVectors( Basis( M ) ) );
 
        # coc21 can be moved to one of three normal forms
        a:= coc21( bM[1],bM[3] );
@@ -3121,29 +4103,34 @@ class_dim_6:= function( K )
        c:= coc21( bM[2],bM[3] );
        d:= coc21( bM[2],bM[4] );
 
-       if IsZero(a) and not IsZero(c) then # make a not zero
+       if IsZero( a ) and not IsZero( c ) then # make a not zero
+
           bM[1]:= bM[1]+bM[2];
           a:= coc21( bM[1],bM[3] );
           b:= coc21( bM[1],bM[4] );
        fi;
 
-       if not IsZero(a) then
+       if not IsZero( a ) then
 
           bM[1]:= bM[1]/a;
           bM[2]:= bM[2]*a;
-          c:= coc21(bM[2],bM[3]);
+          c:= coc21( bM[2],bM[3] );
           bM[2]:= bM[2]-c*bM[1];
-
           b:= coc21( bM[1],bM[4] );
           d:= coc21( bM[2],bM[4] );
 
-          if not IsZero(d) then
+          if not IsZero( d ) then
+
              bM[4]:= bM[4]/d-b/d*bM[3];
+
           else
+
              bM[4]:= bM[4]-b*bM[3];
           fi;
-       else  # here also c=0.
-          m:= comp_mat( b, d, One(F) );
+
+       else  # here also c= 0.
+
+          m:= comp_mat( b, d, One( F ) );
           store:= bM[1];
           bM[1]:= m[1][1]*bM[1]+m[1][2]*bM[2];
           bM[2]:= m[2][1]*store+m[2][2]*bM[2];
@@ -3160,18 +4147,18 @@ class_dim_6:= function( K )
 
           if not IsZero( s24 ) then
 
-             a:= coc22(bM[1],bM[3]);
+             a:= coc22( bM[1],bM[3] );
              u:= -a; v:= 1;
              f1:= coc22;
              f5:= coc21;
-             coc22:= function(u,v) return -a*f5(u,v)+f1(u,v); end;   
+             coc22:= function( u,v ) return -a*f5( u,v )+f1( u,v ); end;   
              b:= coc22( bM[1],bM[4] );  
              c:= coc22( bM[2],bM[3] );
              d:= coc22( bM[2],bM[4] );
 
-             if IsZero(c) then
+             if IsZero( c ) then
 
-                if not IsZero(d) then
+                if not IsZero( d ) then
 
                    bM[3]:= bM[3]/d;
                    bM[2]:= bM[2]/d;
@@ -3180,483 +4167,732 @@ class_dim_6:= function( K )
 
                    cf:= 1/coc21( bM[1],bM[3] );
                    f2:= coc21;
-                   coc21:= function(u,v) return cf*f2(u,v); end;
+                   coc21:= function( u,v ) return cf*f2( u,v ); end;
                    r:= r*cf; t:= t*cf;
-                   cf1:= 1/coc22(bM[2],bM[4]);
+                   cf1:= 1/coc22( bM[2],bM[4] );
                    f3:= coc22;
-                   coc22:= function(u,v) return cf1*f3(u,v); end;
+                   coc22:= function( u,v ) return cf1*f3( u,v ); end;
                    u:= u*cf1; v:= v*cf1;
                    f4:= coc21;
 
-                   coc21:= function(u,v) 
-                        return f4(u,v)-coc22(u,v); 
+                   coc21:= function( u,v ) 
+                   return f4( u,v )-coc22( u,v ); 
                    end;
                    r:= r-u; t:= t-v;
-                   c1:= coc21(bM[1],bM[2]);
-                   c2:= coc22(bM[1],bM[2]);
+                   c1:= coc21( bM[1],bM[2] );
+                   c2:= coc22( bM[1],bM[2] );
 
-                   T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-                   SetEntrySCTable( T, 1, 2, [1,4] );
+                   T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+                   SetEntrySCTable( T, 1, 2, [1,3] );
                    SetEntrySCTable( T, 1, 3, [1,5] );
                    SetEntrySCTable( T, 2, 4, [1,6] );
                    N:= LieAlgebraByStructureConstants( F, T );
+                   
                    bM:= Basis( M, bM );
+ 
                    imgs:= [ ];
 
-                   for x in Basis(K) do
+                   for x in Basis( K ) do
 
-                       cz:= Coefficients( Basis(C), x-s( Image(p,x) ) );
-                       cz1:= ShallowCopy( cz );
-                       cz1[1]:= r*cz[1]+t*cz[2];
-                       cz1[2]:= u*cz[1]+v*cz[2];
-                       cx:= ShallowCopy( Coefficients( bM, Image( tau, Image(p,x) ) ) );
-                       Append( cx, cz1 );
+                      cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+                      cz1:= ShallowCopy( cz );
+                      cz1[1]:= r*cz[1]+t*cz[2];
+                      cz1[2]:= u*cz[1]+v*cz[2];
+                      cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p,x ) ) ) );
+                      Append( cx, cz1 );
 
-                       # subtract the cocycle
-                       cx[5]:= cx[5]-c1*cx[3];
-                       cx[6]:= cx[6]-c2*cx[3];
-
-                       # isom 
-                       cx1:= ShallowCopy(cx);
-                       cx1[1]:= cx[2];
-                       cx1[2]:= cx[1];
-                       cx1[3]:= cx[4];
-                       cx1[4]:= -cx[3];
-                       cx1[5]:= cx[6];
-                       cx1[6]:= -cx[5];
-                       Add( imgs, LinearCombination( Basis(N), cx1 ) );
+                      # subtract the cocycle
+                      cx[5]:= cx[5]-c1*cx[3];
+                      cx[6]:= cx[6]-c2*cx[3];
+                      Add( imgs, LinearCombination( Basis( N ), cx ) );
                    od;
-                   return rec( type:= [ 6, 19, Zero(F) ], f:= liealg_hom(K,N,Basis(K),imgs) );
-                else # d=0
+                   return rec( type:= [ 6, 27 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
 
+                else # d= 0
 
-                   cf:= 1/coc21(bM[1],bM[3]);
+                   cf:= 1/coc21( bM[1],bM[3] );
                    f2:= coc21;
-                   coc21:= function(u,v) return cf*f2(u,v); end;
+                   coc21:= function( u,v ) return cf*f2( u,v ); end;
                    r:= r*cf; t:= t*cf;
-                   cf1:= 1/coc22(bM[1],bM[4]);
+                   cf1:= 1/coc22( bM[1],bM[4] );
                    f3:= coc22;
-                   coc22:= function(u,v) return cf1*f3(u,v); end;
+                   coc22:= function( u,v ) return cf1*f3( u,v ); end;
                    u:= u*cf1; v:= v*cf1;
 
-                   c1:= coc21(bM[1],bM[2]);
-                   c2:= coc22(bM[1],bM[2]);
+                   c1:= coc21( bM[1],bM[2] );
+                   c2:= coc22( bM[1],bM[2] );
 
-                   T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+                   T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
                    SetEntrySCTable( T, 1, 2, [1,3] );
                    SetEntrySCTable( T, 1, 3, [1,5] );
                    SetEntrySCTable( T, 1, 4, [1,6] );
                    SetEntrySCTable( T, 2, 4, [1,5] );
                    N:= LieAlgebraByStructureConstants( F, T );
+
                    bM:= Basis( M, bM );
+
                    imgs:= [ ];
 
-                   for x in Basis(K) do
+                   for x in Basis( K ) do
 
-                       cz:= Coefficients( Basis(C), x-s( Image(p,x) ) );
-                       cz1:= ShallowCopy(cz);
-                       cz1[1]:= r*cz[1]+t*cz[2];
-                       cz1[2]:= u*cz[1]+v*cz[2];
-                       cx:= ShallowCopy( Coefficients( bM, Image(tau,Image(p,x))));
-                       Append( cx, cz1 );
+                      cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+                      cz1:= ShallowCopy( cz );
+                      cz1[1]:= r*cz[1]+t*cz[2];
+                      cz1[2]:= u*cz[1]+v*cz[2];
+                      cx:= ShallowCopy( Coefficients( bM, Image( tau,Image( p,x ) ) ) );
+                      Append( cx, cz1 );
 
-                       # subtract the cocycle
-                       cx[5]:= cx[5]-c1*cx[3];
-                       cx[6]:= cx[6]-c2*cx[3];
-
-                       Add( imgs, LinearCombination( Basis(N), cx ) );
+                      # subtract the cocycle
+                      cx[5]:= cx[5]-c1*cx[3];
+                      cx[6]:= cx[6]-c2*cx[3];
+                      Add( imgs, LinearCombination( Basis( N ), cx ) );
                    od;
-                   return rec( type:= [ 6, 23 ], f:= liealg_hom(K,N,Basis(K),imgs) );
-                fi; 
+                   return rec( type:= [ 6, 23 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+                fi;
+ 
              else # i.e., c not 0
 
-                if not IsZero(d) then
-                   bM[1]:= (2*c/d)*bM[1]+bM[2];
-                   bM[2]:= d/(2*c)*bM[2];
-                   bM[4]:= (2*c/d)^2*bM[4]-(2*c/d)*bM[3];
+                if IsZero( d ) then 
+
+                   bM[1]:= bM[1]/c; bM[3]:= bM[3]/c; bM[4]:= bM[4]/( c^2 );
+                   cf:= 1/coc21( bM[1],bM[3] );
+                   f2:= coc21;
+                   coc21:= function( u,v ) return cf*f2( u,v ); end;
+                   r:= r*cf; t:= t*cf;
+                   b:= coc22( bM[1],bM[4] );
+                   c1:= coc21( bM[1],bM[2] );
+                   c2:= coc22( bM[1],bM[2] );
+
+                   bb:= ShallowCopy( b );
+                   if not IsZero( b ) then 
+                      if IsFinite( F ) then
+                         if not Characteristic( F )= 2  then
+                            xi:= PrimitiveElement( F );
+                            ex:= LogFFE( b, xi );
+                            if IsEvenInt( ex ) then
+                               b:= One( F );
+                               eps:= xi^( ex/2 );
+                            else
+                               b:= xi;
+                               eps:= xi^( ( ex-1 )/2 );
+                            fi;
+                         else
+                            eps:= b^( Size( F )/2 );
+                            b:= Zero( F );
+                         fi;
+                      elif F = Rationals then
+                         uu:= sq_free( b );
+                         eps:= uu[1];
+                         b:= uu[2];
+                      else
+                         eps:= 1;
+                      fi;
+                   fi;
+
+                   T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+                   SetEntrySCTable( T, 1, 2, [1,3] );
+                   SetEntrySCTable( T, 1, 3, [1,5] );
+                   SetEntrySCTable( T, 1, 4, [b,6] );
+                   SetEntrySCTable( T, 2, 3, [1,6] );
+                   SetEntrySCTable( T, 2, 4, [1,5] );
+                   N:= LieAlgebraByStructureConstants( F, T );
+
+                   bM:= Basis( M, bM );
+      
+                   imgs:= [ ];
+
+                   for x in Basis( K ) do
+
+                      cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+                      cz1:= ShallowCopy( cz );
+                      cz1[1]:= r*cz[1]+t*cz[2];
+                      cz1[2]:= u*cz[1]+v*cz[2];
+                      cx:= ShallowCopy( Coefficients( bM, Image( tau,Image( p,x ) ) ) ); 
+                      Append( cx, cz1 );
+
+                      # subtract the cocycle
+                      cx[5]:= cx[5]-c1*cx[3];
+                      cx[6]:= cx[6]-c2*cx[3];
+
+                      if not IsZero( bb ) then
+                         # isom 
+                         cx[1]:= cx[1]*eps;
+                         cx[3]:= cx[3]*eps;
+                         cx[4]:= cx[4]*eps^2;
+                         cx[5]:= cx[5]*eps^2;
+                         cx[6]:= cx[6]*eps;    
+                         if Characteristic( F )= 2  then
+                            # isom 
+                            cx1:= ShallowCopy( cx );
+                            cx1[1]:= cx[1];
+                            cx1[2]:= cx[1]+cx[2];
+                            cx1[3]:= cx[3]+cx[4];
+                            cx1[4]:= cx[4];
+                            cx1[5]:= cx[5];
+                            cx1[6]:= cx[5]+cx[6];   
+                            cx:= ShallowCopy( cx1 ); 
+                         fi;
+                      fi;                      
+                   Add( imgs, LinearCombination( Basis( N ), cx ) );
+                   od;
+                   return rec( type:= [ 6, 24, b ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+
+                else # i. e., d not 0
+
+                   if not Characteristic( F )= 2 then
+
+                      bM[1]:= ( 2*c/d )*bM[1]+bM[2];
+                      bM[2]:= d/( 2*c )*bM[2];
+                      bM[4]:= ( 2*c/d )^2*bM[4]-( 2*c/d )*bM[3];
  
-                   cf:= 1/coc21(bM[1],bM[3]);
-                   f2:= coc21;
-                   coc21:= function(u,v) return cf*f2(u,v); end;
-                   r:= r*cf; t:= t*cf;
+                      cf:= 1/coc21( bM[1],bM[3] );
+                      f2:= coc21;
+                      coc21:= function( u,v ) return cf*f2( u,v ); end;
+                      r:= r*cf; t:= t*cf;
 
-                   cf1:= coc22(bM[2],bM[3]);
-                   f3:= coc22;
-                   coc22:= function(u,v) return (f3(u,v)-c*coc21(u,v))/cf1; end;
-                   u:= (u-c*r)/cf1; v:= (v-c*t)/cf1;
-                   b:= coc22(bM[1],bM[4]);
-                else
-                   bM[1]:= bM[1]/c; bM[3]:= bM[3]/c; bM[4]:= bM[4]/(c^2);
-                   cf:= 1/coc21(bM[1],bM[3]);
-                   f2:= coc21;
-                   coc21:= function(u,v) return cf*f2(u,v); end;
-                   r:= r*cf; t:= t*cf;
-                   b:= coc22(bM[1],bM[4]);
+                      cf1:= coc22( bM[2],bM[3] );
+                      f3:= coc22;
+                      coc22:= function( u,v ) return ( f3( u,v )-c*coc21( u,v ) )/cf1; end;
+                      u:= ( u-c*r )/cf1; v:= ( v-c*t )/cf1;
+                      b:= coc22( bM[1],bM[4] );
+                      c1:= coc21( bM[1],bM[2] );
+                      c2:= coc22( bM[1],bM[2] );
+
+                      bb:= ShallowCopy( b );
+                      if not IsZero( b ) then 
+                         if IsFinite( F ) then                      
+                            xi:= PrimitiveElement( F );
+                            ex:= LogFFE( b, xi );
+                            if IsEvenInt( ex ) then
+                               b:= One( F );
+                               eps:= xi^( ex/2 );
+                            else
+                               b:= xi;
+                               eps:= xi^( ( ex-1 )/2 );
+                            fi;                      
+                         elif F = Rationals then
+                            uu:= sq_free( b );
+                            eps:= uu[1];
+                            b:= uu[2];
+                         else
+                            eps:= 1;
+                         fi;
+                      fi;
+
+                      T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+                      SetEntrySCTable( T, 1, 2, [1,3] );
+                      SetEntrySCTable( T, 1, 3, [1,5] );
+                      SetEntrySCTable( T, 1, 4, [b,6] );
+                      SetEntrySCTable( T, 2, 3, [1,6] );
+                      SetEntrySCTable( T, 2, 4, [1,5] );
+                      N:= LieAlgebraByStructureConstants( F, T );
+  
+                      bM:= Basis( M, bM );
+    
+                      imgs:= [ ];
+
+                      for x in Basis( K ) do
+
+                         cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+                         cz1:= ShallowCopy( cz );
+                         cz1[1]:= r*cz[1]+t*cz[2];
+                         cz1[2]:= u*cz[1]+v*cz[2];
+                         cx:= ShallowCopy( Coefficients( bM, Image( tau,Image( p,x ) ) ) ); 
+                         Append( cx, cz1 );
+
+                         # subtract the cocycle
+                         cx[5]:= cx[5]-c1*cx[3];
+                         cx[6]:= cx[6]-c2*cx[3];
+
+                         if not IsZero( bb ) then
+                            # isom 
+                            cx[1]:= cx[1]*eps;
+                            cx[3]:= cx[3]*eps;
+                            cx[4]:= cx[4]*eps^2;
+                            cx[5]:= cx[5]*eps^2;
+                            cx[6]:= cx[6]*eps;    
+                         fi;
+                         Add( imgs, LinearCombination( Basis( N ), cx ) );
+                      od;
+                      return rec( type:= [ 6, 24, b ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+
+                   else
+
+                      bM[1]:= c*bM[1];
+                      bM[2]:= d*bM[2];
+                      bM[3]:= c*d*bM[3];
+                      bM[4]:= c^2*bM[4];
+                      cf:= 1/coc21( bM[1],bM[3] );
+                      f2:= coc21;
+                      coc21:= function( u,v ) return cf*f2( u,v ); end;
+                      r:= r*cf; t:= t*cf;
+                      cf1:= coc22( bM[2],bM[3] );
+                      f3:= coc22;
+                      coc22:= function( u,v ) return f3( u,v )/cf1; end;  
+                      u:= u/cf1; v:= v/cf1;
+                      b:= coc22( bM[1],bM[4] );
+                      c1:= coc21( bM[1],bM[2] );
+                      c2:= coc22( bM[1],bM[2] );
+
+                      bb:= ShallowCopy( b );
+                      if not IsZero( b ) then 
+                         if IsFinite( F ) then
+                            ex:= First( [0..( Size( F )-1 )],i->Trace( F,PrimitiveElement( F )^i )= One( F ) );
+                            xi:= PrimitiveElement( F )^ex;
+                            P:= PolynomialRing( F,["y"] );
+                            y:= P.1;
+                            if Trace( F,b )= Zero( F ) then
+                               root:= Factors( P,y^2+y+b )[1];
+                               eps:= CoefficientsOfUnivariatePolynomial( root )[1];
+                               b:= Zero( F );
+                            else  
+                               root:= Factors( P,y^2+y+b+xi )[1];                        
+                               eps:= CoefficientsOfUnivariatePolynomial( root )[1]; 
+                               b:= xi;
+                            fi;
+                         else
+                            eps:= 1;
+                         fi;
+                      fi;
+
+                      T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+                      SetEntrySCTable( T, 1, 2, [1,3] );
+                      SetEntrySCTable( T, 1, 3, [1,5] );
+                      SetEntrySCTable( T, 1, 4, [b,6] );
+                      SetEntrySCTable( T, 2, 3, [1,6] );
+                      SetEntrySCTable( T, 2, 4, [1,5,1,6] );
+                      N:= LieAlgebraByStructureConstants( F, T );
+
+                      bM:= Basis( M, bM );
+
+                      imgs:= [ ];
+
+                      for x in Basis( K ) do
+
+                         cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+                         cz1:= ShallowCopy( cz );
+                         cz1[1]:= r*cz[1]+t*cz[2];
+                         cz1[2]:= u*cz[1]+v*cz[2];
+                         cx:= ShallowCopy( Coefficients( bM, Image( tau,Image( p,x ) ) ) ); 
+                         Append( cx, cz1 );
+
+                         # subtract the cocycle
+                         cx[5]:= cx[5]-c1*cx[3];
+                         cx[6]:= cx[6]-c2*cx[3];
+
+                         if not IsZero( bb ) then
+                            # isom 
+                            cx1:= ShallowCopy( cx );
+                            cx1[1]:= cx[1];
+                            cx1[2]:= +cx[1]*eps+cx[2];
+                            cx1[3]:= cx[3]+cx[4]*eps;
+                            cx1[4]:= cx[4];
+                            cx1[5]:= cx[5];
+                            cx1[6]:= cx[5]*eps+cx[6];                                              
+                            cx:= ShallowCopy( cx1 );  
+                         fi;                  
+                         Add( imgs, LinearCombination( Basis( N ), cx ) );
+                      od;
+                      return rec( type:= [ 6, 36, b ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+                   fi;             
                 fi;
-
-                c1:= coc21(bM[1],bM[2]);
-                c2:= coc22(bM[1],bM[2]);
-                T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-                SetEntrySCTable( T, 1, 2, [1,3] );
-                SetEntrySCTable( T, 1, 3, [1,5] );
-                SetEntrySCTable( T, 1, 4, [b,6] );
-                SetEntrySCTable( T, 2, 3, [1,6] );
-                SetEntrySCTable( T, 2, 4, [1,5] );
-                N:= LieAlgebraByStructureConstants( F, T );
-                bM:= Basis( M, bM );
-                imgs:= [ ];
-
-                for x in Basis(K) do
-
-                    cz:= Coefficients( Basis(C), x-s( Image(p,x) ) );
-                    cz1:= ShallowCopy( cz );
-                    cz1[1]:= r*cz[1]+t*cz[2];
-                    cz1[2]:= u*cz[1]+v*cz[2];
-                    cx:= ShallowCopy( Coefficients( bM, Image(tau,Image(p,x)))); 
-                    Append( cx, cz1 );
-
-                    # subtract the cocycle
-                    cx[5]:= cx[5]-c1*cx[3];
-                    cx[6]:= cx[6]-c2*cx[3];
-
-                    Add( imgs, LinearCombination( Basis(N), cx ) );
-                od;
-                return rec( type:= [ 6, 24, b ], f:= liealg_hom(K,N,Basis(K),imgs) );
              fi;
+
           else # theta_1 = Delta_13
 
              b:= coc22( bM[1],bM[4] );  
              d:= coc22( bM[2],bM[4] );
 
-             if not IsZero(d) then
-                bM[1]:= bM[1]-(b/d)*bM[2];
-                bM[4]:= bM[4]/d;
+             if not IsZero( d ) then
 
+                bM[1]:= bM[1]-( b/d )*bM[2];
+                bM[4]:= bM[4]/d;
                 c:= coc22( bM[2],bM[3] );
-                if not IsZero(c) then
+
+                if not IsZero( c ) then
+
                    bM[1]:= bM[1]/c;
                    bM[3]:= bM[3]/c;
 
                    # normalise coc21
-                   cf:= 1/coc21(bM[1],bM[3]);
+                   cf:= 1/coc21( bM[1],bM[3] );
                    f1:= coc21;
-                   coc21:= function(u,v) return cf*f1(u,v); end;
+                   coc21:= function( u,v ) return cf*f1( u,v ); end;
                    r:= r*cf; t:= t*cf;
 
                    #make a = 0 by subtracting...
-                   a:= coc22(bM[1],bM[3]);
+                   a:= coc22( bM[1],bM[3] );
                    u:= u-a*r; v:= v-a*t; 
                    f2:= coc22;
-                   coc22:= function(u,v) return -a*coc21(u,v)+f2(u,v); end;
-                   c1:= coc21(bM[1],bM[2]);
-                   c2:= coc22(bM[1],bM[2]);
-                   T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-                   SetEntrySCTable( T, 1, 2, [1,3] );
-                   SetEntrySCTable( T, 1, 3, [1,5] );
-                   SetEntrySCTable( T, 1, 4, [1,6] );
-                   SetEntrySCTable( T, 2, 3, [1,6] );
-                   SetEntrySCTable( T, 2, 4, [1,5] );
-                   N:= LieAlgebraByStructureConstants( F, T );
-                   bM:= Basis( M, bM );
-                   imgs:= [ ];
+                   coc22:= function( u,v ) return -a*coc21( u,v )+f2( u,v ); end;
+                   c1:= coc21( bM[1],bM[2] );
+                   c2:= coc22( bM[1],bM[2] );
 
-                   for x in Basis(K) do
+                   if not Characteristic( F )= 2 then
+                
+                      T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+                      SetEntrySCTable( T, 1, 2, [1,3] );
+                      SetEntrySCTable( T, 1, 3, [1,5] );
+                      SetEntrySCTable( T, 1, 4, [1,6] );
+                      SetEntrySCTable( T, 2, 3, [1,6] );
+                      SetEntrySCTable( T, 2, 4, [1,5] );
+                      N:= LieAlgebraByStructureConstants( F, T );
+                   
+                      bM:= Basis( M, bM );
+                   
+                      imgs:= [ ];
 
-                       cz:= Coefficients( Basis(C), x-s( Image(p,x) ) );
-                       cz1:= ShallowCopy(cz);
-                       cz1[1]:= r*cz[1]+t*cz[2];
-                       cz1[2]:= u*cz[1]+v*cz[2];
-                       cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-                       Append( cx, cz1 );
+                      for x in Basis( K ) do
 
-                       # subtract the cocycle
-                       cx[5]:= cx[5]-c1*cx[3];
-                       cx[6]:= cx[6]-c2*cx[3];
+                         cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+                         cz1:= ShallowCopy( cz );
+                         cz1[1]:= r*cz[1]+t*cz[2];
+                         cz1[2]:= u*cz[1]+v*cz[2];
+                         cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                         Append( cx, cz1 );
 
-                       #isom...
-                       cx1:= ShallowCopy(cx);
-                       cx1[1]:= cx[1]+cx[2];
-                       cx1[2]:= -cx[1] +cx[2];
-                       cx1[3]:= 2*cx[3]+cx[4];
-                       cx1[4]:= cx[4];
-                       cx1[5]:= 2*cx[5]+2*cx[6];
-                       cx1[6]:= -2*cx[5]+2*cx[6];
+                         # subtract the cocycle
+                         cx[5]:= cx[5]-c1*cx[3];
+                         cx[6]:= cx[6]-c2*cx[3];
 
-                       Add( imgs, LinearCombination( Basis(N), cx1 ) );
-                   od;
-                   return rec( type:= [ 6, 24, One(F) ], f:= liealg_hom(K,N,Basis(K),imgs) );
-                else # c=0
+                         #isom...
+                         cx1:= ShallowCopy( cx );
+                         cx1[1]:= cx[1]+cx[2];
+                         cx1[2]:= -cx[1] +cx[2];
+                         cx1[3]:= 2*cx[3]+cx[4];
+                         cx1[4]:= cx[4];
+                         cx1[5]:= 2*cx[5]+2*cx[6];
+                         cx1[6]:= -2*cx[5]+2*cx[6];
+                         Add( imgs, LinearCombination( Basis( N ), cx1 ) );
+                      od;
+                      return rec( type:= [ 6, 24, One( F ) ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+    
+                   else
+
+                      T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+                      SetEntrySCTable( T, 1, 2, [1,3] );
+                      SetEntrySCTable( T, 1, 3, [1,5] );
+                      SetEntrySCTable( T, 2, 3, [1,6] );
+                      SetEntrySCTable( T, 2, 4, [1,5,1,6] );
+                      N:= LieAlgebraByStructureConstants( F, T );
+    
+                      bM:= Basis( M, bM );
+       
+                      imgs:= [ ];
+
+                      for x in Basis( K ) do
+
+                         cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+                         cz1:= ShallowCopy( cz );
+                         cz1[1]:= r*cz[1]+t*cz[2];
+                         cz1[2]:= u*cz[1]+v*cz[2];
+                         cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                         Append( cx, cz1 );
+
+                         # subtract the cocycle
+                         cx[5]:= cx[5]-c1*cx[3];
+                         cx[6]:= cx[6]-c2*cx[3];
+                                             
+                         #isom...
+                         cx1:= ShallowCopy( cx );
+                         cx1[1]:= cx[1]+cx[2];
+                         cx1[2]:= cx[1];
+                         cx1[3]:= cx[3]+cx[4];
+                         cx1[4]:= cx[4];
+                         cx1[5]:= cx[5]+cx[6];
+                         cx1[6]:= cx[5];                      
+                         Add( imgs, LinearCombination( Basis( N ), cx1 ) );
+                      od;
+                      return rec( type:= [ 6, 36, Zero( F ) ], f:= liealg_hom( K,N,Basis( K ),imgs ) );                            
+                   fi;
+
+                else # c= 0
 
                    # normalise coc21
-                   cf:= 1/coc21(bM[1],bM[3]);
+                   cf:= 1/coc21( bM[1],bM[3] );
                    f1:= coc21;
-                   coc21:= function(u,v) return cf*f1(u,v); end; 
+                   coc21:= function( u,v ) return cf*f1( u,v ); end; 
                    r:= r*cf; t:= t*cf;
 
                    #make a = 0 by subtracting...
-                   a:= coc22(bM[1],bM[3]);
+                   a:= coc22( bM[1],bM[3] );
                    u:= u-a*r; v:= v-a*t;
                    f2:= coc22;
-                   coc22:= function(u,v) return -a*coc21(u,v)+f2(u,v); end;
+                   coc22:= function( u,v ) return -a*coc21( u,v )+f2( u,v ); end;
 
-                   c1:= coc21(bM[1],bM[2]);
-                   c2:= coc22(bM[1],bM[2]);
-                   T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-                   SetEntrySCTable( T, 1, 2, [1,4] );
+                   c1:= coc21( bM[1],bM[2] );
+                   c2:= coc22( bM[1],bM[2] );
+
+                   T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+                   SetEntrySCTable( T, 1, 2, [1,3] );
                    SetEntrySCTable( T, 1, 3, [1,5] );
                    SetEntrySCTable( T, 2, 4, [1,6] );
                    N:= LieAlgebraByStructureConstants( F, T );
+
                    bM:= Basis( M, bM );
+
                    imgs:= [ ];
 
-                   for x in Basis(K) do
+                   for x in Basis( K ) do
 
-                       cz:= Coefficients( Basis(C), x-s( Image(p,x) ) );
-                       cz1:= ShallowCopy( cz );
-                       cz1[1]:= r*cz[1]+t*cz[2];
-                       cz1[2]:= u*cz[1]+v*cz[2];
-                       cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-                       Append( cx, cz1 );
+                      cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+                      cz1:= ShallowCopy( cz );
+                      cz1[1]:= r*cz[1]+t*cz[2];
+                      cz1[2]:= u*cz[1]+v*cz[2];
+                      cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                      Append( cx, cz1 );
 
-                       # subtract the cocycle
-                       cx[5]:= cx[5]-c1*cx[3];
-                       cx[6]:= cx[6]-c2*cx[3];
-
-                       #isom...
-                       cx1:= ShallowCopy(cx);
-                       cx1[1]:= cx[2];
-                       cx1[2]:= cx[1];
-                       cx1[3]:= cx[4];
-                       cx1[4]:= -cx[3];
-                       cx1[5]:= cx[6];
-                       cx1[6]:= -cx[5];
-                       Add( imgs, LinearCombination( Basis(N), cx1 ) );
+                      # subtract the cocycle
+                      cx[5]:= cx[5]-c1*cx[3];
+                      cx[6]:= cx[6]-c2*cx[3];                    
+                      Add( imgs, LinearCombination( Basis( N ), cx ) );
                    od;
-                   return rec( type:= [ 6, 19, Zero(F) ], f:= liealg_hom(K,N,Basis(K),imgs) );
-
+                   return rec( type:= [ 6, 27 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
                 fi;
 
-             else # d=0
+             else # d= 0
 
-                bM[4]:= bM[4]/b; # now b=1
-                c:= coc22(bM[2],bM[3]);
-                if not IsZero(c) then
+                bM[4]:= bM[4]/b; # now b= 1
+                c:= coc22( bM[2],bM[3] );
+
+                if not IsZero( c ) then
+
                    bM[1]:= bM[1]/c; bM[3]:= bM[3]/c; bM[4]:= c*bM[4];
                    # normalise coc21
-                   cf:= 1/coc21(bM[1],bM[3]);
+                   cf:= 1/coc21( bM[1],bM[3] );
                    f1:= coc21;
-                   coc21:= function(u,v) return cf*f1(u,v); end;
+                   coc21:= function( u,v ) return cf*f1( u,v ); end;
                    r:= r*cf; t:= t*cf;
 
                    #make a = 0 by subtracting...
-                   a:= coc22(bM[1],bM[3]);
+                   a:= coc22( bM[1],bM[3] );
                    u:= u-a*r; v:= v-a*t;
                    f2:= coc22;
-                   coc22:= function(u,v) return -a*coc21(u,v)+f2(u,v); end;  
+                   coc22:= function( u,v ) return -a*coc21( u,v )+f2( u,v ); end;  
 
-                   c1:= coc21(bM[1],bM[2]);
-                   c2:= coc22(bM[1],bM[2]);
-                   T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+                   c1:= coc21( bM[1],bM[2] );
+                   c2:= coc22( bM[1],bM[2] );
+
+                   T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
                    SetEntrySCTable( T, 1, 2, [1,3] );
                    SetEntrySCTable( T, 1, 3, [1,5] );
                    SetEntrySCTable( T, 2, 3, [1,6] );
                    SetEntrySCTable( T, 2, 4, [1,5] );
                    N:= LieAlgebraByStructureConstants( F, T );
+
                    bM:= Basis( M, bM );
+
                    imgs:= [ ];
 
-                   for x in Basis(K) do
+                   for x in Basis( K ) do
 
-                       cz:= Coefficients( Basis(C), x-s( Image(p,x) ) );
-                       cz1:= ShallowCopy( cz );
-                       cz1[1]:= r*cz[1]+t*cz[2];
-                       cz1[2]:= u*cz[1]+v*cz[2];
-                       cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-                       Append( cx, cz1 );
+                      cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+                      cz1:= ShallowCopy( cz );
+                      cz1[1]:= r*cz[1]+t*cz[2];
+                      cz1[2]:= u*cz[1]+v*cz[2];
+                      cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                      Append( cx, cz1 );
 
-                       # subtract the cocycle
-                       cx[5]:= cx[5]-c1*cx[3];
-                       cx[6]:= cx[6]-c2*cx[3];
+                      # subtract the cocycle
+                      cx[5]:= cx[5]-c1*cx[3];
+                      cx[6]:= cx[6]-c2*cx[3];
 
-                       #isom...
-                       cx1:= ShallowCopy( cx );
-                       cx1[1]:= -cx[2];
-                       cx1[2]:= -cx[1];
-                       cx1[3]:= -cx[3];
-                       cx1[4]:= -cx[4];
-                       cx1[5]:= cx[6];
-                       cx1[6]:= cx[5];
-
-                       Add( imgs, LinearCombination( Basis(N), cx1 ) );
+                      #isom...
+                      cx1:= ShallowCopy( cx );
+                      cx1[1]:= -cx[2];
+                      cx1[2]:= -cx[1];
+                      cx1[3]:= -cx[3];
+                      cx1[4]:= -cx[4];
+                      cx1[5]:= cx[6];
+                      cx1[6]:= cx[5];
+                      Add( imgs, LinearCombination( Basis( N ), cx1 ) );
                    od;
-                   return rec( type:= [ 6, 24, Zero(F) ], f:= liealg_hom(K,N,Basis(K),imgs) );
+                   return rec( type:= [ 6, 24, Zero( F ) ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
 
-                else # c=0
+                else # c= 0
+
                    # normalise coc21
-                   cf:= 1/coc21(bM[1],bM[3]);
+                   cf:= 1/coc21( bM[1],bM[3] );
                    f1:= coc21;
-                   coc21:= function(u,v) return cf*f1(u,v); end;
+                   coc21:= function( u,v ) return cf*f1( u,v ); end;
                    r:= r*cf; t:= t*cf;
 
                    #make a = 0 by subtracting...
-                   a:= coc22(bM[1],bM[3]);
+                   a:= coc22( bM[1],bM[3] );
                    u:= u-a*r; v:= v-a*t; 
                    f2:= coc22;
-                   coc22:= function(u,v) return -a*coc21(u,v)+f2(u,v); end;
-                   c1:= coc21(bM[1],bM[2]);
-                   c2:= coc22(bM[1],bM[2]);
-                   T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+                   coc22:= function( u,v ) return -a*coc21( u,v )+f2( u,v ); end;
+                   c1:= coc21( bM[1],bM[2] );
+                   c2:= coc22( bM[1],bM[2] );
+
+                   T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
                    SetEntrySCTable( T, 1, 2, [1,3] );
                    SetEntrySCTable( T, 1, 3, [1,5] );
                    SetEntrySCTable( T, 1, 4, [1,6] );
                    N:= LieAlgebraByStructureConstants( F, T );
+
                    bM:= Basis( M, bM );
+
                    imgs:= [ ];
 
-                   for x in Basis(K) do
+                   for x in Basis( K ) do
 
-                       cz:= Coefficients( Basis(C), x-s( Image(p,x) ) );
-                       cz1:= ShallowCopy(cz);
-                       cz1[1]:= r*cz[1]+t*cz[2];
-                       cz1[2]:= u*cz[1]+v*cz[2];
-                       cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-                       Append( cx, cz1 );
+                      cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+                      cz1:= ShallowCopy( cz );
+                      cz1[1]:= r*cz[1]+t*cz[2];
+                      cz1[2]:= u*cz[1]+v*cz[2];
+                      cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                      Append( cx, cz1 );
 
-                       # subtract the cocycle
-                       cx[5]:= cx[5]-c1*cx[3];
-                       cx[6]:= cx[6]-c2*cx[3];
-
-                       Add( imgs, LinearCombination( Basis(N), cx ) );
+                      # subtract the cocycle
+                      cx[5]:= cx[5]-c1*cx[3];
+                      cx[6]:= cx[6]-c2*cx[3];
+                      Add( imgs, LinearCombination( Basis( N ), cx ) );
                    od;
-                   return rec( type:= [ 6, 25 ], f:= liealg_hom(K,N,Basis(K),imgs) );
-
+                   return rec( type:= [ 6, 25 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
                 fi;
              fi;
           fi;
 
        else # i.e., theta_1 = Delta_14
 
-          c:= coc22(bM[2],bM[3]);
-          if not IsZero(c) then
+          c:= coc22( bM[2],bM[3] );
+
+          if not IsZero( c ) then
 
              bM[1]:= bM[1]/c; bM[3]:= bM[3]/c;
-
-             a:= coc22(bM[1],bM[3]);
-             d:= coc22(bM[2],bM[4]);
+             a:= coc22( bM[1],bM[3] );
+             d:= coc22( bM[2],bM[4] );
              bM[1]:= bM[1]-a*bM[2];
              bM[4]:= bM[4]-d*bM[3];
 
              # normalise coc21
-             cf:= 1/coc21(bM[1],bM[4]);
+             cf:= 1/coc21( bM[1],bM[4] );
              f1:= coc21;
-             coc21:= function(u,v) return cf*f1(u,v); end;
+             coc21:= function( u,v ) return cf*f1( u,v ); end;
              r:= r*cf; t:= t*cf;
 
              #make b = 0 by subtracting...
-             b:= coc22(bM[1],bM[4]);
+             b:= coc22( bM[1],bM[4] );
              u:= u-b*r; v:= v-b*t;
              f2:= coc22;
-             coc22:= function(u,v) return -b*coc21(u,v)+f2(u,v); end;
-             c1:= coc21(bM[1],bM[2]);
-             c2:= coc22(bM[1],bM[2]);
-             T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
-             SetEntrySCTable( T, 1, 2, [1,4] );
+             coc22:= function( u,v ) return -b*coc21( u,v )+f2( u,v ); end;
+             c1:= coc21( bM[1],bM[2] );
+             c2:= coc22( bM[1],bM[2] );
+
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
+             SetEntrySCTable( T, 1, 2, [1,3] );
              SetEntrySCTable( T, 1, 3, [1,5] );
              SetEntrySCTable( T, 2, 4, [1,6] );
              N:= LieAlgebraByStructureConstants( F, T );
+
              bM:= Basis( M, bM );
+
              imgs:= [ ];
 
-             for x in Basis(K) do
+             for x in Basis( K ) do
 
-                 cz:= Coefficients( Basis(C), x-s( Image(p,x) ) );
-                 cz1:= cz;
-                 cz1[1]:= r*cz[1]+t*cz[2];
-                 cz1[2]:= u*cz[1]+v*cz[2];
-                 cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-                 Append( cx, cz1 );
+                cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+                cz1:= ShallowCopy( cz );
+                cz1[1]:= r*cz[1]+t*cz[2];
+                cz1[2]:= u*cz[1]+v*cz[2];
+                cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                Append( cx, cz1 );
 
-                 # subtract the cocycle
-                 cx[5]:= cx[5]-c1*cx[3];
-                 cx[6]:= cx[6]-c2*cx[3];
-
-                 #isom...
-                 cx1:= ShallowCopy(cx);
-                 cx1[2]:= -cx[2];
-                 cx1[3]:= -cx[4];
-                 cx1[4]:= -cx[3];
-                 cx1[5]:= -cx[5];
-                 Add( imgs, LinearCombination( Basis(N), cx1 ) );
+                # subtract the cocycle
+                cx[5]:= cx[5]-c1*cx[3];
+                cx[6]:= cx[6]-c2*cx[3];
+                
+                #isom...
+                cx1:= ShallowCopy( cx );
+                cx1[1]:= -cx[2];
+                cx1[2]:= cx[1];
+                cx1[3]:= cx[3];
+                cx1[4]:= -cx[4];
+                cx1[5]:= -cx[6];
+                cx1[6]:= -cx[5];
+                Add( imgs, LinearCombination( Basis( N ), cx1 ) );
              od;
-             return rec( type:= [ 6, 19, Zero(F) ], f:= liealg_hom(K,N,Basis(K),imgs) );
-          else #c=0
+             return rec( type:= [ 6, 27 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
 
-             a:= coc22(bM[1],bM[3]);
+          else #c= 0
+
+             a:= coc22( bM[1],bM[3] );
              bM[2]:= bM[2]/a; bM[3]:= bM[3]/a;
-             d:= coc22(bM[2],bM[4]);
-             if not IsZero(d) then
+             d:= coc22( bM[2],bM[4] );
+
+             if not IsZero( d ) then
+
                 bM[4]:= bM[4]/d;
              fi;
 
              # normalise coc21
-             cf:= 1/coc21(bM[1],bM[4]);
+             cf:= 1/coc21( bM[1],bM[4] );
              f1:= coc21;
-             coc21:= function(u,v) return cf*f1(u,v); end;
+             coc21:= function( u,v ) return cf*f1( u,v ); end;
              r:= r*cf; t:= t*cf;
 
              #make b = 0 by subtracting...
-             b:= coc22(bM[1],bM[4]);
+             b:= coc22( bM[1],bM[4] );
              u:= u-b*r; v:= v-b*t;
              f2:= coc22;
-             coc22:= function(u,v) return -b*coc21(u,v)+f2(u,v); end;
+             coc22:= function( u,v ) return -b*coc21( u,v )+f2( u,v ); end;
+             c1:= coc21( bM[1],bM[2] );
+             c2:= coc22( bM[1],bM[2] );
 
-             c1:= coc21(bM[1],bM[2]);
-             c2:= coc22(bM[1],bM[2]);
-             T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+             T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
              SetEntrySCTable( T, 1, 2, [1,3] );
              SetEntrySCTable( T, 1, 3, [1,5] );
              SetEntrySCTable( T, 1, 4, [1,6] );
 
-             if not IsZero(d) then
+             if not IsZero( d ) then
+
                 SetEntrySCTable( T, 2, 4, [1,5] );
              fi; 
              N:= LieAlgebraByStructureConstants( F, T );
+
              bM:= Basis( M, bM );
+
              imgs:= [ ];
 
-             for x in Basis(K) do
+             for x in Basis( K ) do
 
-                 cz:= Coefficients( Basis(C), x-s( Image(p,x) ) );
-                 cz1:= ShallowCopy(cz);
-                 cz1[1]:= r*cz[1]+t*cz[2];
-                 cz1[2]:= u*cz[1]+v*cz[2];
-                 cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-                 Append( cx, cz1 );
+                cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+                cz1:= ShallowCopy( cz );
+                cz1[1]:= r*cz[1]+t*cz[2];
+                cz1[2]:= u*cz[1]+v*cz[2];
+                cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+                Append( cx, cz1 );
 
-                 # subtract the cocycle
-                 cx[5]:= cx[5]-c1*cx[3];
-                 cx[6]:= cx[6]-c2*cx[3];
+                # subtract the cocycle
+                cx[5]:= cx[5]-c1*cx[3];
+                cx[6]:= cx[6]-c2*cx[3];
 
-                 #isom...
-                 cx1:= ShallowCopy(cx);
-                 cx1[5]:= cx[6];
-                 cx1[6]:= cx[5];
-                 Add( imgs, LinearCombination( Basis(N), cx1 ) );
+                #isom...
+                cx1:= ShallowCopy( cx );
+                cx1[5]:= cx[6];
+                cx1[6]:= cx[5];
+                Add( imgs, LinearCombination( Basis( N ), cx1 ) );
              od;
-             if not IsZero(d) then
-                return rec( type:= [ 6, 23 ], f:= liealg_hom(K,N,Basis(K),imgs ));
+
+             if not IsZero( d ) then
+
+                return rec( type:= [ 6, 23 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+
              else
-                return rec( type:= [ 6, 25 ], f:= liealg_hom(K,N,Basis(K),imgs ) );
+
+                return rec( type:= [ 6, 25 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
              fi;
           fi;
        fi;
-   
+
     elif type = [ 4, 3 ] then
 
-       coc21:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[1]; end;
+       coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
+       coc22:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[2]; end;
 
-       coc22:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[2]; end;
-       bM:= ShallowCopy( BasisVectors( Basis(M) ) );
+       bM:= ShallowCopy( BasisVectors( Basis( M ) ) );
+
        a:= coc21( bM[1],bM[4] );
        b:= coc21( bM[2],bM[3] );
        c:= coc22( bM[1],bM[4] );
@@ -3668,51 +4904,48 @@ class_dim_6:= function( K )
 
        cc:= coc21;
        f1:= coc22;
-       coc21:= function(u,v) return r*cc(u,v)+t*f1(u,v); end;
-       coc22:= function(x,y) return u*cc(x,y)+v*f1(x,y); end;
+       coc21:= function( u,v ) return r*cc( u,v )+t*f1( u,v ); end;
+       coc22:= function( x,y ) return u*cc( x,y )+v*f1( x,y ); end;
 
-       c1:= coc21(bM[1],bM[2]);
-       c2:= coc22(bM[1],bM[2]);
-       c3:= coc21(bM[1],bM[3]);
-       c4:= coc22(bM[1],bM[3]);
-       T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+       c1:= coc21( bM[1],bM[2] );
+       c2:= coc22( bM[1],bM[2] );
+       c3:= coc21( bM[1],bM[3] );
+       c4:= coc22( bM[1],bM[3] );
+
+       T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
        SetEntrySCTable( T, 1, 2, [1,3] );
        SetEntrySCTable( T, 1, 3, [1,4] );
-       SetEntrySCTable( T, 1, 4, [1,6] );
-       SetEntrySCTable( T, 2, 3, [1,5] );
+       SetEntrySCTable( T, 1, 4, [1,5] );
+       SetEntrySCTable( T, 2, 3, [1,6] );
        N:= LieAlgebraByStructureConstants( F, T );
+ 
        bM:= Basis( M, bM );
+ 
        imgs:= [ ];
 
-       for x in Basis(K) do
+       for x in Basis( K ) do
 
-           cz:= Coefficients( Basis(C), x-s( Image(p,x) ) );
-           cz1:= ShallowCopy(cz);
-           cz1[1]:= r*cz[1]+t*cz[2];
-           cz1[2]:= u*cz[1]+v*cz[2];
-           cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-           Append( cx, cz1 );
+          cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+          cz1:= ShallowCopy( cz );
+          cz1[1]:= r*cz[1]+t*cz[2];
+          cz1[2]:= u*cz[1]+v*cz[2];
+          cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+          Append( cx, cz1 );
 
-           # subtract the cocycle
-           cx[5]:= cx[5]-c1*cx[3]-c3*cx[4];
-           cx[6]:= cx[6]-c2*cx[3]-c4*cx[4];
-
-           #isom...
-           cx1:= ShallowCopy(cx);
-           cx1[5]:= cx[6];
-           cx1[6]:= cx[5];
-           Add( imgs, LinearCombination( Basis(N), cx1 ) );
+          # subtract the cocycle
+          cx[5]:= cx[5]-c1*cx[3]-c3*cx[4];
+          cx[6]:= cx[6]-c2*cx[3]-c4*cx[4];         
+          Add( imgs, LinearCombination( Basis( N ), cx ) );
        od;
-       return rec( type:= [ 6, 21, Zero(F) ], f:= liealg_hom(K,N,Basis(K),imgs ));
+       return rec( type:= [ 6, 28 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
 
     elif type = [ 3, 1 ] then
 
-       coc21:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[1]; end;
+       coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
+       coc22:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[2]; end;
+       coc23:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[3]; end;
 
-       coc22:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[2]; end;
-       coc23:= function( u, v ) return Coefficients( Basis(C), coc2(u,v) )[3]; end;
-
-       bM:= Basis(M);
+       bM:= Basis( M );
        m:= [ [], [], [] ];
        m[1][1]:= coc21( bM[1],bM[2] );
        m[1][2]:= coc21( bM[1],bM[3] );
@@ -3725,25 +4958,25 @@ class_dim_6:= function( K )
        m[3][3]:= coc23( bM[2],bM[3] );
 
        m:= m^-1;
-       T:= EmptySCTable( 6, Zero(F), "antisymmetric" );
+
+       T:= EmptySCTable( 6, Zero( F ), "antisymmetric" );
        SetEntrySCTable( T, 1, 2, [1,4] );
        SetEntrySCTable( T, 1, 3, [1,5] );
        SetEntrySCTable( T, 2, 3, [1,6] );
        N:= LieAlgebraByStructureConstants( F, T );
+
        imgs:= [ ];
 
-       for x in Basis(K) do
+       for x in Basis( K ) do
 
-           cz:= Coefficients( Basis(C), x-s( Image(p,x) ) );
-           cz:= cz*TransposedMat(m);
-           cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
-           Append( cx, cz );
-           Add( imgs, LinearCombination( Basis(N), cx ) );
+          cz:= Coefficients( Basis( C ), x-s( Image( p,x ) ) );
+          cz:= cz*TransposedMat( m );
+          cx:= ShallowCopy( Coefficients( bM, Image( tau, Image( p, x ) ) ) );
+          Append( cx, cz );
+          Add( imgs, LinearCombination( Basis( N ), cx ) );
        od;
-       return rec( type:= [ 6, 26  ], f:= liealg_hom(K,N,Basis(K),imgs) );
-
+       return rec( type:= [ 6, 26 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );   
     fi;
-
 
 end;
 
@@ -3752,69 +4985,16 @@ nilp_type:= function( L )
 
     local r, t, a, g, exp, c, K, imgs, pp, s, f, F, name;
 
-    if (Characteristic(LeftActingDomain(L))=2) or (not Dimension(L) in [5,6]) or (not IsLieNilpotent(L)) then 
-       Error("This function is only implemented for nilpotent Lie algebras of dim 5,6 over fields of char not 2");
+    if  (not Dimension(L) in [5,6]) or (not IsLieNilpotent(L)) then 
+       Error("This function is only implemented for nilpotent Lie algebras of dim 5,6");
     fi; 
-
     if Dimension(L) = 5 then
        r:= class_dim_5( L );
     else
-       r:= class_dim_6( L );
-       F:= LeftActingDomain( L );
-       if IsFinite(F) then
-          t:= r.type;
-          if t[2] in [ 19, 21, 22, 24 ] then
-             # normalise the parameter
-             a:= t[3];
-             g:= PrimitiveRoot( F );
-             if not a in [Zero(F),One(F),g] then
-                exp:= LogFFE( a, g );
-                if IsEvenInt(exp) then
-                   c:= g^-(exp/2);
-                   pp:= One(F);
-                else
-                   c:= g^(-(exp-1)/2);
-                   pp:= g;
-                fi;
-                # now we make an isomorphism that multiplies the parameter by c^2:
-                f:= r.f;
-                if t[2] = 19 then
-                   K:= NilpotentLieAlgebra( F, [6,19, pp] );
-                   imgs:= ShallowCopy( BasisVectors( Basis(K) ) );
-                   imgs[3]:= imgs[3]*c;
-                   imgs[5]:= imgs[5]*c;
-                elif t[2] = 21 then
-                   K:= NilpotentLieAlgebra( F, [6,21, pp] );
-                   imgs:= ShallowCopy( BasisVectors( Basis(K) ) );
-                   imgs[2]:= imgs[2]/c; 
-                   imgs[3]:= imgs[3]/c;
-                   imgs[4]:= imgs[4]/c;
-                   imgs[5]:= imgs[5]/c^2;
-                   imgs[6]:= imgs[6]/c;
-                elif t[2] = 22 then
-                   K:= NilpotentLieAlgebra( F, [6,22, pp] );
-                   imgs:= ShallowCopy( BasisVectors( Basis(K) ) );
-                   imgs[1]:= imgs[1]*c;
-                   imgs[3]:= imgs[3]*c;
-                   imgs[5]:= imgs[5]*c;
-                   imgs[6]:= imgs[6]*c^2;
-                elif t[2] = 24 then
-                   K:= NilpotentLieAlgebra( F, [6,24, pp] );
-                   imgs:= ShallowCopy( BasisVectors( Basis(K) ) );
-                   imgs[1]:= imgs[1]/c; 
-                   imgs[3]:= imgs[3]/c;
-                   imgs[4]:= imgs[4]/c^2;
-                   imgs[5]:= imgs[5]/c^2;
-                   imgs[6]:= imgs[6]/c;
-                fi; 
-                s:= liealg_hom( Range(f), K, Basis(Range(f)), imgs );
-                imgs:= List( Basis(L), x -> Image( s, Image( f, x ) ) );
-                r:= rec( type:= [6,t[2],pp], f:= liealg_hom(L,K,Basis(L),imgs) );
-             fi;
-          fi;
-       fi;
+       r:= class_dim_6( L );        
     fi;
 
+    F:= LeftActingDomain(L);
     name:= "N";
     Append( name, String(r.type[1]) );
     Append( name, "_" );
