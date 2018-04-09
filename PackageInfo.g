@@ -1,7 +1,7 @@
 #############################################################################
 ##
-#W  PackageInfo.g          liealgdb Package                  Csaba Schneider 
-##                                                               
+#W  PackageInfo.g          liealgdb Package                  Csaba Schneider
+##
 
 
 SetPackageInfo( rec(
@@ -10,9 +10,9 @@ SetPackageInfo( rec(
   Version := "2.1dev",
   Date    := "28/03/2010",
 
-  Persons := [ 
+  Persons := [
 
-    rec( 
+    rec(
       LastName      := "Cicalo'",
       FirstNames    := "Serena",
       IsAuthor      := true,
@@ -28,7 +28,7 @@ SetPackageInfo( rec(
 
     ),
 
-    rec( 
+    rec(
       LastName      := "de Graaf",
       FirstNames    := "Willem",
       IsAuthor      := true,
@@ -66,7 +66,7 @@ SetPackageInfo( rec(
       IsMaintainer  := true,
       Email         := "support@gap-system.org",
     ),
-  ],  
+  ],
 
   Status  := "accepted",
   CommunicatedBy := "Bettina Eick (Braunschweig)",
@@ -94,7 +94,7 @@ SetPackageInfo( rec(
     PDFFile   := "doc/manual.pdf",
     SixFile   := "doc/manual.six",
     LongTitle := "A library of Lie algebras",
-    Autoload := true 
+    Autoload := true
   ),
 
   Dependencies := rec(
@@ -105,7 +105,7 @@ SetPackageInfo( rec(
   ),
 
   AvailabilityTest := ReturnTrue,
-# TestFile := "",
+  TestFile := "tst/testall.g",
   Keywords := [ "Lie algebras" ]
 
 ));
