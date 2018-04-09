@@ -7,7 +7,7 @@
 SetPackageInfo( rec(
   PackageName := "liealgdb",
   Subtitle := "A database of Lie algebras",
-  Version := "2.1",
+  Version := "2.1dev",
   Date    := "28/03/2010",
 
   Persons := [ 
@@ -71,7 +71,6 @@ SetPackageInfo( rec(
   Status  := "accepted",
   CommunicatedBy := "Bettina Eick (Braunschweig)",
   AcceptDate  := "09/2007",
-
 
   PackageWWWHome  := "https://gap-packages.github.io/liealgdb/",
   README_URL      := Concatenation( ~.PackageWWWHome, "README" ),
