@@ -43,20 +43,21 @@ SetPackageInfo( rec(
       Place         := "Trento",
       Institution   := "Universita' di Trento"
     ),
-                   rec( 
+
+    rec(
       LastName      := "Schneider",
       FirstNames    := "Csaba",
       IsAuthor      := true,
       IsMaintainer  := false,
-      Email         := "csaba.schneider@sztaki.hu",
-      WWWHome       := "http://www.sztaki.hu/~schneider",
+      Email         := "csaba@mat.ufmg.br",
+      WWWHome       := "http://www.mat.ufmg.br/~csaba/",
       PostalAddress := Concatenation( [
-                         "Csaba Schneider\n",
-                         "Informatics Research Laboratory\n",
-                         "Computer and Automation Research Institute\n",
-                         "1518 Budapest, Pf. 63, Hungary" ]),
-      Place         := "Budapest",
-      Institution   := "Computer and Automation Research Institute"
+                         "Departamento de Matemática\n",
+                         "Instituto de Ciências Exatas\n",
+                         "Universidade Federal de Minas Gerais (UFMG)\n",
+                         "Belo Horizonte, Brasil" ]),
+      Place         := "Belo Horizonte",
+      Institution   := "Universidade Federal de Minas Gerais"
     ),
 
     rec(
