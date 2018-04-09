@@ -1,15 +1,15 @@
   
   
-                                    [1X[5XLieAlgDB[105X[101X
+                                   [1X LieAlgDB [101X
   
   
-                           [1XA database of Lie algebras[101X
+                          [1X A database of Lie algebras [101X
   
   
-                                  Version 2.1
+                                      2.2
   
   
-                                 November 2010
+                                  9 April 2018
   
   
                                  Serena Cicalò
@@ -18,34 +18,36 @@
   
                                 Csaba Schneider
   
+                                  The GAP Team
+  
   
   
   Serena Cicalò
       Email:    [7Xmailto:cicalo@science.unitn.it[107X
       Address:  [33X[0;14YDipartimento di Matematica e Informatica[133X
-                [33X[0;14YVia Ospedale, 72[133X
-                [33X[0;14Y09124 Cagliari[133X
+                [33X[0;14YVia Ospedale 72[133X
                 [33X[0;14YItaly[133X
   
   
   Willem de Graaf
       Email:    [7Xmailto:degraaf@science.unitn.it[107X
-      Homepage: [7Xhttp://www.science.unitn.it/~degraaf/[107X
+      Homepage: [7Xhttp://www.science.unitn.it/~degraaf[107X
       Address:  [33X[0;14YDipartimento di Matematica[133X
-                [33X[0;14YVia Sommarive, 14[133X
-                [33X[0;14Y38050 Povo (Trento)[133X
+                [33X[0;14YVia Sommarive 14[133X
                 [33X[0;14YItaly[133X
   
   
   Csaba Schneider
-      Email:    [7Xmailto:csaba.schneider@sztaki.hu[107X
-      Homepage: [7Xhttp://www.sztaki.hu/~schneider[107X
-      Address:  [33X[0;14YInformatics Research Laboratory[133X
-                [33X[0;14YComputer and Automation Research Institute[133X
-                [33X[0;14Y1518 Budapest Pf. 63.[133X
-                [33X[0;14YHungary[133X
+      Email:    [7Xmailto:csaba@mat.ufmg.br[107X
+      Homepage: [7Xhttp://www.mat.ufmg.br/~csaba/[107X
+      Address:  [33X[0;14YDepartamento de Matemática[133X
+                [33X[0;14YInstituto de Ciências Exatas[133X
+                [33X[0;14YUniversidade Federal de Minas Gerais (UFMG)[133X
+                [33X[0;14YBelo Horizonte, Brasil[133X
   
   
+  The GAP Team
+      Email:    [7Xmailto:support@gap-system.org[107X
   
   -------------------------------------------------------
   [1XAbstract[101X
@@ -67,6 +69,12 @@
   -------------------------------------------------------
   [1XCopyright[101X
   [33X[0;0Y© 2006--2007 Willem de Graaf and Csaba Schneider[133X
+  
+  [33X[0;0YThe [5XLieAlgDB[105X package is free software; you can redistribute it and/or modify
+  it    under    the    terms    of    the    GNU   General   Public   License
+  ([7Xhttp://www.fsf.org/licenses/gpl.html[107X)  as  published  by  the Free Software
+  Foundation;  either  version 2 of the License, or (at your option) any later
+  version.[133X
   
   
   -------------------------------------------------------

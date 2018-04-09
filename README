@@ -22,7 +22,7 @@ is already contained in GAP.
 
 The package was written by:
 
-Serena Cicalo'
+Serena Cicalò
 Dipartimento di Matematica e Informatica
 Via Ospedale, 72
 09124 Cagliari
@@ -60,23 +60,11 @@ private directories, see section  "ref:Installing GAP Packages" of the
 GAP 4  reference manual for details  on how to do  this.)  Then unpack
 the archive file and that's it!
 
-To use  the online help, it  is necessary to install  the GAP4 package
-GAPDoc by Frank  Luebeck and Max Neunhoeffer, which  is available from
-the GAP site or http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc/.
-
                                Bug reports
                                -----------
 
-If you  encounter problems,  please contact one  of the  authors. When
-sending a  bug report, remember we  will need to be  able to reproduce
-the problem.
+If you encounter problems, please report them via our issue tracker:
+  <https://github.com/gap-packages/liealgdb/issues>
 
-
-			Serena Cicalo' & Willem de Graaf & Csaba Schneider 
-
-
-
-
-
-
-
+When sending a bug report, please to to include enough information so
+that we can reproduce the problem.

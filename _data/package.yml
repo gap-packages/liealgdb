@@ -1,37 +1,32 @@
-name: liealgdb
-version: 2.1
-date: 2010-03-28
+name: LieAlgDB
+version: 2.2
+date: 2018-04-09
 description: |
     A database of Lie algebras
 
 authors:
-    - name: Serena Cicalo'
+    - name: Serena Cicalò
       url: mailto:cicalo@science.unitn.it
     - name: Willem de Graaf
       url: http://www.science.unitn.it/~degraaf
     - name: Csaba Schneider
-      url: http://www.sztaki.hu/~schneider
+      url: http://www.mat.ufmg.br/~csaba/
 
 maintainers:
-    - name: Serena Cicalo'
-      url: mailto:cicalo@science.unitn.it
-    - name: Willem de Graaf
-      url: http://www.science.unitn.it/~degraaf
-    - name: Csaba Schneider
-      url: http://www.sztaki.hu/~schneider
+    - name: The GAP Team
+      url: mailto:support@gap-system.org
 
-GAP: ">= 4.7"
+GAP: ">= 4.8"
 
-www: http://www.sztaki.hu/~schneider/Research/LieAlgDB/
+www: https://gap-packages.github.io/liealgdb/
 readme: README
-packageinfo: http://www.sztaki.hu/~schneider/Research/LieAlgDB/PackageInfo.g
+packageinfo: https://gap-packages.github.io/liealgdb/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: http://www.sztaki.hu/~schneider/Research/LieAlgDB/liealgdb2r0p2.tar.gz
+      url: https://github.com/gap-packages/liealgdb/releases/download/v2.2/liealgdb-2.2.tar.gz
 
 abstract: |
-    http://www.sztaki.hu/~schneider/Research/LieAlgDB/
 
 status: accepted
 doc-html: doc/chap0.html
