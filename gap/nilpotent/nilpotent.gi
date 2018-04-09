@@ -5,7 +5,6 @@
 #W  This file contains some functions to access the classifications 
 #W  of small-dimensional nilpotent Lie algebras over small fields.
 ##
-#H  $Id: nilpotent.gi,v 1.8 2007/08/28 20:07:31 gap Exp $
 
 InstallMethod( NrNilpotentLieAlgebras, 
         "for a finite field and a positive integer",

@@ -2,7 +2,6 @@
 ##
 #W  init.g                liealgdb package                   Csaba Schneider 
 ##
-#H  $Id: 
 
 DeclareAutoPackage( "liealgdb", "2.0.2", 
   function()

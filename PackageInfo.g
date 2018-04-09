@@ -2,7 +2,6 @@
 ##
 #W  PackageInfo.g          liealgdb Package                  Csaba Schneider 
 ##                                                               
-#H  $Id: 
 
 
 SetPackageInfo( rec(
