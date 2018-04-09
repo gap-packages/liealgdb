@@ -1,6 +1,5 @@
 #general stuff
 ReadPackage( "liealgdb", "gap/liealgdb.gi" );
-ReadPackage( "liealgdb", "gap/doc.gi" );
 
 #SLAC
 ReadPackage( "liealgdb", "gap/slac/slac.gi" );

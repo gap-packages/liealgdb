@@ -5,7 +5,7 @@
 
 
 SetPackageInfo( rec(
-  PackageName := "liealgdb",
+  PackageName := "LieAlgDB",
   Subtitle := "A database of Lie algebras",
   Version := "2.1dev",
   Date    := "28/03/2010",
@@ -13,13 +13,12 @@ SetPackageInfo( rec(
   Persons := [
 
     rec(
-      LastName      := "Cicalo'",
+      LastName      := "Cicalò",
       FirstNames    := "Serena",
       IsAuthor      := true,
       IsMaintainer  := false,
       Email         := "cicalo@science.unitn.it",
       PostalAddress := Concatenation( [
-                     "Serena Cicalo'\n",
                          "Dipartimento di Matematica e Informatica\n",
                          "Via Ospedale 72\n",
                          "Italy" ]),
@@ -36,7 +35,6 @@ SetPackageInfo( rec(
       Email         := "degraaf@science.unitn.it",
       WWWHome       := "http://www.science.unitn.it/~degraaf",
       PostalAddress := Concatenation( [
-                     "Willem de Graaf\n",
                          "Dipartimento di Matematica\n",
                          "Via Sommarive 14\n",
                          "Italy" ]),
@@ -86,7 +84,7 @@ SetPackageInfo( rec(
                                    "/liealgdb-", ~.Version ),
   ArchiveFormats := ".tar.gz",
 
-  AbstractHTML := "http://www.sztaki.hu/~schneider/Research/LieAlgDB/",
+  AbstractHTML := "",
 
   PackageDoc := rec(
     BookName  := "LieAlgDB",
@@ -99,7 +97,7 @@ SetPackageInfo( rec(
   ),
 
   Dependencies := rec(
-    GAP := ">= 4.7",
+    GAP := ">= 4.8",
     NeededOtherPackages := [],
     SuggestedOtherPackages := [],
     ExternalConditions := []
@@ -107,6 +105,47 @@ SetPackageInfo( rec(
 
   AvailabilityTest := ReturnTrue,
   TestFile := "tst/testall.g",
-  Keywords := [ "Lie algebras" ]
+  Keywords := [ "Lie algebras" ],
+
+  AutoDoc := rec(
+      TitlePage := rec(
+          Abstract := """
+This package provides access to the classification of the following
+families of Lie algebras:
+<List>
+<Item> non-solvable Lie algebras over finite fields up to dimension 6;
+</Item>
+<Item> nilpotent Lie algebras of dimension up to 9 over <A>GF(2)</A>, of dimension
+up to 7 over <A>GF(3)</A> or <A>GF(5)</A>;</Item>
+<Item> simple Lie algebras of dimensions between 7 and 9 over <A>GF(2)</A>;
+</Item>
+<Item> the classification of solvable Lie algebras of dimension at most 4;
+</Item>
+<Item> the classification of nilpotent Lie algebras of dimensions at most 6.
+</Item>
+</List>
+""",
+          Copyright := """
+<Index>License</Index>
+&copyright; 2006--2007 Willem de Graaf and Csaba Schneider<P/>
+The &LieAlgDB; package is free software;
+you can redistribute it and/or modify it under the terms of the
+<URL Text="GNU General Public License">http://www.fsf.org/licenses/gpl.html</URL>
+as published by the Free Software Foundation; either version 2 of the License,
+or (at your option) any later version.
+""",
+          Acknowledgements := """
+We are grateful to Andrea Caranti, Marco Costantini, Bettina Eick,
+Helmut Strade, Michael Vaughan-Lee. Without
+their help, interest, and encouragement, this package would not have been
+made. We also acknowledge the effort of the referees to improve the
+implementation and the documentation.<P/>
+Serena Cical&#242; would like to thank the Centro de &#193;lgebra da
+Universidade de Lisboa for their kind hospitality during July - December 2009 and May - September 2010, when the
+classification of the 6-dimensional nilpotent Lie algebras over
+fields of characteristic 2 was made and added to the package.
+""",
+      ),
+  ),
 
 ));
