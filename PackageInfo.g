@@ -29,7 +29,7 @@ SetPackageInfo( rec(
 
     rec(
       LastName      := "de Graaf",
-      FirstNames    := "Willem",
+      FirstNames    := "Willem Adriaan",
       IsAuthor      := true,
       IsMaintainer  := false,
       Email         := "degraaf@science.unitn.it",
