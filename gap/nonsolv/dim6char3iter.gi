@@ -1,5 +1,4 @@
 InstallGlobalFunction( LieAlgDBParListIteratorDimension6Characteristic3,
-    "function for LieAlgDBCollections",
         function( F, dim, param )
     
     return Objectify( NewType( IteratorsFamily,
