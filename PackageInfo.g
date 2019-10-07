@@ -7,8 +7,9 @@
 SetPackageInfo( rec(
   PackageName := "LieAlgDB",
   Subtitle := "A database of Lie algebras",
-  Version := "2.2",
-  Date    := "09/04/2018",
+  Version := "2.2.1",
+  Date    := "07/10/2019", # dd/mm/yyyy format
+  License := "GPL-2.0-or-later",
 
   Persons := [
 
@@ -29,7 +30,7 @@ SetPackageInfo( rec(
 
     rec(
       LastName      := "de Graaf",
-      FirstNames    := "Willem",
+      FirstNames    := "Willem Adriaan",
       IsAuthor      := true,
       IsMaintainer  := false,
       Email         := "degraaf@science.unitn.it",

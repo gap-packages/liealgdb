@@ -6,19 +6,17 @@
                           [1X A database of Lie algebras [101X
   
   
-                                      2.2
+                                     2.2.1
   
   
-                                  9 April 2018
+                                 7 October 2019
   
   
                                  Serena Cicalò
   
-                                Willem de Graaf
+                            Willem Adriaan de Graaf
   
                                 Csaba Schneider
-  
-                                  The GAP Team
   
   
   
@@ -29,7 +27,7 @@
                 [33X[0;14YItaly[133X
   
   
-  Willem de Graaf
+  Willem Adriaan de Graaf
       Email:    [7Xmailto:degraaf@science.unitn.it[107X
       Homepage: [7Xhttp://www.science.unitn.it/~degraaf[107X
       Address:  [33X[0;14YDipartimento di Matematica[133X
@@ -46,8 +44,6 @@
                 [33X[0;14YBelo Horizonte, Brasil[133X
   
   
-  The GAP Team
-      Email:    [7Xmailto:support@gap-system.org[107X
   
   -------------------------------------------------------
   [1XAbstract[101X
