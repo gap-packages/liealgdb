@@ -1,5 +1,9 @@
 This file describes changes in the GAP package 'liealgdb'.
 
+* 2.2.1 (2019-10-07)
+
+  - Minor janitorial changes
+
 * 2.2 (2018-04-09)
 
   - Clarify that package is licensed under GPL 2 or later
