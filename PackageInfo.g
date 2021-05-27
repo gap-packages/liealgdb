@@ -94,7 +94,6 @@ SetPackageInfo( rec(
     PDFFile   := "doc/manual.pdf",
     SixFile   := "doc/manual.six",
     LongTitle := "A library of Lie algebras",
-    Autoload := true
   ),
 
   Dependencies := rec(
