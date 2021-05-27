@@ -6,8 +6,7 @@ DeclareOperation( "AllSimpleLieAlgebras",
 
 DeclareCategory( "IsLieAlgDBCollection_NonSolvable", IsLieAlgDBCollection );
 
-IsLieAlgDBParListIteratorDimension6Characteristic3CompRep := 
-  NewRepresentation( "IsLieAlgDBParListIteratorDimension6Characteristic3CompRep",
+DeclareRepresentation( "IsLieAlgDBParListIteratorDimension6Characteristic3CompRep",
           IsComponentObjectRep, [ "counter", "param", "dim", "field" ] );
 
 DeclareGlobalFunction( "LieAlgDBParListIteratorDimension6Characteristic3" );
