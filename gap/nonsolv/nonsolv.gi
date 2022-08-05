@@ -947,10 +947,9 @@ InstallMethod( NonSolvableLieAlgebra,
                 
             end );
 
-            
-    
-    
-VaughanLeeAlgebras := function( F, pars )   
+
+
+BindGlobal( "VaughanLeeAlgebras", function( F, pars )
     local T;
     
     if not pars in [[7,1],[7,2],[8,1],[8,2],[9,1]] then
@@ -1084,7 +1083,7 @@ VaughanLeeAlgebras := function( F, pars )
         
         return LieAlgebraByStructureConstants( F, T );
     fi;
-end;
+end );
     
 
 

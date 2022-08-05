@@ -2,7 +2,7 @@
 #
 # this is taken from gapdoc and put here to avoid future incompatibility
 
-LieAlgDBField2String := function ( F )
+BindGlobal( "LieAlgDBField2String", function ( F )
     local  str, out;
     str := "";
     out := OutputTextString( str, false );
@@ -12,7 +12,7 @@ LieAlgDBField2String := function ( F )
       end );
     CloseStream( out );
     return str;
-end;
+end );
 
 
 InstallMethod( PrintObj,
