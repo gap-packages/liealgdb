@@ -7,7 +7,7 @@ InstallGlobalFunction( ExtensionOfsl2BySoluble,
     elif arg[1] = 2 then
         L := SolvableLieAlgebra( F, [3,2] );
     elif arg[1] = 3 then
-	L := SolvableLieAlgebra( F, [3,3, arg[2]] );
+        L := SolvableLieAlgebra( F, [3,3, arg[2]] );
     elif arg[1] = 4 then
         L := SolvableLieAlgebra( F, [3,4, arg[2]] );
     else
@@ -680,7 +680,7 @@ InstallMethod( NonSolvableLieAlgebra,
                 elif pos = 3 then
                     
                     # sl(2,F) + solvable
-		    L := ExtensionOfsl2BySoluble( F, 
+                    L := ExtensionOfsl2BySoluble( F, 
                                    arg{[3..Length( arg )]} );
                     L!.arg := arg;
                     return L;
@@ -868,7 +868,7 @@ InstallMethod( NonSolvableLieAlgebra,
                         L := LieAlgebraByStructureConstants( F, T );
                         SetName( L, Concatenation( "sl(2,", 
                                 String( Size( F )), ").(", 
-				LieAlgDBField2String( F ), "+", 
+                                LieAlgDBField2String( F ), "+", 
                                 LieAlgDBField2String( F ), "+", 
                                 LieAlgDBField2String( F ), ")(1)"  ));
                         L!.arg := arg;

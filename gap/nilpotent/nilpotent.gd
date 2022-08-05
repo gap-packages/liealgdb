@@ -6,7 +6,7 @@ _liealgdb_nilpotent_d7f3 := [];
 _liealgdb_nilpotent_d7f5 := [];
 
 DeclareOperation( "NrNilpotentLieAlgebras", 
-		[ IsField and IsFinite, IsPosInt ] );
+        [ IsField and IsFinite, IsPosInt ] );
 
 DeclareOperation( "AllNilpotentLieAlgebras", 
         [ IsField and IsFinite, IsPosInt ] );

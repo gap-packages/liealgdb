@@ -68,13 +68,13 @@ InstallMethod( NextIterator,
         else
             iter!.param := list3[1];
         fi;
-    elif iter!.param in list3	 then
+    elif iter!.param in list3 then
         pos := Position( list3, iter!.param );
         iter!.param := list3[pos+1];
   fi;
   
   return oldpar;
-end );	
+end );
 
 InstallMethod( ShallowCopy,
         "for LieAlgDBParListIterators",
