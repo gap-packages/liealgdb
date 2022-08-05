@@ -125,7 +125,7 @@ InstallMethod( AllNilpotentLieAlgebras,
     return R;
 end );
 
-ReadStringToNilpotentLieAlgebra := function( string, p, dim )
+BindGlobal( "ReadStringToNilpotentLieAlgebra", function( string, p, dim )
     local digits, d, sum, i, coeffs, no_coeffs, T, pos, a, b, scentry, r, q, L;
     
     digits := ['0','1','2','3','4','5','6','7','8','9',
@@ -186,7 +186,7 @@ ReadStringToNilpotentLieAlgebra := function( string, p, dim )
     L!.arg := string;
     Setter( IsLieNilpotent )( L, true );
     return L;
-end;
+end );
 
     
 InstallMethod(  Enumerator,

@@ -873,11 +873,9 @@ end;
          
 end );
 
-#W  function StringPrint is from the GAPDoc package...
-#W  (the normal String does not work for finite fields).
+BindGlobal("LieAlgDBHelper", rec());
 
-
-isomN:= function( L, x1, x2, x3, x4 )
+LieAlgDBHelper.isomN:= function( L, x1, x2, x3, x4 )
 
       # Here the xi satisfy the commutation relations of N;
       # we produce the isomorphism with M_0^13...
@@ -908,7 +906,7 @@ isomN:= function( L, x1, x2, x3, x4 )
 
 end;
 
-isomM9:= function( L, x1, x2, x3, x4, a )
+LieAlgDBHelper.isomM9:= function( L, x1, x2, x3, x4, a )
 
       # The xi satisfy the commutation rules of M9a; we return 
       # the isomorphism with either N, M8 or M9a
@@ -919,7 +917,7 @@ isomM9:= function( L, x1, x2, x3, x4, a )
 
       if Characteristic(F) <> 2 and a = (-1/4)*One(F) then
 
-         return isomN( L, x1, x2, x3, x4 );
+         return LieAlgDBHelper.isomN( L, x1, x2, x3, x4 );
 
       fi;
 
@@ -990,7 +988,7 @@ isomM9:= function( L, x1, x2, x3, x4, a )
 
 end;
 
-isomM10:= function( L, x1, x2, x3, x4, a )
+LieAlgDBHelper.isomM10:= function( L, x1, x2, x3, x4, a )
 
       # the xi satisfy the commutation rels of M10(a)
 
@@ -1025,7 +1023,7 @@ isomM10:= function( L, x1, x2, x3, x4, a )
       fi;
 end;
 
-isomM11:= function( L, x1, x2, x3, x4, a, b )
+LieAlgDBHelper.isomM11:= function( L, x1, x2, x3, x4, a, b )
 
       local name, K, f, gam, eps, del, y1, y2, y3, y4, F;
 
@@ -1075,7 +1073,7 @@ isomM11:= function( L, x1, x2, x3, x4, a, b )
       fi;     
 end;
 
-solv_type:= function( L )
+LieAlgDBHelper.solv_type:= function( L )
 
      local n, F, sp, k, BL, b, x1, x2, x3, x4, c1, c2, K, f, name, par, 
            id, num, c3, c4, mat, is_diag, i, j, facs, ev, s, t, sol, 
@@ -1562,7 +1560,7 @@ solv_type:= function( L )
                  x1:= w*x1;
                  v:= v*w;
 
-                 return isomM9( L, x1, x2, x3, x4, v );
+                 return LieAlgDBHelper.isomM9( L, x1, x2, x3, x4, v );
 
               else
                  #direct sum...
@@ -1590,10 +1588,10 @@ solv_type:= function( L )
                  a:= D[1][2]/D[2][1];
                  if Characteristic(F) <> 2 then
                     a:= a - (1/4)*One(F);
-                    return isomM9( L, x1/(4*One(F))+x2/(2*One(F)), 
+                    return LieAlgDBHelper.isomM9( L, x1/(4*One(F))+x2/(2*One(F)), 
                                       x1/(2*One(F)), x3, x3/(2*One(F))+x4, a );
                  else
-                    return isomM10( L, x1, x2, x3, x4, a );
+                    return LieAlgDBHelper.isomM10( L, x1, x2, x3, x4, a );
                  fi;
               else
                  if D[1][2] <> Zero(F) then
@@ -1603,7 +1601,7 @@ solv_type:= function( L )
                        y2:= x2;
                        y3:= x3;
                        y4:= (x3+x4)/(2*One(F));
-                       return isomN( L, y1, y2, y3, y4 );
+                       return LieAlgDBHelper.isomN( L, y1, y2, y3, y4 );
                     else
                       name:= "L4_10( ";
                       Append( name, LieAlgDBField2String( F ) );
@@ -1625,7 +1623,7 @@ solv_type:= function( L )
            if a <> Zero(F) then
               x4:= x4-(D[1][3]/a-D[2][3])*x1+D[1][3]/a*x2-D[2][1]*x3;
               x4:= x4/D[1][1];
-              return isomM9( L, x2, x1, x4, x3, a );
+              return LieAlgDBHelper.isomM9( L, x2, x1, x4, x3, a );
            else
 
               x4:= x4+D[2][3]*x1-D[2][1]*x3;
@@ -1633,7 +1631,7 @@ solv_type:= function( L )
               D:= TransposedMat( mat );
               if D[1][3] = Zero(F) then
                  x4:= x4/D[1][1];
-                 return isomM9( L, x2, x1, x4, x3, a );
+                 return LieAlgDBHelper.isomM9( L, x2, x1, x4, x3, a );
               elif D[1][1] = Zero(F) then
                  x4:= x4/D[1][3];
                  name:= "L4_6( ";
@@ -1650,7 +1648,7 @@ solv_type:= function( L )
               else
                  x4:= x4/D[1][1];
                  x3:= -D[1][3]/D[1][1]*x1+x3;
-                 return isomM9( L, x2, x1, x4, x3, a );
+                 return LieAlgDBHelper.isomM9( L, x2, x1, x4, x3, a );
               fi;
            fi;
         else # i.e., num = '4'...
@@ -1660,18 +1658,18 @@ solv_type:= function( L )
            if a <> Zero(F) and Characteristic(F) <> 2 then
               x4:= x4+D[2][3]*x1+D[1][3]/a*x2-D[2][1]*x3;
               x4:= x4/D[1][1];
-              return isomM9( L, x1/(4*One(F))+x2/(2*One(F)), x1/(2*One(F)), 
+              return LieAlgDBHelper.isomM9( L, x1/(4*One(F))+x2/(2*One(F)), x1/(2*One(F)), 
                                 x4, x3+x4/(2*One(F)), a-(1/4*One(F)) );
            elif a <> Zero(F) and Characteristic(F) = 2 then
 
               x4:= x4+D[2][3]*x1+D[1][3]/a*x2-D[2][1]*x3;
               if D[3][3] = Zero(F) then
                  x4:= x4/D[1][1];
-                 return isomM10( L, x1, x2, x4, x3, a );
+                 return LieAlgDBHelper.isomM10( L, x1, x2, x4, x3, a );
               elif D[1][1] <> Zero(F) then
                  x4:= x4/D[1][1];
                  b:= One(F) + D[3][3]/D[1][1];
-                 return isomM11( L, x1, x2, x3, x4, a, b );
+                 return LieAlgDBHelper.isomM11( L, x1, x2, x3, x4, a, b );
               else
                  if a <> One(F) then
                     x4:= x4/D[3][3];
@@ -1679,9 +1677,9 @@ solv_type:= function( L )
                     y2:= a*(x1+x2)/(a+One(F));
                     y3:= x3;
                     y4:= x3+(a+1)*x4;
-                    return isomM11( L, y1, y2, y3, y4, a, a );
+                    return LieAlgDBHelper.isomM11( L, y1, y2, y3, y4, a, a );
                  else
-                    return isomM11( L, x2, x1, x3, x4, One(F), Zero(F) );
+                    return LieAlgDBHelper.isomM11( L, x2, x1, x3, x4, One(F), Zero(F) );
                  fi;
               fi;
            else       
@@ -1847,13 +1845,13 @@ end;
 
 #========================================================================
 
-liealg_hom:= function( K, L, p, i )
+LieAlgDBHelper.liealg_hom:= function( K, L, p, i )
 
      return AlgebraHomomorphismByImagesNC( K, L, p, i );
 
 end;
 
-class_dim_le4:= function( L )
+LieAlgDBHelper.class_dim_le4:= function( L )
 
     # finds an isomorphism of the nilpotent Lie algebra L of dim <= 4,
     # to a "normal form".
@@ -1863,7 +1861,7 @@ class_dim_le4:= function( L )
     F:= LeftActingDomain( L );
     if Dimension( L ) = 3 then
        if IsLieAbelian( L ) then
-          return rec( type:= [ 3, 1 ], f:= liealg_hom( L, L, Basis( L ), Basis( L ) ) );
+          return rec( type:= [ 3, 1 ], f:= LieAlgDBHelper.liealg_hom( L, L, Basis( L ), Basis( L ) ) );
        else
           C:= LieCentre( L );
           for i in [1..3] do
@@ -1882,11 +1880,11 @@ class_dim_le4:= function( L )
           T:= EmptySCTable( 3, Zero( F ), "antisymmetric" );
           SetEntrySCTable( T, 1, 2, [1,3] );
           K:= LieAlgebraByStructureConstants( F, T );
-          return rec( type:= [ 3, 2 ], f:= liealg_hom( L, K, [x,y,x*y], Basis( K ) ) );
+          return rec( type:= [ 3, 2 ], f:= LieAlgDBHelper.liealg_hom( L, K, [x,y,x*y], Basis( K ) ) );
        fi; 
     elif Dimension( L ) = 4 then
        if IsLieAbelian( L ) then
-          return rec( type:= [ 4, 1 ], f:= liealg_hom( L, L, Basis( L ), Basis( L ) ) );
+          return rec( type:= [ 4, 1 ], f:= LieAlgDBHelper.liealg_hom( L, L, Basis( L ), Basis( L ) ) );
        else
           C:= LieCentre( L );
           if Dimension( C ) = 2 then
@@ -1913,7 +1911,7 @@ class_dim_le4:= function( L )
              T:= EmptySCTable( 4, Zero( F ), "antisymmetric" );
              SetEntrySCTable( T, 1, 2, [1,3] );
              K:= LieAlgebraByStructureConstants( F, T );
-             return rec( type:= [ 4, 2 ], f:= liealg_hom( L, K, [x,y,x*y,u], Basis( K ) ) );
+             return rec( type:= [ 4, 2 ], f:= LieAlgDBHelper.liealg_hom( L, K, [x,y,x*y,u], Basis( K ) ) );
 
           elif Dimension( C ) = 1 then
 
@@ -1948,7 +1946,7 @@ class_dim_le4:= function( L )
              SetEntrySCTable( T, 1, 2, [1,3] );
              SetEntrySCTable( T, 1, 3, [1,4] );
              K:= LieAlgebraByStructureConstants( F, T );
-             return rec( type:= [ 4, 3 ], f:= liealg_hom( L, K, [x,y,z,u], Basis( K ) ) );
+             return rec( type:= [ 4, 3 ], f:= LieAlgDBHelper.liealg_hom( L, K, [x,y,z,u], Basis( K ) ) );
 
           fi;
        fi;
@@ -1957,7 +1955,7 @@ class_dim_le4:= function( L )
 end;
 
 
-skew_symm_NF:= function( V, f )
+LieAlgDBHelper.skew_symm_NF:= function( V, f )
 
     # here V is a vector space, and f : VxV -> F a skew-symmetric
     # bilinear function; we compute a basis of V such that f has standard form.
@@ -2028,13 +2026,13 @@ skew_symm_NF:= function( V, f )
 end;
 
 
-class_dim_5:= function( K )
+LieAlgDBHelper.class_dim_5:= function( K )
 
     local F, C, D, ind, i, bL, bsp, L, W, t, T, d, N, imgs, p, s, coc1, coc2, tau, M, coc21, coc22,
           bM, cz, cx, type, a, b, c, m, mat, cf, c1, c2, x, mt, sp, y, y1, r;
 
     if IsLieAbelian( K ) then 
-       return rec( type:= [ 5, 1 ], f:= liealg_hom( K, K, Basis( K ), Basis( K ) ) );
+       return rec( type:= [ 5, 1 ], f:= LieAlgDBHelper.liealg_hom( K, K, Basis( K ), Basis( K ) ) );
     fi;
 
     F:= LeftActingDomain( K );
@@ -2074,7 +2072,7 @@ class_dim_5:= function( K )
        # We have an isomorphism of K to the direct sum of L with a
        # 1-dim ideal; write x\in K on the basis bL. 
 
-       r:= class_dim_le4( L ); type:= r.type; tau:= r.f; 
+       r:= LieAlgDBHelper.class_dim_le4( L ); type:= r.type; tau:= r.f; 
        T:= ShallowCopy( StructureConstantsTable( Basis( Range( tau ) ) ) );
        d:= Dimension( Range( tau ) );
        for i in [1..d] do
@@ -2105,7 +2103,7 @@ class_dim_5:= function( K )
            fi;
            Add( imgs, LinearCombination( Basis( N ), y ) ); 
        od;   
-       return rec( type:= [ 5, type[2] ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+       return rec( type:= [ 5, type[2] ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
     fi;
 
@@ -2118,7 +2116,7 @@ class_dim_5:= function( K )
     s:= function( v ) return PreImagesRepresentative( p, v ); end;
     coc1:= function( u, v ) return s( u )*s( v )-s( u*v ); end;  
 
-    r:= class_dim_le4( L ); type:= r.type; tau:= r.f;
+    r:= LieAlgDBHelper.class_dim_le4( L ); type:= r.type; tau:= r.f;
     M:= Range( tau );
     coc2:= function( u, v ) return coc1( PreImage( tau,u ), PreImage( tau,v ) ); end;
     # i.e., the cocycle for M
@@ -2128,7 +2126,7 @@ class_dim_5:= function( K )
     
        coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
         
-       bM:= Basis( M, skew_symm_NF( M, coc21 ) );
+       bM:= Basis( M, LieAlgDBHelper.skew_symm_NF( M, coc21 ) );
        T:= EmptySCTable( 5, Zero( F ), "antisymmetric" );
        SetEntrySCTable( T, 1, 2, [1,5] );
        SetEntrySCTable( T, 3, 4, [1,5] );
@@ -2145,7 +2143,7 @@ class_dim_5:= function( K )
            Add( imgs, LinearCombination( Basis( N ), cx ) );
        od;
 
-       return rec( type:= [ 5, 4 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+       return rec( type:= [ 5, 4 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
     elif type = [ 4, 2 ] then
 
@@ -2201,7 +2199,7 @@ class_dim_5:= function( K )
            Add( imgs, LinearCombination( Basis( N ), cx ) );
        od;
 
-       return rec( type:= [ 5, 5 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );           
+       return rec( type:= [ 5, 5 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
     elif type = [ 4, 3 ] then
 
@@ -2236,7 +2234,7 @@ class_dim_5:= function( K )
 
               Add( imgs, LinearCombination( Basis( N ), cx ) );
           od;
-          return rec( type:= [ 5, 6 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+          return rec( type:= [ 5, 6 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
        else
 
@@ -2261,7 +2259,7 @@ class_dim_5:= function( K )
 
               Add( imgs, LinearCombination( Basis( N ), cx ) );
           od;
-          return rec( type:= [ 5, 7 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+          return rec( type:= [ 5, 7 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
        fi;
 
@@ -2270,7 +2268,7 @@ class_dim_5:= function( K )
        coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
        coc22:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[2]; end;
 
-       bM:= skew_symm_NF( M, coc21 );
+       bM:= LieAlgDBHelper.skew_symm_NF( M, coc21 );
 
        b:= coc22( bM[1], bM[3] ); c:= coc22( bM[2],bM[3] );
        if IsZero( b ) then
@@ -2303,7 +2301,7 @@ class_dim_5:= function( K )
            Add( imgs, LinearCombination( Basis( N ), cx ) );
        od;
 
-       return rec( type:= [ 5, 8 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+       return rec( type:= [ 5, 8 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
     elif type = [ 3, 2 ] then
 
@@ -2336,12 +2334,12 @@ class_dim_5:= function( K )
            cx[5]:= cx[5] - c2*cx[3];
            Add( imgs, LinearCombination( Basis( N ), cx ) );
        od;
-       return rec( type:= [ 5, 9 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+       return rec( type:= [ 5, 9 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
     fi;
 
 end;
 
-comp_mat:= function( x, y, det )
+LieAlgDBHelper.comp_mat:= function( x, y, det )
 
     local a,b,c,d;
 
@@ -2355,7 +2353,7 @@ comp_mat:= function( x, y, det )
 end;
 
 
-sq_free:= function( r )
+LieAlgDBHelper.sq_free:= function( r )
 
   # r is a rational number, we output a list of two rationals [a,b],
   # such that b is square free, r = a^2b and b is an integer.
@@ -2414,7 +2412,7 @@ sq_free:= function( r )
 end;
 
 
-class_dim_6:= function( K )
+LieAlgDBHelper.class_dim_6:= function( K )
 
     local F, C, D, ind, i, bL, bsp, sp, W, r, T, d, N, imgs, x, cx, g, P, p, L, 
           s, coc1, coc2, coc21, coc22, coc23, type, tau, M, bM, aa, a, bb, b, c, m, 
@@ -2423,7 +2421,7 @@ class_dim_6:= function( K )
           f5, ff, cf1, xi, ex, eps,root; 
 
     if IsLieAbelian( K ) then 
-       return rec( type:= [ 6, 1 ], f:= liealg_hom( K, K, Basis( K ), Basis( K ) ) );
+       return rec( type:= [ 6, 1 ], f:= LieAlgDBHelper.liealg_hom( K, K, Basis( K ), Basis( K ) ) );
     fi;
 
     F:= LeftActingDomain( K );
@@ -2464,7 +2462,7 @@ class_dim_6:= function( K )
        # We have an isomorphism of K to the direct sum of L with a
        # 1-dim ideal; write x\in K on the basis bL. 
 
-       r:= class_dim_5( L ); type:= r.type; tau:= r.f; 
+       r:= LieAlgDBHelper.class_dim_5( L ); type:= r.type; tau:= r.f; 
        T:= ShallowCopy( StructureConstantsTable( Basis( Range( tau ) ) ) );
        d:= Dimension( Range( tau ) );
        for i in [1..d] do
@@ -2505,7 +2503,7 @@ class_dim_6:= function( K )
           fi;
           Add( imgs, LinearCombination( Basis( N ), y ) );          
        od;
-       return rec( type:= [ 6, type[2] ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+       return rec( type:= [ 6, type[2] ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
     fi;
 
 
@@ -2519,9 +2517,9 @@ class_dim_6:= function( K )
     coc1:= function( u, v ) return s( u )*s( v )-s( u*v ); end;  
 
     if Dimension( L ) <= 4 then
-       r:= class_dim_le4( L );
+       r:= LieAlgDBHelper.class_dim_le4( L );
     else
-       r:= class_dim_5( L );
+       r:= LieAlgDBHelper.class_dim_5( L );
     fi;
     type:= r.type; tau:= r.f;
     M:= Range( tau );
@@ -2539,7 +2537,7 @@ class_dim_6:= function( K )
 
        a:= coc21( bM[1],bM[3] ); d:= coc21( bM[2],bM[3] );
  
-       m:= comp_mat( a, d, One( F ) );
+       m:= LieAlgDBHelper.comp_mat( a, d, One( F ) );
        v1:= m[1][1]*bM[1]+m[1][2]*bM[2];
        v2:= m[2][1]*bM[1]+m[2][2]*bM[2];
        bM[1]:= v1; bM[2]:= v2;
@@ -2552,7 +2550,7 @@ class_dim_6:= function( K )
        g:= coc21( bM[4],bM[5] );
 
        if not ( IsZero( e ) and IsZero( f ) ) then
-          m:= comp_mat( e, f, 1/g );
+          m:= LieAlgDBHelper.comp_mat( e, f, 1/g );
           v1:= m[1][1]*bM[4]+m[1][2]*bM[5];
           v2:= m[2][1]*bM[4]+m[2][2]*bM[5];
           bM[4]:= v1; bM[5]:= v2;
@@ -2580,7 +2578,7 @@ class_dim_6:= function( K )
              cx[5]:= cx[5]-cx[2];
              Add( imgs, LinearCombination( Basis( N ), cx )  );
           od;
-          return rec( type:= [ 6, 10 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+          return rec( type:= [ 6, 10 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
        else
 
@@ -2605,7 +2603,7 @@ class_dim_6:= function( K )
              cx[6]:= cx[6] - c1*cx[3];
              Add( imgs, LinearCombination( Basis( N ), cx ) );
           od;
-          return rec( type:= [ 6, 10 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+          return rec( type:= [ 6, 10 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
        fi;
 
@@ -2653,7 +2651,7 @@ class_dim_6:= function( K )
              cx[4]:= cx[4]/c^3; cx[5]:= cx[5]/c^3; cx[6]:= cx[6]/c^4;
              Add( imgs, LinearCombination( Basis( N ), cx ) );
           od;
-          return rec( type:= [ 6, 11 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+          return rec( type:= [ 6, 11 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
        else
 
@@ -2679,7 +2677,7 @@ class_dim_6:= function( K )
              cx[6]:= cx[6] - c1*cx[3]-c2*cx[4];
              Add( imgs, LinearCombination( Basis( N ), cx ) );
           od;
-          return rec( type:= [ 6, 12 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+          return rec( type:= [ 6, 12 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
        fi;
 
@@ -2735,7 +2733,7 @@ class_dim_6:= function( K )
              fi;
              Add( imgs, LinearCombination( Basis( N ), cx ) );
           od;
-          return rec( type:= [ 6, 13 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+          return rec( type:= [ 6, 13 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
        else
 
@@ -2769,7 +2767,7 @@ class_dim_6:= function( K )
                 cx[6]:= cx[6] - c1*cx[3]-c2*cx[5];
                 Add( imgs, LinearCombination( Basis( N ), cx ) );
              od;
-             return rec( type:= [ 6, 13 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+             return rec( type:= [ 6, 13 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
           else
 
@@ -2800,7 +2798,7 @@ class_dim_6:= function( K )
                 cx[4]:= cx[4]/d^2; cx[5]:= cx[5]/d^2; cx[6]:= cx[6]/d^3;
                 Add( imgs, LinearCombination( Basis( N ), cx ) );
              od;
-             return rec( type:= [ 6, 29 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+             return rec( type:= [ 6, 29 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
           fi;
        fi;
@@ -2857,7 +2855,7 @@ class_dim_6:= function( K )
                 cx[6]:= cx[6]/c;
                 Add( imgs, LinearCombination( Basis( N ), cx ) );
              od;
-             return rec( type:= [ 6, 14 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+             return rec( type:= [ 6, 14 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
           
           elif Characteristic( F )= 2 and IsFinite(F) then 
 
@@ -2897,7 +2895,7 @@ class_dim_6:= function( K )
                 cx[6]:= cx[6]/c;
                 Add( imgs, LinearCombination( Basis( N ), cx ) );
              od;
-             return rec( type:= [ 6, 14 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+             return rec( type:= [ 6, 14 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
           else 
 
@@ -2937,7 +2935,7 @@ class_dim_6:= function( K )
                 cx[6]:= cx[6]/c;
                 Add( imgs, LinearCombination( Basis( N ), cx ) );
              od;
-             return rec( type:= [ 6, 31, b/c ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+             return rec( type:= [ 6, 31, b/c ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
           fi;         
 
        else # i.e., c = 0
@@ -2977,7 +2975,7 @@ class_dim_6:= function( K )
                 cx[6]:= cx[6]/a;           
                 Add( imgs, LinearCombination( Basis( N ), cx ) );
              od;
-             return rec( type:= [ 6, 15 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+             return rec( type:= [ 6, 15 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
        
           else 
            
@@ -3034,7 +3032,7 @@ class_dim_6:= function( K )
                 fi;
                 Add( imgs, LinearCombination( Basis( N ), cx ) );
              od;
-             return rec( type:= tt, f:= liealg_hom( K, N, Basis( K ), imgs ) );
+             return rec( type:= tt, f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
       
           fi;
        fi;
@@ -3092,7 +3090,7 @@ class_dim_6:= function( K )
                 cx[6]:= cx[6]/c;
                 Add( imgs, LinearCombination( Basis( N ), cx ) );
              od;
-             return rec( type:= [ 6, 16 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+             return rec( type:= [ 6, 16 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
           elif Characteristic( F )= 2 and IsFinite(F) then
 
@@ -3131,7 +3129,7 @@ class_dim_6:= function( K )
                 cx[6]:= cx[6]/c;
                 Add( imgs, LinearCombination( Basis( N ), cx ) );
              od;
-             return rec( type:= [ 6, 16 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+             return rec( type:= [ 6, 16 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
           else
 
@@ -3166,7 +3164,7 @@ class_dim_6:= function( K )
                 cx[6]:= cx[6]/c;
                 Add( imgs, LinearCombination( Basis( N ), cx ) );
              od;
-             return rec( type:= [ 6, 32, b/c ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+             return rec( type:= [ 6, 32, b/c ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
           fi;
 
@@ -3222,7 +3220,7 @@ class_dim_6:= function( K )
              fi;           
              Add( imgs, LinearCombination( Basis( N ), cx ) );
           od;
-          return rec( type:= tt, f:= liealg_hom( K, N, Basis( K ), imgs ) );
+          return rec( type:= tt, f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
        fi;       
 
     elif type = [ 5, 8 ] then
@@ -3299,7 +3297,7 @@ class_dim_6:= function( K )
                       f:= One( F );
                    fi;
                 elif F = Rationals then
-                   u:= sq_free( f );
+                   u:= LieAlgDBHelper.sq_free( f );
                    eps:= u[1];
                    f:= u[2];
                 else
@@ -3337,7 +3335,7 @@ class_dim_6:= function( K )
                    cx[6]:= cx[6]*eps^2;      
                    Add( imgs, LinearCombination( Basis( N ), cx ) );
                 od; 
-                return rec( type:= [ 6, 19, f ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+                return rec( type:= [ 6, 19, f ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
              
              else # i.e., f= 0
                              
@@ -3364,7 +3362,7 @@ class_dim_6:= function( K )
                    cx[6]:= cx[6] - c1*cx[4]-c2*cx[5];
                    Add( imgs, LinearCombination( Basis( N ), cx ) );
                 od;
-                return rec( type:= [ 6, 20 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+                return rec( type:= [ 6, 20 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
              fi;
 
           else # i.e., b = 0
@@ -3390,7 +3388,7 @@ class_dim_6:= function( K )
                       f:= One( F );
                    fi;
                 elif F = Rationals then
-                   u:= sq_free( f );
+                   u:= LieAlgDBHelper.sq_free( f );
                    eps:= u[1];
                    f:= u[2];
                 else
@@ -3430,7 +3428,7 @@ class_dim_6:= function( K )
                    cx[6]:= cx[6]*eps^2;
                    Add( imgs, LinearCombination( Basis( N ), cx ) );
                 od;
-                return rec( type:= [ 6, 19, f ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+                return rec( type:= [ 6, 19, f ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
              fi;
           fi;
 
@@ -3483,7 +3481,7 @@ class_dim_6:= function( K )
                 cx1[4]:= cx[5]; cx1[5]:= cx[4];
                 Add( imgs, LinearCombination( Basis( N ), cx1 ) );
              od;
-             return rec( type:= [ 6, 20 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+             return rec( type:= [ 6, 20 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
           else # i.d., d= f= 0 and char 2
 
@@ -3517,7 +3515,7 @@ class_dim_6:= function( K )
                 cx[6]:= cx[6]-c1*cx[4]-c2*cx[5];
                 Add( imgs, LinearCombination( Basis( N ), cx ) );
              od;
-             return rec( type:= [ 6, 33 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+             return rec( type:= [ 6, 33 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
           fi;
        fi;
 
@@ -3581,7 +3579,7 @@ class_dim_6:= function( K )
                 c:= One( F )*a;
              fi;
           elif F = Rationals then
-             u:= sq_free( c/a );
+             u:= LieAlgDBHelper.sq_free( c/a );
              eps:= u[1];
              c:= u[2]*a;
           else
@@ -3622,7 +3620,7 @@ class_dim_6:= function( K )
              cx[6]:= cx[6]*eps;          
              Add( imgs, LinearCombination( Basis( N ), cx ) );
           od;
-          return rec( type:= [ 6, 21, c/a ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+          return rec( type:= [ 6, 21, c/a ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
        else 
 
@@ -3653,7 +3651,7 @@ class_dim_6:= function( K )
              cx[6]:= cx[6]/b;
              Add( imgs, LinearCombination( Basis( N ), cx ) );
           od;
-          return rec( type:= [ 6, 34 ], f:= liealg_hom( K, N, Basis( K ), imgs ) );    
+          return rec( type:= [ 6, 34 ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
        fi;
 
     elif type = [ 4, 1 ] then
@@ -3661,7 +3659,7 @@ class_dim_6:= function( K )
        coc21:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[1]; end;
        coc22:= function( u, v ) return Coefficients( Basis( C ), coc2( u,v ) )[2]; end;
 
-       bM:= skew_symm_NF( M, coc21 );
+       bM:= LieAlgDBHelper.skew_symm_NF( M, coc21 );
 
        if IsZero( coc21( bM[3],bM[4] ) ) then
          
@@ -3696,7 +3694,7 @@ class_dim_6:= function( K )
              r:= 0; t:= 1;
           fi;
 
-          bM:= skew_symm_NF( M, coc21 );
+          bM:= LieAlgDBHelper.skew_symm_NF( M, coc21 );
 
           u:= x; v:= 1;
           # i.e., we have made a base change in the centre, corresponding 
@@ -3779,7 +3777,7 @@ class_dim_6:= function( K )
                       b:= Zero( F );
                    fi;
                 elif F = Rationals then
-                   uu:= sq_free( b );
+                   uu:= LieAlgDBHelper.sq_free( b );
                    eps:= uu[1];
                    b:= uu[2];
                 else
@@ -3830,7 +3828,7 @@ class_dim_6:= function( K )
                 fi;                
                 Add( imgs, LinearCombination( Basis( N ), cx ) );
              od;   
-             return rec( type:= [ 6, 22, b ], f:= liealg_hom( K, N, Basis( K ), imgs ) ); 
+             return rec( type:= [ 6, 22, b ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
           else
  
@@ -3866,7 +3864,7 @@ class_dim_6:= function( K )
                          eps:= xi^( ( ex-1 )/2 );
                       fi;                      
                    elif F = Rationals then
-                      uu:= sq_free( b );
+                      uu:= LieAlgDBHelper.sq_free( b );
                       eps:= uu[1];
                       b:= uu[2];
                    else
@@ -3937,7 +3935,7 @@ class_dim_6:= function( K )
                    fi;
                    Add( imgs, LinearCombination( Basis( N ), cx ) );
                 od;
-                return rec( type:= [ 6, 22, b ], f:= liealg_hom( K, N, Basis( K ), imgs ) ); 
+                return rec( type:= [ 6, 22, b ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
                
              else
  
@@ -4000,7 +3998,7 @@ class_dim_6:= function( K )
                    fi;                  
                    Add( imgs, LinearCombination( Basis( N ), cx ) );
                 od;   
-                return rec( type:= [ 6, 35, b ], f:= liealg_hom( K, N, Basis( K ), imgs ) ); 
+                return rec( type:= [ 6, 35, b ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
              fi;
           fi;
                   
@@ -4051,7 +4049,7 @@ class_dim_6:= function( K )
                 cx:= ShallowCopy( cx1 );
                 Add( imgs, LinearCombination( Basis( N ), cx ) );
              od;
-             return rec( type:= [ 6, 22, One( F ) ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+             return rec( type:= [ 6, 22, One( F ) ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
 
           else
 
@@ -4086,7 +4084,7 @@ class_dim_6:= function( K )
                 cx:= ShallowCopy( cx1 );
                 Add( imgs, LinearCombination( Basis( N ), cx ) );
              od;
-             return rec( type:= [ 6, 35, Zero( F ) ], f:= liealg_hom( K, N, Basis( K ), imgs ) );
+             return rec( type:= [ 6, 35, Zero( F ) ], f:= LieAlgDBHelper.liealg_hom( K, N, Basis( K ), imgs ) );
           fi;
        fi;   
 
@@ -4130,7 +4128,7 @@ class_dim_6:= function( K )
 
        else  # here also c= 0.
 
-          m:= comp_mat( b, d, One( F ) );
+          m:= LieAlgDBHelper.comp_mat( b, d, One( F ) );
           store:= bM[1];
           bM[1]:= m[1][1]*bM[1]+m[1][2]*bM[2];
           bM[2]:= m[2][1]*store+m[2][2]*bM[2];
@@ -4206,7 +4204,7 @@ class_dim_6:= function( K )
                       cx[6]:= cx[6]-c2*cx[3];
                       Add( imgs, LinearCombination( Basis( N ), cx ) );
                    od;
-                   return rec( type:= [ 6, 27 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+                   return rec( type:= [ 6, 27 ], f:= LieAlgDBHelper.liealg_hom( K,N,Basis( K ),imgs ) );
 
                 else # d= 0
 
@@ -4247,7 +4245,7 @@ class_dim_6:= function( K )
                       cx[6]:= cx[6]-c2*cx[3];
                       Add( imgs, LinearCombination( Basis( N ), cx ) );
                    od;
-                   return rec( type:= [ 6, 23 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+                   return rec( type:= [ 6, 23 ], f:= LieAlgDBHelper.liealg_hom( K,N,Basis( K ),imgs ) );
                 fi;
  
              else # i.e., c not 0
@@ -4281,7 +4279,7 @@ class_dim_6:= function( K )
                             b:= Zero( F );
                          fi;
                       elif F = Rationals then
-                         uu:= sq_free( b );
+                         uu:= LieAlgDBHelper.sq_free( b );
                          eps:= uu[1];
                          b:= uu[2];
                       else
@@ -4335,7 +4333,7 @@ class_dim_6:= function( K )
                       fi;                      
                    Add( imgs, LinearCombination( Basis( N ), cx ) );
                    od;
-                   return rec( type:= [ 6, 24, b ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+                   return rec( type:= [ 6, 24, b ], f:= LieAlgDBHelper.liealg_hom( K,N,Basis( K ),imgs ) );
 
                 else # i. e., d not 0
 
@@ -4371,7 +4369,7 @@ class_dim_6:= function( K )
                                eps:= xi^( ( ex-1 )/2 );
                             fi;                      
                          elif F = Rationals then
-                            uu:= sq_free( b );
+                            uu:= LieAlgDBHelper.sq_free( b );
                             eps:= uu[1];
                             b:= uu[2];
                          else
@@ -4414,7 +4412,7 @@ class_dim_6:= function( K )
                          fi;
                          Add( imgs, LinearCombination( Basis( N ), cx ) );
                       od;
-                      return rec( type:= [ 6, 24, b ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+                      return rec( type:= [ 6, 24, b ], f:= LieAlgDBHelper.liealg_hom( K,N,Basis( K ),imgs ) );
 
                    else
 
@@ -4493,7 +4491,7 @@ class_dim_6:= function( K )
                          fi;                  
                          Add( imgs, LinearCombination( Basis( N ), cx ) );
                       od;
-                      return rec( type:= [ 6, 36, b ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+                      return rec( type:= [ 6, 36, b ], f:= LieAlgDBHelper.liealg_hom( K,N,Basis( K ),imgs ) );
                    fi;             
                 fi;
              fi;
@@ -4565,7 +4563,7 @@ class_dim_6:= function( K )
                          cx1[6]:= -2*cx[5]+2*cx[6];
                          Add( imgs, LinearCombination( Basis( N ), cx1 ) );
                       od;
-                      return rec( type:= [ 6, 24, One( F ) ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+                      return rec( type:= [ 6, 24, One( F ) ], f:= LieAlgDBHelper.liealg_hom( K,N,Basis( K ),imgs ) );
     
                    else
 
@@ -4603,7 +4601,7 @@ class_dim_6:= function( K )
                          cx1[6]:= cx[5];                      
                          Add( imgs, LinearCombination( Basis( N ), cx1 ) );
                       od;
-                      return rec( type:= [ 6, 36, Zero( F ) ], f:= liealg_hom( K,N,Basis( K ),imgs ) );                            
+                      return rec( type:= [ 6, 36, Zero( F ) ], f:= LieAlgDBHelper.liealg_hom( K,N,Basis( K ),imgs ) );
                    fi;
 
                 else # c= 0
@@ -4647,7 +4645,7 @@ class_dim_6:= function( K )
                       cx[6]:= cx[6]-c2*cx[3];                    
                       Add( imgs, LinearCombination( Basis( N ), cx ) );
                    od;
-                   return rec( type:= [ 6, 27 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+                   return rec( type:= [ 6, 27 ], f:= LieAlgDBHelper.liealg_hom( K,N,Basis( K ),imgs ) );
                 fi;
 
              else # d= 0
@@ -4707,7 +4705,7 @@ class_dim_6:= function( K )
                       cx1[6]:= cx[5];
                       Add( imgs, LinearCombination( Basis( N ), cx1 ) );
                    od;
-                   return rec( type:= [ 6, 24, Zero( F ) ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+                   return rec( type:= [ 6, 24, Zero( F ) ], f:= LieAlgDBHelper.liealg_hom( K,N,Basis( K ),imgs ) );
 
                 else # c= 0
 
@@ -4749,7 +4747,7 @@ class_dim_6:= function( K )
                       cx[6]:= cx[6]-c2*cx[3];
                       Add( imgs, LinearCombination( Basis( N ), cx ) );
                    od;
-                   return rec( type:= [ 6, 25 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+                   return rec( type:= [ 6, 25 ], f:= LieAlgDBHelper.liealg_hom( K,N,Basis( K ),imgs ) );
                 fi;
              fi;
           fi;
@@ -4813,7 +4811,7 @@ class_dim_6:= function( K )
                 cx1[6]:= -cx[5];
                 Add( imgs, LinearCombination( Basis( N ), cx1 ) );
              od;
-             return rec( type:= [ 6, 27 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+             return rec( type:= [ 6, 27 ], f:= LieAlgDBHelper.liealg_hom( K,N,Basis( K ),imgs ) );
 
           else #c= 0
 
@@ -4877,11 +4875,11 @@ class_dim_6:= function( K )
 
              if not IsZero( d ) then
 
-                return rec( type:= [ 6, 23 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+                return rec( type:= [ 6, 23 ], f:= LieAlgDBHelper.liealg_hom( K,N,Basis( K ),imgs ) );
 
              else
 
-                return rec( type:= [ 6, 25 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+                return rec( type:= [ 6, 25 ], f:= LieAlgDBHelper.liealg_hom( K,N,Basis( K ),imgs ) );
              fi;
           fi;
        fi;
@@ -4937,7 +4935,7 @@ class_dim_6:= function( K )
           cx[6]:= cx[6]-c2*cx[3]-c4*cx[4];         
           Add( imgs, LinearCombination( Basis( N ), cx ) );
        od;
-       return rec( type:= [ 6, 28 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );
+       return rec( type:= [ 6, 28 ], f:= LieAlgDBHelper.liealg_hom( K,N,Basis( K ),imgs ) );
 
     elif type = [ 3, 1 ] then
 
@@ -4975,13 +4973,13 @@ class_dim_6:= function( K )
           Append( cx, cz );
           Add( imgs, LinearCombination( Basis( N ), cx ) );
        od;
-       return rec( type:= [ 6, 26 ], f:= liealg_hom( K,N,Basis( K ),imgs ) );   
+       return rec( type:= [ 6, 26 ], f:= LieAlgDBHelper.liealg_hom( K,N,Basis( K ),imgs ) );
     fi;
 
 end;
 
 
-nilp_type:= function( L )
+LieAlgDBHelper.nilp_type:= function( L )
 
     local r, t, a, g, exp, c, K, imgs, pp, s, f, F, name;
 
@@ -4989,9 +4987,9 @@ nilp_type:= function( L )
        Error("This function is only implemented for nilpotent Lie algebras of dim 5,6");
     fi; 
     if Dimension(L) = 5 then
-       r:= class_dim_5( L );
+       r:= LieAlgDBHelper.class_dim_5( L );
     else
-       r:= class_dim_6( L );        
+       r:= LieAlgDBHelper.class_dim_6( L );
     fi;
 
     F:= LeftActingDomain(L);
@@ -5024,10 +5022,10 @@ InstallMethod( LieAlgebraIdentification, "for a Lie algebra",
     n:= Dimension(L);
     if n in [2,3,4] then
        if not IsLieSolvable(L) then Error("<L> has to be a solvable Lie algebra"); fi;
-       r:= solv_type(L);
+       r:= LieAlgDBHelper.solv_type(L);
     elif n in [5,6] then
        if not IsLieNilpotent(L) then Error("<L> has to be a nilpotent Lie algebra"); fi;
-       r:= nilp_type(L);
+       r:= LieAlgDBHelper.nilp_type(L);
     else
        Error("the dimension has to satisfy 2<= dim <= 6");
     fi;
