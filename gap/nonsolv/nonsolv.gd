@@ -1,8 +1,8 @@
 DeclareOperation( "NonSolvableLieAlgebra", 
-			[ IsField and IsFinite, IsList ] );
+                  [ IsField and IsFinite, IsList ] );
 
 DeclareOperation( "AllSimpleLieAlgebras", 
-[ IsField and IsFinite, IsPosInt ] );
+                  [ IsField and IsFinite, IsPosInt ] );
 
 DeclareCategory( "IsLieAlgDBCollection_NonSolvable", IsLieAlgDBCollection );
 
@@ -12,7 +12,7 @@ DeclareRepresentation( "IsLieAlgDBParListIteratorDimension6Characteristic3CompRe
 DeclareGlobalFunction( "LieAlgDBParListIteratorDimension6Characteristic3" );
 
 DeclareOperation( "AllNonSolvableLieAlgebras", 
-			[ IsField and IsFinite, IsPosInt ] );
+                  [ IsField and IsFinite, IsPosInt ] );
 
 DeclareGlobalFunction( "ExtensionOfsl2BySoluble" );
 DeclareGlobalFunction( "ExtensionOfW121BySoluble" );

@@ -76,7 +76,6 @@ InstallMethod( AllNonSolvableLieAlgebras,
                   Length := function( x )
                     return 14+2*Size( F ); end ));
 
-		    
         elif dim = 6 and Characteristic( F ) = 3 then
             parlist := LieAlgDBParListIteratorDimension6Characteristic3( F, dim, [6,1] );
             
@@ -175,7 +174,7 @@ InstallMethod( AsList,
     local i, l, list;
     
     if IsEnumeratorByFunctions( Enumerator( R )) then    
-        TryNextMethod();		 
+        TryNextMethod();
     fi;
     
     i := Iterator( R );
@@ -187,7 +186,7 @@ InstallMethod( AsList,
     return list;
 end);
 
-InstallMethod(	Enumerator,
+InstallMethod( Enumerator,
         "method for LieAlgDBCollections",
         [ IsLieAlgDBCollection_NonSolvable ],
         function( R )

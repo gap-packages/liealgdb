@@ -199,8 +199,8 @@ InstallMethod(  Enumerator,
                    rec( 
                         ElementNumber := function( e, n )
         local par;
-        par := R!.parlist[n];	   
-	    
+        par := R!.parlist[n];
+
         if IsString( par ) then
             return ReadStringToNilpotentLieAlgebra( par, Size( R!.field ),
                            R!.dim );
