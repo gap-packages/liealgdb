@@ -43,8 +43,8 @@ jobs:
           only-needed: true
       - uses: gap-actions/process-coverage@v2
       - uses: codecov/codecov-action@v3
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   # The documentation job
   manual:
