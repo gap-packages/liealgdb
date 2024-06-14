@@ -102,14 +102,34 @@ InstallMethod( AllNilpotentLieAlgebras,
             fi;
         od;
     elif [Size( F ), dim ] = [ 2, 7 ] then
+        if Length(_liealgdb_nilpotent_d7f2) = 0 then
+            UnbindGlobal( "_liealgdb_nilpotent_d7f2" );
+            ReadPackage( "liealgdb", "gap/nilpotent/nilpotent_data72.gi" );
+        fi;
         parlist := _liealgdb_nilpotent_d7f2;
     elif [Size( F ), dim ] = [ 2, 8 ] then
+        if Length(_liealgdb_nilpotent_d8f2) = 0 then
+            UnbindGlobal( "_liealgdb_nilpotent_d8f2" );
+            ReadPackage( "liealgdb", "gap/nilpotent/nilpotent_data82.gi" );
+        fi;
         parlist := _liealgdb_nilpotent_d8f2;
     elif [Size( F ), dim ] = [ 2, 9 ] then 
+        if Length(_liealgdb_nilpotent_d9f2) = 0 then
+            UnbindGlobal( "_liealgdb_nilpotent_d9f2" );
+            ReadPackage( "liealgdb", "gap/nilpotent/nilpotent_data92.gi" );
+        fi;
         parlist := _liealgdb_nilpotent_d9f2;
     elif [Size( F ), dim ] = [ 3, 7 ] then
+        if Length(_liealgdb_nilpotent_d7f3) = 0 then
+            UnbindGlobal( "_liealgdb_nilpotent_d7f3" );
+            ReadPackage( "liealgdb", "gap/nilpotent/nilpotent_data73.gi" );
+        fi;
         parlist := _liealgdb_nilpotent_d7f3;
     elif [Size( F ), dim ] = [ 5, 7 ] then
+        if Length(_liealgdb_nilpotent_d7f5) = 0 then
+            UnbindGlobal( "_liealgdb_nilpotent_d7f5" );
+            ReadPackage( "liealgdb", "gap/nilpotent/nilpotent_data75.gi" );
+        fi;
         parlist := _liealgdb_nilpotent_d7f5;
     else
         Error( "The list of nilpotent Lie algebras is not available for these parameters." );
