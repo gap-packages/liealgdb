@@ -7,8 +7,8 @@
 SetPackageInfo( rec(
   PackageName := "LieAlgDB",
   Subtitle := "A database of Lie algebras",
-  Version := "2.2.1",
-  Date    := "07/10/2019", # dd/mm/yyyy format
+  Version := "2.3.0",
+  Date    := "24/09/2025", # dd/mm/yyyy format
   License := "GPL-2.0-or-later",
 
   Persons := [

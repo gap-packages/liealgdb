@@ -1,6 +1,6 @@
 This file describes changes in the GAP package 'liealgdb'.
 
-* 2.3.0 (2025-09-25)
+* 2.3.0 (2025-09-24)
 
   - Fix incorrect ordering for `N6_26`, `N6_27`; that is, the order
     of `NilpotentLieAlgebra(F, [6,26])` and `NilpotentLieAlgebra(F, [6,27])`
