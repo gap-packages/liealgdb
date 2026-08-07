@@ -1,5 +1,10 @@
 This file describes changes in the GAP package 'liealgdb'.
 
+* unreleased
+
+  - Fix printing of Lie algebra collections in a GAP where GAPDoc is not
+    loaded (e.g. one started with `gap --bare`)
+
 * 2.3.0 (2025-09-24)
 
   - Fix incorrect ordering for `N6_26`, `N6_27`; that is, the order

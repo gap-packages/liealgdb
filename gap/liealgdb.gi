@@ -1,15 +1,11 @@
-# String( F ) does not work for a field in gap -A. Here is a fix.
-#
-# this is taken from gapdoc and put here to avoid future incompatibility
+# String( F ) does not work for a field, and PrintString( F ) gives
+# "Magma( ... )", so capture what Print( F ) produces.
 
 BindGlobal( "LieAlgDBField2String", function ( F )
     local  str, out;
     str := "";
     out := OutputTextString( str, false );
-    PrintTo1( out, function (  )
-          Print( F );
-          return;
-      end );
+    PrintTo( out, F );
     CloseStream( out );
     return str;
 end );
