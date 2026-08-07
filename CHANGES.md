@@ -1,6 +1,6 @@
 This file describes changes in the liealgdb package.
 
-## unreleased
+## 2.3.1 (2026-08-08)
 
   - Fix printing of Lie algebra collections in a GAP where GAPDoc is not
     loaded (e.g. one started with `gap --bare`)
