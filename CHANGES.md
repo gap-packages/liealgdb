@@ -1,11 +1,11 @@
-This file describes changes in the GAP package 'liealgdb'.
+This file describes changes in the liealgdb package.
 
-* unreleased
+## unreleased
 
   - Fix printing of Lie algebra collections in a GAP where GAPDoc is not
     loaded (e.g. one started with `gap --bare`)
 
-* 2.3.0 (2025-09-24)
+## 2.3.0 (2025-09-24)
 
   - Fix incorrect ordering for `N6_26`, `N6_27`; that is, the order
     of `NilpotentLieAlgebra(F, [6,26])` and `NilpotentLieAlgebra(F, [6,27])`
@@ -14,11 +14,11 @@ This file describes changes in the GAP package 'liealgdb'.
   - Stop using `DeclareAutoreadableVariables`
   - Various janitorial changes
 
-* 2.2.1 (2019-10-07)
+## 2.2.1 (2019-10-07)
 
   - Minor janitorial changes
 
-* 2.2 (2018-04-09)
+## 2.2 (2018-04-09)
 
   - Clarify that package is licensed under GPL 2 or later
   - Move package to GitHub
@@ -26,7 +26,7 @@ This file describes changes in the GAP package 'liealgdb'.
   - Use AutoDoc to build the manual
   - Other internal (technical) or administrative changes
 
-* 2.1 (2010-03-28)
+## 2.1 (2010-03-28)
 
   - Add the classification of 6-dimensional nilpotent Lie algebras over
     fields of characteristic 2, contributed by Serena Cicalò; hence
@@ -35,19 +35,19 @@ This file describes changes in the GAP package 'liealgdb'.
     dimension 6 over any field
   - Add Serena Cicalò as an author
 
-* 2.0.2 (2007-08-28)
+## 2.0.2 (2007-08-28)
 
   - Add a `ViewObj` method for Lie algebra collections, and make `PrintObj`
     print a string that can be read back in
   - Fix printing of fields in Lie algebra names when GAP is started with `-A`
 
-* 2.0.1 (2007-08-28)
+## 2.0.1 (2007-08-28)
 
   - Set `IsLieNilpotent` instead of the undocumented `IsLieNilpotentOverFp`
     on the algebras returned by the nilpotent database
   - Fix an unbound variable in `LieAlgebraIdentification`
 
-* 2.0 (2007-08-06)
+## 2.0 (2007-08-06)
 
   - Rename the functions returning all algebras of a given type to
     `AllNilpotentLieAlgebras`, `AllSolvableLieAlgebras`,
@@ -59,7 +59,7 @@ This file describes changes in the GAP package 'liealgdb'.
     constructing all of them
   - Document the simple Lie algebras of dimension 7 to 9 over `GF(2)`
 
-* 1.0 (2006-10-20)
+## 1.0 (2006-10-20)
 
   - Initial release, providing the classifications of solvable Lie algebras
     of dimension at most 4; nilpotent Lie algebras of dimension at most 5,
